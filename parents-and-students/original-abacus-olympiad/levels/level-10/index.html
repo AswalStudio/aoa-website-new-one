@@ -1,0 +1,806 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abacus Olympiad Level 10 Exam Pattern | AOA Next-Gen</title>
+
+    <meta
+      name="description"
+      content="View the official Abacus Olympiad Level 10 Exam Pattern. The Final Frontier: Core Arithmetic Mastery, Percentage, Number Theory, and Square Roots."
+    />
+
+    <!-- Next-Gen Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P5GJHFS4");
+    </script>
+
+    <style>
+      /* --- NEXT-GEN VARIABLES --- */
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --bg-base: #f8fafc;
+        --surface: rgba(255, 255, 255, 0.7);
+        --surface-border: rgba(255, 255, 255, 0.4);
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --glass-blur: blur(20px);
+        --radius-lg: 32px;
+        --shadow-soft: 0 20px 40px -10px rgba(27, 77, 62, 0.08);
+
+        /* LEVEL 10 THEME COLORS (Elite Categorization) */
+        --theme-core-1: #0284c7; /* Sky Blue */
+        --theme-core-2: #e11d48; /* Rose */
+        --theme-core-3: #4f46e5; /* Indigo */
+        --theme-core-4: #be123c; /* Dark Rose */
+        --theme-adv-1: #059669; /* Emerald */
+        --theme-adv-2: #7c3aed; /* Violet */
+        --theme-num-1: #d97706; /* Amber */
+        --theme-num-2: #0891b2; /* Cyan */
+      }
+
+      /* --- GLOBAL STYLES (Mobile Overflow & Scroll Fixed) --- */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-base);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(
+            at 0% 0%,
+            rgba(2, 132, 199, 0.05) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 0%,
+            rgba(124, 58, 237, 0.05) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 100%,
+            rgba(217, 119, 6, 0.05) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(225, 29, 72, 0.05) 0px,
+            transparent 50%
+          );
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      span,
+      div {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+      p {
+        color: var(--text-muted);
+        margin-top: 0;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+      }
+
+      /* --- ALERT BANNER --- */
+      .glass-alert {
+        margin: 120px auto 0;
+        width: fit-content;
+        max-width: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        padding: 8px 12px 8px 24px;
+        border-radius: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        font-weight: 600;
+        font-size: 14px;
+        animation: slideDown 0.5s ease;
+      }
+      .btn-gold {
+        background: var(--accent);
+        color: #fff;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 13px;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+      }
+      .btn-gold:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+      }
+      @keyframes slideDown {
+        from {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* --- EXAM HEADER SECTION --- */
+      .exam-header {
+        text-align: center;
+        padding: 60px 0 20px;
+      }
+      .exam-badge {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid var(--accent);
+        color: var(--accent);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .exam-header h1 {
+        font-size: 48px;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+      }
+      .exam-header h2 {
+        font-size: 18px;
+        color: var(--text-muted);
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .age-group-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .age-pill {
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        padding: 10px 20px;
+        border-radius: 12px;
+        font-weight: 600;
+        color: var(--primary);
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+      }
+      .age-pill i {
+        color: var(--accent);
+      }
+
+      /* --- SUB-CATEGORY HEADERS --- */
+      .category-title {
+        text-align: center;
+        font-size: 28px;
+        color: var(--primary);
+        margin: 60px 0 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+      .category-title::before,
+      .category-title::after {
+        content: "";
+        height: 2px;
+        flex: 1;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
+        opacity: 0.5;
+      }
+
+      /* --- DYNAMIC BENTO BOX EXAM PATTERN GRID (Auto-Fit) --- */
+      .bento-section {
+        padding: 0 0 80px;
+      }
+
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .bento-card {
+        position: relative; /* Needed for decimal badge */
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        border-top: 4px solid var(--card-theme, var(--primary));
+        border-radius: var(--radius-lg);
+        padding: 40px 24px;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .bento-card:hover {
+        transform: translateY(-5px);
+      }
+
+      /* Floating Decimal Badge */
+      .decimal-badge {
+        position: absolute;
+        top: -12px;
+        right: 20px;
+        background: var(--card-theme, #e11d48);
+        color: white;
+        padding: 4px 12px;
+        font-size: 11px;
+        font-weight: 800;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-header {
+        text-align: center;
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .card-header .icon-glass {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.4));
+        border: 1px solid #fff;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--card-theme, var(--primary));
+        margin-bottom: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+      .card-header h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: var(--primary);
+      }
+      .card-header span {
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        letter-spacing: 1px;
+      }
+
+      .stat-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+      .stat-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        color: var(--card-theme, var(--primary));
+        margin-right: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+      }
+      .stat-info h4 {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        font-size: 11px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .stat-info p {
+        margin: 0;
+        font-size: 14px;
+        color: var(--text-main);
+        font-weight: 700;
+      }
+
+      .total-box {
+        margin-top: auto;
+        background: var(--card-theme, var(--primary));
+        color: white;
+        text-align: center;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-size: 13px;
+        letter-spacing: 1px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* --- BOTTOM NAVIGATION --- */
+      .back-wrapper {
+        text-align: center;
+        margin-top: 40px;
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        color: var(--primary);
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 14px;
+        border: 1px solid var(--surface-border);
+        box-shadow: var(--shadow-soft);
+        transition: 0.3s;
+      }
+      .back-btn:hover {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+
+      /* --- MOBILE RESPONSIVENESS --- */
+      @media (max-width: 768px) {
+        .exam-header h1 {
+          font-size: 32px;
+        }
+        .exam-header h2 {
+          font-size: 15px;
+        }
+        .category-title {
+          font-size: 18px;
+          margin: 40px 0 20px;
+        }
+        .category-title::before,
+        .category-title::after {
+          display: none;
+        }
+
+        .glass-alert {
+          flex-direction: column;
+          text-align: center;
+          border-radius: 24px;
+          padding: 20px;
+        }
+        .age-group-wrapper {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .age-pill {
+          justify-content: center;
+        }
+
+        /* The Overflow Fix */
+        div[style*="grid-template-columns"],
+        .bento-grid {
+          display: flex !important;
+          flex-direction: column !important;
+          width: 100% !important;
+        }
+
+        .container {
+          padding-left: 20px !important;
+          padding-right: 20px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+
+        .bento-card {
+          padding: 24px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+
+        * {
+          min-width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P5GJHFS4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <!-- 1. HEADER INJECTION PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+
+    <!-- Alert Banner -->
+    <div class="container">
+      <div class="glass-alert">
+        <span
+          ><i
+            class="fa-solid fa-bolt"
+            style="color: var(--accent); margin-right: 10px"
+          ></i>
+          FAST APPLY AND REGISTER NOW!
+        </span>
+        <a href="#" class="btn-gold">Sign-Up</a>
+      </div>
+    </div>
+
+    <!-- Exam Title Section -->
+    <section class="exam-header container">
+      <div class="exam-badge">
+        <i class="fa-solid fa-crown" style="margin-right: 6px"></i> The Final
+        Frontier
+      </div>
+      <h1>Mental Abacus Level 10</h1>
+      <h2>
+        Core Arithmetic Mastery, Percentage, Number Theory (LCM/HCF), and Square
+        Roots.
+      </h2>
+
+      <div class="age-group-wrapper">
+        <div class="age-pill">
+          <i class="fa-solid fa-child-reaching"></i> Group A: 4-7 Years
+        </div>
+        <div class="age-pill">
+          <i class="fa-solid fa-user-graduate"></i> Group B: 8-10 Years
+        </div>
+        <div class="age-pill">
+          <i class="fa-solid fa-user-tie"></i> Group C: 11-18 Years
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: CORE ARITHMETIC MASTERY -->
+    <section class="bento-section container">
+      <div class="category-title">
+        <i class="fa-solid fa-calculator" style="color: var(--accent)"></i> Core
+        Arithmetic
+      </div>
+      <div class="bento-grid">
+        <!-- Card 1: Add & Subtract (Standard) -->
+        <div class="bento-card" style="--card-theme: var(--theme-core-1)">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-align-left"></i></div>
+            <h3>Add & Subtract</h3>
+            <span>Long Series</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Size</h4>
+              <p>2 Digits</p>
+            </div>
+          </div>
+          <div class="stat-row" style="margin-bottom: 25px">
+            <div class="stat-icon"><i class="fa-solid fa-list-ol"></i></div>
+            <div class="stat-info">
+              <h4>Length</h4>
+              <p>10 Rows</p>
+            </div>
+          </div>
+          <div class="total-box">
+            <i class="fa-solid fa-circle-check"></i> 10 QUESTIONS
+          </div>
+        </div>
+
+        <!-- Card 2: Decimal Add/Sub (Decimal) -->
+        <div class="bento-card" style="--card-theme: var(--theme-core-2)">
+          <div class="decimal-badge">Decimal</div>
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-bullseye"></i></div>
+            <h3>Decimal Add/Sub</h3>
+            <span>Long Series</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Size</h4>
+              <p>2 Digits</p>
+            </div>
+          </div>
+          <div class="stat-row" style="margin-bottom: 25px">
+            <div class="stat-icon"><i class="fa-solid fa-list-ol"></i></div>
+            <div class="stat-info">
+              <h4>Length</h4>
+              <p>10 Rows</p>
+            </div>
+          </div>
+          <div class="total-box">
+            <i class="fa-solid fa-circle-check"></i> 10 QUESTIONS
+          </div>
+        </div>
+
+        <!-- Card 3: Add & Subtract (Standard) -->
+        <div class="bento-card" style="--card-theme: var(--theme-core-3)">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-gauge-high"></i></div>
+            <h3>Add & Subtract</h3>
+            <span>High Speed</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Size</h4>
+              <p>3 Digits</p>
+            </div>
+          </div>
+          <div class="stat-row" style="margin-bottom: 25px">
+            <div class="stat-icon"><i class="fa-solid fa-list-ol"></i></div>
+            <div class="stat-info">
+              <h4>Length</h4>
+              <p>3 Rows</p>
+            </div>
+          </div>
+          <div class="total-box">
+            <i class="fa-solid fa-circle-check"></i> 10 QUESTIONS
+          </div>
+        </div>
+
+        <!-- Card 4: Decimal Add/Sub (Decimal) -->
+        <div class="bento-card" style="--card-theme: var(--theme-core-4)">
+          <div class="decimal-badge">Decimal</div>
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-crosshairs"></i></div>
+            <h3>Decimal Add/Sub</h3>
+            <span>High Speed</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Size</h4>
+              <p>3 Digits</p>
+            </div>
+          </div>
+          <div class="stat-row" style="margin-bottom: 25px">
+            <div class="stat-icon"><i class="fa-solid fa-list-ol"></i></div>
+            <div class="stat-info">
+              <h4>Length</h4>
+              <p>3 Rows</p>
+            </div>
+          </div>
+          <div class="total-box">
+            <i class="fa-solid fa-circle-check"></i> 10 QUESTIONS
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: ADVANCED OPERATIONS -->
+    <section class="bento-section container">
+      <div class="category-title">
+        <i class="fa-solid fa-cogs" style="color: var(--accent)"></i> Advanced
+        Operations
+      </div>
+
+      <!-- Max width to keep the 2 items nicely centered -->
+      <div class="bento-grid" style="max-width: 800px; margin: 0 auto">
+        <!-- Card 5: Percentage -->
+        <div class="bento-card" style="--card-theme: var(--theme-adv-1)">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-percent"></i></div>
+            <h3>Percentage</h3>
+            <span>Applied Math</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+            <div class="stat-info">
+              <h4>Format</h4>
+              <p>2D with 1D</p>
+            </div>
+          </div>
+          <div class="stat-row" style="margin-bottom: 25px">
+            <div class="stat-icon"><i class="fa-solid fa-gear"></i></div>
+            <div class="stat-info">
+              <h4>Type</h4>
+              <p>Calculation</p>
+            </div>
+          </div>
+          <div class="total-box">
+            <i class="fa-solid fa-circle-check"></i> 20 QUESTIONS
+          </div>
+        </div>
+
+        <!-- Card 6: Square Root -->
+        <div class="bento-card" style="--card-theme: var(--theme-adv-2)">
+          <div class="card-header">
+            <div class="icon-glass">
+              <i class="fa-solid fa-square-root-variable"></i>
+            </div>
+            <h3>Square Root</h3>
+            <span>Advanced Roots</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-keyboard"></i></div>
+            <div class="stat-info">
+              <h4>Input</h4>
+              <p>Upto 4 Digits</p>
+            </div>
+          </div>
+          <div class="stat-row" style="margin-bottom: 25px">
+            <div class="stat-icon"><i class="fa-solid fa-brain"></i></div>
+            <div class="stat-info">
+              <h4>Method</h4>
+              <p>Mental/Abacus</p>
+            </div>
+          </div>
+          <div class="total-box">
+            <i class="fa-solid fa-circle-check"></i> 20 QUESTIONS
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: NUMBER THEORY -->
+    <section class="bento-section container">
+      <div class="category-title">
+        <i class="fa-solid fa-chart-pie" style="color: var(--accent)"></i>
+        Number Theory
+      </div>
+
+      <!-- Max width to keep the 2 items nicely centered -->
+      <div class="bento-grid" style="max-width: 800px; margin: 0 auto">
+        <!-- Card 7: HCF Mastery -->
+        <div class="bento-card" style="--card-theme: var(--theme-num-1)">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-chart-pie"></i></div>
+            <h3>HCF Mastery</h3>
+            <span>Highest Common Factor</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-cubes"></i></div>
+            <div class="stat-info">
+              <h4>Numbers</h4>
+              <p>2 Numbers</p>
+            </div>
+          </div>
+          <div class="stat-row" style="margin-bottom: 25px">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Size</h4>
+              <p>2 Digits</p>
+            </div>
+          </div>
+          <div class="total-box">
+            <i class="fa-solid fa-circle-check"></i> 10 QUESTIONS
+          </div>
+        </div>
+
+        <!-- Card 8: LCM Mastery -->
+        <div class="bento-card" style="--card-theme: var(--theme-num-2)">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-chart-line"></i></div>
+            <h3>LCM Mastery</h3>
+            <span>Least Common Multiple</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-cubes"></i></div>
+            <div class="stat-info">
+              <h4>Numbers</h4>
+              <p>2 Numbers</p>
+            </div>
+          </div>
+          <div class="stat-row" style="margin-bottom: 25px">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Size</h4>
+              <p>2 Digits</p>
+            </div>
+          </div>
+          <div class="total-box">
+            <i class="fa-solid fa-circle-check"></i> 10 QUESTIONS
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM NAVIGATION -->
+    <div class="back-wrapper">
+      <a
+        href="/parents-and-students/original-abacus-olympiad/"
+        class="back-btn"
+      >
+        <i class="fa-solid fa-arrow-left"></i> Back to Abacus Olympiad Main Page
+      </a>
+    </div>
+
+    <!-- 2. FOOTER INJECTION PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 3. LOAD THE JAVASCRIPT FILES -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Championship Registration | AOA Next-Gen</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --bg-base: #f1f5f9;
+        --glass-bg: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.8) 0%,
+          rgba(255, 255, 255, 0.4) 100%
+        );
+        --glass-border: 1px solid rgba(255, 255, 255, 0.7);
+        --text-main: #0f172a;
+        --text-muted: #475569;
+        --glass-blur: blur(24px);
+        --radius-lg: 32px;
+        --shadow-soft: 0 30px 60px -12px rgba(27, 77, 62, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-base);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(
+            at 0% 0%,
+            rgba(197, 160, 89, 0.15) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 0%,
+            rgba(27, 77, 62, 0.1) 0px,
+            transparent 50%
+          );
+      }
+
+      .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 60px 24px 60px;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .page-header h1 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        font-size: 42px;
+        margin-bottom: 10px;
+      }
+      .page-header p {
+        color: var(--text-muted);
+        font-size: 16px;
+        margin: 0;
+      }
+
+      .form-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: var(--glass-border);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .section-title {
+        font-family: "Cinzel", serif;
+        color: var(--primary-dark);
+        font-size: 20px;
+        border-bottom: 2px solid rgba(197, 160, 89, 0.3);
+        padding-bottom: 10px;
+        margin: 30px 0 20px;
+      }
+      .section-title:first-child {
+        margin-top: 0;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .full-width {
+        grid-column: span 2;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+      }
+      .input-group label {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .input-group label span {
+        color: #ef4444;
+      }
+
+      .input-group input,
+      .input-group select,
+      .input-group textarea {
+        padding: 14px 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        background: rgba(255, 255, 255, 0.7);
+        outline: none;
+        transition: 0.3s;
+        width: 100%;
+      }
+      .input-group input:focus,
+      .input-group select:focus,
+      .input-group textarea:focus {
+        border-color: var(--accent);
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
+      }
+
+      .info-banner {
+        background: rgba(197, 160, 89, 0.12);
+        border: 1px solid rgba(197, 160, 89, 0.5);
+        color: #92670a;
+        padding: 18px 24px;
+        border-radius: 16px;
+        text-align: center;
+        margin: 40px 0 20px;
+        font-size: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+      }
+      .info-banner i {
+        font-size: 18px;
+      }
+
+      .btn-submit {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 18px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 16px;
+        width: 100%;
+        cursor: pointer;
+        transition: 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 10px 20px rgba(27, 77, 62, 0.2);
+      }
+      .btn-submit:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+      .btn-submit:disabled {
+        background: var(--text-muted);
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Success Screen */
+      .success-screen {
+        display: none;
+        text-align: center;
+        padding: 60px 20px;
+      }
+      .success-icon {
+        width: 90px;
+        height: 90px;
+        background: rgba(16, 185, 129, 0.1);
+        border: 2px solid #10b981;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-size: 40px;
+        color: #059669;
+      }
+      .success-screen h2 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        font-size: 28px;
+        margin-bottom: 12px;
+      }
+      .success-screen p {
+        color: var(--text-muted);
+        font-size: 16px;
+        max-width: 420px;
+        margin: 0 auto 8px;
+      }
+      .success-ref {
+        display: inline-block;
+        margin-top: 20px;
+        background: rgba(27, 77, 62, 0.08);
+        color: var(--primary-dark);
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+      }
+
+      #statusMessage {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: 600;
+        display: none;
+      }
+      .status-error {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #f87171;
+      }
+
+      @media (max-width: 768px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .full-width {
+          grid-column: span 1;
+        }
+        .form-card {
+          padding: 24px;
+        }
+        .page-header h1 {
+          font-size: 28px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+      <div class="page-header">
+        <h1>Championship Registration</h1>
+        <p>
+          Complete the form below to secure your spot in the upcoming
+          tournament.
+        </p>
+      </div>
+
+      <div class="form-card">
+        <!-- FORM -->
+        <form id="registrationForm">
+          <h2 class="section-title">Applicant Details</h2>
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Applicant Name <span>*</span></label>
+              <input
+                type="text"
+                id="applicant_name"
+                required
+                placeholder="Enter full name"
+              />
+            </div>
+            <div class="input-group">
+              <label>Applicant Mobile <span>*</span></label>
+              <input
+                type="tel"
+                id="applicant_mobile"
+                required
+                placeholder="+91 Enter mobile number"
+              />
+            </div>
+            <div class="input-group full-width">
+              <label>Country <span>*</span></label>
+              <select id="country" required>
+                <option value="" disabled selected>Select your country</option>
+                <option value="India">India</option>
+                <option value="USA">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="UAE">United Arab Emirates</option>
+                <option value="Australia">Australia</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <h2 class="section-title">Student Information</h2>
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Student Name (Capital Letters) <span>*</span></label>
+              <input
+                type="text"
+                id="student_name"
+                oninput="this.value = this.value.toUpperCase()"
+                required
+                placeholder="STUDENT NAME"
+              />
+            </div>
+            <div class="input-group">
+              <label>Student Gender <span>*</span></label>
+              <select id="student_gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Student Age (Years) <span>*</span></label>
+              <input
+                type="number"
+                id="student_age"
+                required
+                placeholder="Enter Age"
+                min="4"
+                max="25"
+              />
+            </div>
+            <div class="input-group">
+              <label>Participant's T-Shirt Size <span>*</span></label>
+              <select id="tshirt_size" required>
+                <option value="" disabled selected>Select Size</option>
+                <option value="XS (24)">Extra Small (24)</option>
+                <option value="S (26)">Small (26)</option>
+                <option value="M (28)">Medium (28)</option>
+                <option value="L (30)">Large (30)</option>
+                <option value="XL (32)">Extra Large (32)</option>
+                <option value="XXL (34)">Double XL (34)</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Father's Name (Capital Letters) <span>*</span></label>
+              <input
+                type="text"
+                id="father_name"
+                oninput="this.value = this.value.toUpperCase()"
+                required
+                placeholder="FATHER'S NAME"
+              />
+            </div>
+            <div class="input-group">
+              <label>Parent Mobile Number <span>*</span></label>
+              <input
+                type="tel"
+                id="parent_mobile"
+                required
+                placeholder="Enter parent's mobile"
+              />
+            </div>
+          </div>
+
+          <h2 class="section-title">Academic Details</h2>
+          <div class="form-grid">
+            <div class="input-group full-width">
+              <label>I Will Appear For Olympiad <span>*</span></label>
+              <select id="olympiad_type" required>
+                <option value="" disabled selected>Select Olympiad</option>
+                <option value="Abacus Mental Math">
+                  Abacus Mental Math Olympiad
+                </option>
+                <option value="Vedic Math">Vedic Math Olympiad</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Choose Level of Participation <span>*</span></label>
+              <select id="level_of_participation" required>
+                <option value="" disabled selected>Select Level</option>
+                <option value="Level 1">Level 1</option>
+                <option value="Level 2">Level 2</option>
+                <option value="Level 3">Level 3</option>
+                <option value="Level 4">Level 4</option>
+                <option value="Level 5">Level 5</option>
+                <option value="Level 6">Level 6</option>
+                <option value="Level 7">Level 7</option>
+                <option value="Level 8">Level 8</option>
+                <option value="Level 9">Level 9</option>
+                <option value="Level 10">Level 10</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <label>Last Level Passed in Academy <span>*</span></label>
+              <select id="last_level_passed" required>
+                <option value="" disabled selected>Select Last Level</option>
+                <option value="None (Beginner)">None (Beginner)</option>
+                <option value="Level 1">Level 1</option>
+                <option value="Level 2">Level 2</option>
+                <option value="Level 3">Level 3</option>
+                <option value="Level 4">Level 4</option>
+                <option value="Level 5">Level 5</option>
+                <option value="Level 6">Level 6</option>
+                <option value="Level 7">Level 7</option>
+                <option value="Level 8">Level 8</option>
+                <option value="Level 9">Level 9</option>
+              </select>
+            </div>
+            <div class="input-group full-width">
+              <label
+                >Coach / Teacher Name (Capital Letters) <span>*</span></label
+              >
+              <input
+                type="text"
+                id="coach_name"
+                oninput="this.value = this.value.toUpperCase()"
+                required
+                placeholder="COACH OR TEACHER NAME"
+              />
+            </div>
+            <div class="input-group full-width">
+              <label
+                >Complete Postal Address (Capital Letters) <span>*</span></label
+              >
+              <textarea
+                id="postal_address"
+                rows="3"
+                oninput="this.value = this.value.toUpperCase()"
+                maxlength="1000"
+                required
+                placeholder="ENTER FULL ADDRESS WITH PINCODE"
+              ></textarea>
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn-submit">
+            Submit Registration <i class="fa-solid fa-paper-plane"></i>
+          </button>
+
+          <div id="statusMessage"></div>
+        </form>
+
+        <!-- SUCCESS SCREEN -->
+        <div class="success-screen" id="successScreen">
+          <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+          <h2>Registration Submitted!</h2>
+          <p>Your registration has been received successfully.</p>
+          <p>
+            Our team will reach out to you on your mobile number to complete the
+            process.
+          </p>
+          <span class="success-ref" id="successRef"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/header.js"></script>
+    <script>
+      const DB_URL = "https://azdhqelzwptdyjypjkcb.supabase.co";
+      const DB_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZGhxZWx6d3B0ZHlqeXBqa2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjQwODEsImV4cCI6MjA5MTY0MDA4MX0.g6YLwLhe_pG_27FQlKgwlrDDlsqeory5s5HWSTe3nKA";
+      const db = window.supabase.createClient(DB_URL, DB_KEY);
+
+      const form = document.getElementById("registrationForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const statusMsg = document.getElementById("statusMessage");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+        statusMsg.style.display = "none";
+
+        const formData = {
+          applicant_name: document
+            .getElementById("applicant_name")
+            .value.trim(),
+          applicant_mobile: document
+            .getElementById("applicant_mobile")
+            .value.trim(),
+          country: document.getElementById("country").value,
+          student_name: document.getElementById("student_name").value.trim(),
+          student_gender: document.getElementById("student_gender").value,
+          student_age: parseInt(document.getElementById("student_age").value),
+          tshirt_size: document.getElementById("tshirt_size").value,
+          father_name: document.getElementById("father_name").value.trim(),
+          parent_mobile: document.getElementById("parent_mobile").value.trim(),
+          olympiad_type: document.getElementById("olympiad_type").value,
+          level_of_participation: document.getElementById(
+            "level_of_participation",
+          ).value,
+          last_level_passed: document.getElementById("last_level_passed").value,
+          coach_name: document.getElementById("coach_name").value.trim(),
+          postal_address: document
+            .getElementById("postal_address")
+            .value.trim(),
+          fee_amount: 2300,
+          payment_status: "pending",
+        };
+
+        try {
+          const { error } = await db
+            .from("championship_registrations")
+            .insert([formData]);
+
+          if (error) throw error;
+
+          // Show success screen
+          form.style.display = "none";
+          const s = document.getElementById("successScreen");
+          s.style.display = "block";
+          document.getElementById("successRef").textContent =
+            "Reference: " + Date.now().toString().slice(-6);
+        } catch (err) {
+          statusMsg.textContent = "Submission failed: " + err.message;
+          statusMsg.className = "status-error";
+          statusMsg.style.display = "block";
+          submitBtn.disabled = false;
+          submitBtn.innerHTML =
+            'Submit Registration <i class="fa-solid fa-paper-plane"></i>';
+        }
+      });
+    </script>
+  </body>
+</html>

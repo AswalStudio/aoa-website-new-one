@@ -1,0 +1,1120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abacus Olympic Association | Next-Gen</title>
+
+    <!-- FIX FOR 403 IMAGE ERRORS -->
+    <meta name="referrer" content="no-referrer" />
+
+    <!-- Next-Gen Fonts: Inter for ultra-clean UI, Cinzel for classic authority -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FontAwesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P5GJHFS4");
+    </script>
+
+    <style>
+      /* --- NEXT-GEN VARIABLES --- */
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --accent-glow: rgba(197, 160, 89, 0.4);
+        --bg-base: #f8fafc;
+        --surface: rgba(255, 255, 255, 0.7);
+        --surface-border: rgba(255, 255, 255, 0.4);
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --glass-blur: blur(20px);
+        --radius-lg: 32px;
+        --radius-md: 20px;
+        --shadow-soft: 0 20px 40px -10px rgba(27, 77, 62, 0.08);
+        --shadow-glow: 0 0 30px var(--accent-glow);
+      }
+
+      /* --- GLOBAL & ANIMATED BACKGROUND --- */
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: var(--bg-base);
+        background-image:
+          radial-gradient(
+            at 0% 0%,
+            rgba(197, 160, 89, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 0%,
+            rgba(27, 77, 62, 0.08) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 100%,
+            rgba(197, 160, 89, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(27, 77, 62, 0.08) 0px,
+            transparent 50%
+          );
+        background-attachment: fixed;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+
+      p {
+        color: var(--text-muted);
+        margin-top: 0;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      /* --- FLOATING GLASS NAV --- */
+      .nav-container {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 48px);
+        max-width: 1200px;
+        z-index: 1000;
+      }
+
+      header {
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        border-radius: 100px;
+        padding: 12px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo img {
+        height: 45px;
+        width: auto;
+        object-fit: contain;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+
+      nav a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-main);
+        white-space: nowrap;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+      }
+
+      .search-pill {
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 8px 16px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .search-pill input {
+        border: none;
+        background: transparent;
+        outline: none;
+        font-family: "Inter", sans-serif;
+        width: 120px;
+      }
+
+      /* Hide hamburger by default (Desktop) */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: var(--primary);
+        cursor: pointer;
+        padding: 0;
+      }
+
+      /* --- NEXT-GEN FLOATING BUTTONS --- */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 1000;
+      }
+
+      .float-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        box-shadow: var(--shadow-soft);
+        color: var(--primary);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      }
+
+      .float-btn:hover {
+        transform: scale(1.1) translateY(-5px);
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 15px 25px rgba(27, 77, 62, 0.3);
+      }
+
+      /* --- HERO SECTION --- */
+      .hero {
+        padding: 180px 0 100px;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid var(--accent);
+        color: var(--primary);
+        padding: 8px 16px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 24px;
+        box-shadow: var(--shadow-glow);
+      }
+
+      .hero h1 {
+        font-size: 64px;
+        letter-spacing: -1px;
+        margin-bottom: 24px;
+      }
+
+      .hero h1 span {
+        background: linear-gradient(135deg, var(--accent) 0%, #e6ca8a 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 20px;
+        max-width: 700px;
+        margin: 0 auto;
+        color: var(--text-muted);
+      }
+
+      /* --- BENTO BOX UI --- */
+      .bento-section {
+        padding: 60px 0;
+      }
+
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+      }
+
+      .bento-card {
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        box-shadow: var(--shadow-soft);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bento-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 30px 60px -10px rgba(27, 77, 62, 0.15);
+      }
+
+      .icon-glass {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.4)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: var(--primary);
+        margin-bottom: 24px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .bento-large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .bento-wide {
+        grid-column: span 2;
+      }
+      .bento-square {
+        grid-column: span 1;
+      }
+
+      /* --- BENEFICIARIES (6x2 Grid Modernized) --- */
+      .beneficiaries {
+        padding: 80px 0;
+        text-align: center;
+      }
+
+      .flag-gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+      }
+
+      .premium-card {
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-md);
+        padding: 10px;
+        box-shadow: var(--shadow-soft);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        cursor: pointer;
+      }
+
+      .premium-card .card-inner {
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        position: relative;
+      }
+      .premium-card img {
+        width: 100%;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .premium-card .card-inner::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        transition: all 0.7s ease;
+        z-index: 2;
+        pointer-events: none;
+      }
+
+      .premium-card:hover {
+        transform: translateY(-10px) scale(1.05);
+        border-color: var(--accent);
+        box-shadow: 0 20px 40px rgba(197, 160, 89, 0.2);
+      }
+
+      .premium-card:hover img {
+        transform: scale(1.08);
+      }
+      .premium-card:hover .card-inner::after {
+        left: 200%;
+      }
+
+      /* --- GLOBAL OFFICE (BENTO STYLE) --- */
+      .office-section {
+        padding: 40px 0 80px 0;
+      }
+
+      .contact-info-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .contact-info-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      .contact-info-list i {
+        font-size: 20px;
+        color: var(--accent);
+        margin-top: 4px;
+      }
+
+      .contact-info-list strong {
+        display: block;
+        color: var(--primary);
+        font-size: 16px;
+        margin-bottom: 4px;
+      }
+
+      .contact-info-list p {
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+
+      .map-placeholder {
+        width: 100%;
+        height: 100%;
+        min-height: 300px;
+        background: rgba(27, 77, 62, 0.05);
+        border-radius: 16px;
+        border: 1px dashed var(--accent);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      /* --- NEXT-GEN DARK FOOTER --- */
+      footer {
+        background: var(--primary-dark);
+        color: #fff;
+        padding: 80px 0 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+      }
+
+      .footer-col h4 {
+        font-family: "Inter", sans-serif;
+        color: var(--accent);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a,
+      .footer-col p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 15px;
+      }
+      .footer-col ul li a:hover {
+        color: #fff;
+        padding-left: 5px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--accent);
+        transform: translateY(-3px);
+      }
+
+      .payment-icons i {
+        font-size: 32px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-right: 12px;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .language-selector {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .language-selector span {
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+      .language-selector a {
+        color: rgba(255, 255, 255, 0.7);
+        padding: 0 8px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .language-selector a:last-child {
+        border-right: none;
+      }
+      .language-selector a:hover {
+        color: #fff;
+      }
+
+      /* --- RESPONSIVE ENHANCEMENTS --- */
+      @media (max-width: 1024px) {
+        .bento-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .bento-large {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+        .flag-gallery-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        /* Keep header as a pill with logo left, button right */
+        header {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 12px 24px;
+          border-radius: 50px;
+        }
+
+        .logo img {
+          height: 35px;
+        }
+
+        /* Show the hamburger icon */
+        .menu-toggle {
+          display: block;
+        }
+
+        /* Hide divider on mobile */
+        .nav-divider {
+          display: none;
+        }
+
+        /* Style the dropdown menu */
+        nav.nav-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          margin-top: 15px;
+          background: var(--surface);
+          backdrop-filter: var(--glass-blur);
+          -webkit-backdrop-filter: var(--glass-blur);
+          border: 1px solid var(--surface-border);
+          border-radius: 20px;
+          padding: 24px;
+          box-shadow: var(--shadow-soft);
+
+          /* Animation setup */
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+        }
+
+        /* When JS adds the 'active' class, show the menu */
+        nav.nav-menu.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+
+        /* Enlarge touch targets inside mobile menu */
+        nav ul {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          width: 100%;
+        }
+
+        nav ul li {
+          width: 100%;
+        }
+
+        nav a {
+          display: block;
+          padding: 12px 0; /* Easier to tap with a finger */
+          font-size: 16px;
+        }
+
+        /* Full-width Search inside dropdown */
+        .search-pill {
+          width: 100%;
+          justify-content: flex-start;
+          margin-top: 10px;
+        }
+        .search-pill input {
+          width: 100%;
+        }
+
+        /* Hero Adjustments */
+        .hero {
+          padding: 140px 0 60px;
+        }
+        .hero h1 {
+          font-size: 38px;
+        }
+
+        /* Bento Cards Space Optimization */
+        .bento-section {
+          padding: 40px 0;
+        }
+        .bento-card {
+          padding: 24px; /* Scaled down from 40px to fit mobile screens better */
+        }
+        .bento-large,
+        .bento-wide,
+        .bento-square {
+          grid-column: span 1;
+        }
+        .bento-grid {
+          grid-template-columns: 1fr;
+        }
+
+        /* Floating buttons optimization */
+        .floating-buttons {
+          bottom: 20px;
+          right: 20px;
+          gap: 10px;
+        }
+        .float-btn {
+          width: 45px;
+          height: 45px;
+          font-size: 18px;
+        }
+      }
+
+      /* Extra Small Viewports (Smartphones) */
+      @media (max-width: 480px) {
+        .flag-gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .hero h1 {
+          font-size: 30px;
+        }
+
+        /* Increase touch targets in the footer for mobile */
+        .footer-col ul li a {
+          display: inline-block;
+          padding: 8px 0;
+        }
+
+        .language-selector a {
+          display: inline-block;
+          padding: 10px; /* Better finger-tap spacing */
+        }
+
+        /* Center align contact info on tiny screens */
+        .contact-info-list li {
+          flex-direction: column;
+          text-align: center;
+          align-items: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P5GJHFS4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <div id="header-placeholder"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-badge"><i class="fa-solid fa-bolt"></i> Est. 2002</div>
+        <h1>Global Architects of <br /><span>Mental Excellence</span></h1>
+        <p>
+          Democratizing genius since 2002. Born from the visionary intellect of
+          Jay Vardhan Rishi, we bridge the gap between ancient computational
+          wisdom and 21st-century cognitive demands.
+        </p>
+      </div>
+    </section>
+
+    <!-- The Bento Box UI Section -->
+    <section class="bento-section">
+      <div class="container">
+        <div class="bento-grid">
+          <!-- Large Card (Mission & Core Philosophy) -->
+          <div class="bento-card bento-large">
+            <div class="icon-glass"><i class="fa-solid fa-landmark"></i></div>
+            <h2>"Start Smiling, End Smiling"</h2>
+            <p
+              style="
+                font-size: 18px;
+                color: var(--text-main);
+                font-weight: 500;
+                margin-bottom: 24px;
+              "
+            >
+              The Evolution from "Battleground" to "Celebration"
+            </p>
+            <p>
+              We don't just teach children to count; we train them to think. We
+              operate on a democratic platform where every student competes
+              against their own previous best. By removing the fear of failure,
+              we unlock the brain's natural ability to learn.
+            </p>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin-top: 24px;
+                color: var(--text-muted);
+              "
+            >
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent); margin-right: 10px"
+                ></i>
+                Concentration & Focus
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent); margin-right: 10px"
+                ></i>
+                Visualization & Photographic Memory
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent); margin-right: 10px"
+                ></i>
+                Reasoning & Analysis
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent); margin-right: 10px"
+                ></i>
+                Creativity
+              </li>
+            </ul>
+          </div>
+          <!-- The Maths of Mind Card -->
+          <div class="bento-card bento-large">
+            <div class="icon-glass">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h2>The "Maths of Mind"</h2>
+            <p
+              style="
+                font-size: 18px;
+                color: var(--text-main);
+                font-weight: 500;
+                margin-bottom: 24px;
+              "
+            >
+              We don't just teach children to count; we train them to think.
+            </p>
+            <p>
+              Our methodology is scientifically engineered to stimulate specific
+              brain functions:
+            </p>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin-top: 24px;
+                color: var(--text-muted);
+              "
+            >
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent); margin-right: 10px"
+                ></i>
+                Concentration & Focus
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent); margin-right: 10px"
+                ></i>
+                Visualization & Photographic Memory
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent); margin-right: 10px"
+                ></i>
+                Reasoning & Analysis
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-check"
+                  style="color: var(--accent); margin-right: 10px"
+                ></i>
+                Creativity
+              </li>
+            </ul>
+          </div>
+          <!-- Square Card 1 -->
+          <div class="bento-card bento-square">
+            <div class="icon-glass">
+              <i class="fa-solid fa-layer-group"></i>
+            </div>
+            <h3>Integrated Intel</h3>
+            <p>
+              Fusing Abacus visualization, Vedic Math sutras, and the
+              Trachtenberg System into one global calculation heritage.
+            </p>
+          </div>
+
+          <!-- Square Card 2 -->
+          <div class="bento-card bento-square">
+            <div class="icon-glass"><i class="fa-solid fa-box-open"></i></div>
+            <h3>1AbacusMART</h3>
+            <p>
+              Tangible educational supplies engineered to deliver our "hidden
+              teaching strategies" to aspiring educators globally.
+            </p>
+          </div>
+
+          <!-- Wide Card -->
+          <div class="bento-card bento-wide">
+            <div class="icon-glass"><i class="fa-solid fa-trophy"></i></div>
+            <h3>Evaluation & Olympiad</h3>
+            <p>
+              What began as the Abacus Championship in 2004 evolved into the
+              Abacus Olympiad in 2009. Our unique evaluation grid assesses
+              accuracy, speed, and mental stamina without demoralizing the
+              child. Confidence over anxiety.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Beneficiaries -->
+    <section class="beneficiaries">
+      <div class="container">
+        <h2>
+          <i
+            class="fa-solid fa-earth-americas"
+            style="color: var(--accent); margin-right: 10px"
+          ></i>
+          Global Beneficiaries
+        </h2>
+        <p>Countries benefiting from our services today.</p>
+
+        <div class="flag-gallery-grid">
+          <!-- Row 1 -->
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/4E/68/D3/FBC265A8414287926228357B7E_1624031555976.jpg"
+                alt="Belgium"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/FC/2D/87/1993E73D3FB92C6AC697D968DA_1624030072621.jpg"
+                alt="Australia"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/38/2E/FC/CFB829C8730A106B946FBC4185_1624031127161.jpg"
+                alt="United Kingdom"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/21/98/68/B66D051091A6B226063A4CE19F_1624030194177.jpg"
+                alt="USA"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image2.jdomni.in/banner/18062021/73/41/F8/F3794FF9977E46EAB9AA1C9BCD_1624030104366.jpg"
+                alt="Canada"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/7A/A0/42/1111300AFF4020A0E2AED9D6E2_1624032697240.jpg"
+                alt="Kazakhstan"
+              />
+            </div>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/A6/E4/AF/4D3C5D4E471D1A23279C7B3149_1624030848074.jpg"
+                alt="Netherlands"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/E3/C7/73/BF32B6F6F38DE625F1A7362D35_1624031447215.jpg"
+                alt="Nepal"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image2.jdomni.in/banner/18062021/0D/A5/BE/DB7D47056C633CE6BD6985FDF9_1624031731453.jpg"
+                alt="UAE"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/25/16/E5/4EF9147B1474727CCD2FD93375_1624031706557.jpg"
+                alt="Iran"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image3.jdomni.in/banner/18062021/36/6E/5A/CA5F7B870EA1459D9B8D772F30_1624031830148.jpg"
+                alt="Palestine"
+              />
+            </div>
+          </div>
+          <div class="premium-card">
+            <div class="card-inner">
+              <img
+                src="https://image2.jdomni.in/banner/18062021/B2/98/7F/D6395BC56E71D46E9F7B56502B_1624032396648.jpg"
+                alt="South Africa"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Office (Bento-Style Integration) -->
+    <section class="office-section">
+      <div class="container">
+        <h2 style="text-align: center; margin-bottom: 40px">
+          <i
+            class="fa-solid fa-map-location-dot"
+            style="color: var(--accent); margin-right: 10px"
+          ></i>
+          Global Office
+        </h2>
+
+        <div class="bento-grid">
+          <!-- Contact Details Card -->
+          <div class="bento-card bento-wide">
+            <ul class="contact-info-list">
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Our Office Address</strong>
+                  <p>#44, Second Floor, Pearls Omaxe, Wazirpur, Delhi 110034</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <strong>General Enquiries</strong>
+                  <p>chiefmentor@abacusolympicassociation.com</p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Call Us</strong>
+                  <p>
+                    +91-9811823818 <br />
+                    +91-9711913818
+                  </p>
+                </div>
+              </li>
+              <li>
+                <i class="fa-regular fa-clock"></i>
+                <div>
+                  <strong>Our Timing</strong>
+                  <p>Mon - Sun : 09:30 AM - 08:00 PM</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Map Card -->
+          <div class="bento-card bento-wide" style="padding: 20px">
+            <iframe
+              src="https://maps.google.com/maps?q=Flyesys+Infotech,+KLJ+TOWER,+Netaji+Subhash+Place,+Pitampura,+Delhi,+110034&t=&z=15&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="100%"
+              style="min-height: 300px; border: 0; border-radius: 16px"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            >
+            </iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. FOOTER PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 3. LOAD THE JAVASCRIPT FILES AT THE END -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+
+    <!-- JavaScript moved inside the body tag for best practices -->
+    <script>
+      // Mobile Menu Toggle Script
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuBtn = document.querySelector(".menu-toggle");
+        const navMenu = document.querySelector(".nav-menu");
+        const icon = menuBtn.querySelector("i");
+
+        menuBtn.addEventListener("click", () => {
+          navMenu.classList.toggle("active");
+
+          // Switch between hamburger and X icon
+          if (navMenu.classList.contains("active")) {
+            icon.classList.remove("fa-bars");
+            icon.classList.add("fa-xmark");
+          } else {
+            icon.classList.remove("fa-xmark");
+            icon.classList.add("fa-bars");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

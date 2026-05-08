@@ -1,0 +1,910 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SMMR Partner | Command Your Territory | AOA Next-Gen</title>
+
+    <meta
+      name="description"
+      content="Stop Teaching. Start Commanding. Secure exclusive rights to SMMR - the addictive evolution of Mental Math. 118% Est. ROI. Limited to the First 10 Leaders."
+    />
+
+    <!-- Next-Gen Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P5GJHFS4');</script>
+
+<style>
+      /* --- NEXT-GEN PREMIUM VARIABLES --- */
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --bg-base: #f1f5f9;
+        --glass-bg: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.8) 0%,
+          rgba(255, 255, 255, 0.4) 100%
+        );
+        --glass-border: 1px solid rgba(255, 255, 255, 0.7);
+        --text-main: #0f172a;
+        --text-muted: #475569;
+        --glass-blur: blur(24px);
+        --radius-lg: 32px;
+        --shadow-soft: 0 30px 60px -12px rgba(27, 77, 62, 0.15);
+        --shadow-hover: 0 40px 80px -12px rgba(197, 160, 89, 0.25);
+
+        /* SMMR Specific Accents */
+        --smmr-highlight: #10b981; /* Premium Emerald */
+        --smmr-alert: #ef4444; /* Premium Red */
+      }
+
+      /* --- GLOBAL STYLES --- */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-base);
+      }
+
+      /* --- AMBIENT ANIMATED BACKGROUND --- */
+      .ambient-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        background: var(--bg-base);
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        opacity: 0.4;
+        animation: floatOrb 20s infinite ease-in-out alternate;
+      }
+
+      .orb-1 {
+        width: 60vw;
+        height: 60vw;
+        background: rgba(197, 160, 89, 0.15);
+        top: -10%;
+        left: -10%;
+        animation-delay: 0s;
+      }
+      .orb-2 {
+        width: 50vw;
+        height: 50vw;
+        background: rgba(27, 77, 62, 0.1);
+        bottom: -20%;
+        right: -10%;
+        animation-delay: -5s;
+        animation-direction: alternate-reverse;
+      }
+      .orb-3 {
+        width: 40vw;
+        height: 40vw;
+        background: rgba(197, 160, 89, 0.1);
+        top: 40%;
+        left: 60%;
+        animation-delay: -10s;
+      }
+
+      @keyframes floatOrb {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(5%, 10%) scale(1.1);
+        }
+        100% {
+          transform: translate(-5%, -5%) scale(0.9);
+        }
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+
+      p {
+        color: var(--text-muted);
+        margin-top: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+      }
+
+      /* --- PAGE HEADER --- */
+      .page-header {
+        text-align: center;
+        padding: 160px 0 60px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .exam-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(197, 160, 89, 0.5);
+        color: var(--primary);
+        padding: 8px 18px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 24px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+      }
+
+      .page-header h1 {
+        font-size: 60px;
+        letter-spacing: -1.5px;
+        margin-bottom: 15px;
+        font-weight: 900;
+      }
+
+      .page-header h2 {
+        font-family: "Inter", sans-serif;
+        font-size: 24px;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .page-header p {
+        font-size: 18px;
+        max-width: 800px;
+        margin: 0 auto 30px;
+        font-weight: 400;
+      }
+
+      /* --- BUTTONS --- */
+      .btn-main {
+        background: var(--primary-dark);
+        color: #fff;
+        padding: 16px 36px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 20px rgba(27, 77, 62, 0.15);
+      }
+
+      .btn-main:hover {
+        background: var(--primary);
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(27, 77, 62, 0.3);
+      }
+
+      .btn-smmr {
+        background: linear-gradient(135deg, var(--smmr-highlight), #059669);
+        box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3);
+      }
+      .btn-smmr:hover {
+        background: linear-gradient(135deg, #059669, var(--primary-dark));
+        box-shadow: 0 15px 30px rgba(16, 185, 129, 0.4);
+      }
+
+      /* --- BENTO BOX UI CORE --- */
+      .bento-section {
+        padding: 40px 0 80px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+
+      .section-title h2 {
+        font-size: 42px;
+        margin-bottom: 10px;
+      }
+
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .bento-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: var(--glass-border);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        box-shadow: var(--shadow-soft);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .bento-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        transition: all 0.7s ease;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .bento-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+        border-color: rgba(197, 160, 89, 0.5);
+      }
+
+      .bento-card:hover::before {
+        left: 200%;
+      }
+
+      .bento-wide {
+        grid-column: span 2;
+      }
+
+      /* --- CUSTOM INNER COMPONENTS --- */
+
+      /* The Reality Check Bars */
+      .engagement-box {
+        margin-top: auto;
+        padding-top: 20px;
+      }
+
+      .e-bar-container {
+        height: 24px;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 10px;
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .e-bar-fill {
+        height: 100%;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 10px;
+        color: #fff;
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      .bar-red {
+        background: linear-gradient(90deg, #f87171, var(--smmr-alert));
+        width: 15%;
+      }
+      .bar-green {
+        background: linear-gradient(90deg, #34d399, var(--smmr-highlight));
+        width: 100%;
+      }
+
+      /* Timeline Steps */
+      .timeline-flex {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 30px;
+        gap: 20px;
+      }
+
+      .step-item {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.6);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        padding: 30px 20px;
+        text-align: center;
+        position: relative;
+        transition: 0.3s;
+      }
+
+      .step-item:hover {
+        background: #fff;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .step-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin: 0 auto 20px auto;
+        box-shadow: 0 8px 16px rgba(27, 77, 62, 0.3);
+      }
+
+      .step-item h4 {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        color: var(--primary-dark);
+        margin-bottom: 10px;
+      }
+      .step-item p {
+        font-size: 14px;
+        margin: 0;
+      }
+
+      /* Revenue Blueprint */
+      .revenue-val {
+        font-family: "Inter", sans-serif;
+        font-size: 54px;
+        font-weight: 900;
+        line-height: 1;
+        margin: 20px 0;
+      }
+
+      .val-gold {
+        color: var(--accent);
+      }
+      .val-grey {
+        color: var(--text-muted);
+      }
+
+      /* ROI Chart */
+      .roi-chart {
+        background: #fff;
+        border-radius: 20px;
+        padding: 30px;
+        margin-top: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      }
+
+      .roi-row {
+        margin-bottom: 25px;
+      }
+      .roi-row:last-child {
+        margin-bottom: 0;
+      }
+
+      .roi-label {
+        display: flex;
+        justify-content: space-between;
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+      }
+
+      .r-bar-bg {
+        height: 40px;
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .r-bar-fill {
+        height: 100%;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding-right: 15px;
+        color: #fff;
+        font-weight: 800;
+        font-size: 16px;
+      }
+
+      /* Opportunity Lock Loop */
+      .loop-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        background: rgba(255, 255, 255, 0.7);
+        padding: 20px 30px;
+        border-radius: 50px;
+        margin-top: 30px;
+        font-weight: 700;
+        font-size: 18px;
+        color: var(--primary-dark);
+      }
+
+      .loop-container i {
+        color: var(--accent);
+      }
+      .loop-highlight {
+        color: var(--smmr-highlight);
+        font-size: 24px;
+        font-weight: 900;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .bento-grid {
+          grid-template-columns: 1fr;
+        }
+        .bento-wide {
+          grid-column: span 1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-header {
+          padding: 130px 0 50px;
+        }
+        .page-header h1 {
+          font-size: 42px;
+        }
+        .bento-card {
+          padding: 30px 20px;
+        }
+        .timeline-flex {
+          flex-direction: column;
+        }
+        .step-item {
+          width: 100%;
+        }
+        .loop-container {
+          flex-direction: column;
+          border-radius: 20px;
+          text-align: center;
+        }
+        .loop-container i {
+          transform: rotate(90deg);
+        }
+      }
+    </style>
+  </head>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P5GJHFS4"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<body>
+    <!-- AMBIENT BACKGROUND -->
+    <div class="ambient-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <!-- HEADER INJECTION -->
+    <div id="header-placeholder"></div>
+
+    <section class="page-header container">
+      <div class="exam-badge">
+        <i class="fa-solid fa-bolt"></i> SMMR Partner
+      </div>
+      <h1>The History is Written.</h1>
+      <h2>The Future is Here.</h2>
+      <p>
+        Evolve for Gen Z, Gen Alpha, and beyond. We are selecting Commanders to
+        hold exclusive rights to the next generation of
+        <strong>Simulating Mental Math with Reality (SMMR)</strong>.
+      </p>
+      <a href="#dominance" class="btn-main btn-smmr"
+        >Command Your Territory <i class="fa-solid fa-arrow-down"></i
+      ></a>
+    </section>
+
+    <!-- THE REALITY CHECK -->
+    <section class="bento-section container" style="padding-top: 0">
+      <div class="section-title">
+        <h2>The Reality Check</h2>
+        <p style="max-width: 800px; margin: 0 auto">
+          The education market has shifted. Traditional methods struggle to hold
+          the attention of Gen Z. SMMR solves this by replacing "pushy teaching"
+          with addictive, gamified engagement.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Old Way -->
+        <div class="bento-card" style="border-top: 4px solid var(--smmr-alert)">
+          <i
+            class="fa-regular fa-face-tired"
+            style="
+              font-size: 48px;
+              color: var(--smmr-alert);
+              margin-bottom: 20px;
+            "
+          ></i>
+          <h3
+            style="
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-size: 24px;
+              color: var(--text-main);
+            "
+          >
+            The Old Way
+          </h3>
+          <p style="font-weight: 600; color: var(--smmr-alert)">
+            "Pushy Teaching"
+          </p>
+          <p>Bored students. Forced practice. Low retention rates.</p>
+
+          <div class="engagement-box">
+            <div class="e-bar-container">
+              <div class="e-bar-fill bar-red">15%</div>
+            </div>
+            <p
+              style="
+                font-size: 13px;
+                text-align: right;
+                font-weight: 700;
+                color: var(--text-muted);
+                margin: 0;
+              "
+            >
+              Engagement Level
+            </p>
+          </div>
+        </div>
+
+        <!-- SMMR Way -->
+        <div
+          class="bento-card"
+          style="border-top: 4px solid var(--smmr-highlight)"
+        >
+          <i
+            class="fa-regular fa-face-grin-stars"
+            style="
+              font-size: 48px;
+              color: var(--smmr-highlight);
+              margin-bottom: 20px;
+            "
+          ></i>
+          <h3
+            style="
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-size: 24px;
+              color: var(--text-main);
+            "
+          >
+            The SMMR Way
+          </h3>
+          <p style="font-weight: 600; color: var(--smmr-highlight)">
+            "Auto-Mode Learning"
+          </p>
+          <p>Addictive, candid training. Students want to play and learn.</p>
+
+          <div class="engagement-box">
+            <div class="e-bar-container">
+              <div class="e-bar-fill bar-green">100%</div>
+            </div>
+            <p
+              style="
+                font-size: 13px;
+                text-align: right;
+                font-weight: 700;
+                color: var(--primary);
+                margin: 0;
+              "
+            >
+              Engagement Level
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- YOU ARE IN CONTROL (TIMELINE) -->
+    <section class="bento-section container" style="padding-top: 0">
+      <div class="bento-card bento-wide">
+        <h2 style="text-align: center">You Are In Control</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto">
+          We've removed the logistical headache. You hold the starter inventory
+          for immediate handover, creating instant gratification. We handle the
+          digital platform.
+        </p>
+
+        <div class="timeline-flex">
+          <div class="step-item">
+            <div class="step-icon"><i class="fa-solid fa-box-open"></i></div>
+            <h4>1. Equip</h4>
+            <p>Hold 20 Power-Up Kits locally.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-icon">
+              <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+            <h4>2. Action</h4>
+            <p>Customer purchases via online portal.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-icon"><i class="fa-solid fa-bolt"></i></div>
+            <h4>3. Instant</h4>
+            <p>You physically hand over the book.</p>
+          </div>
+          <div class="step-item">
+            <div class="step-icon" style="background: var(--smmr-highlight)">
+              <i class="fa-solid fa-sack-dollar"></i>
+            </div>
+            <h4>4. Reward</h4>
+            <p>Refund + 15% Recurring Comm.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVENUE BLUEPRINT -->
+    <section class="bento-section container" style="padding-top: 0">
+      <div class="section-title">
+        <h2>Revenue Blueprint</h2>
+        <p style="max-width: 800px; margin: 0 auto">
+          Transparency is key. Here is a breakdown of your earnings based on a
+          small batch of just 20 subscribers. You earn through retail markup and
+          recurring digital commissions.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <div
+          class="bento-card"
+          style="text-align: center; justify-content: center"
+        >
+          <h3
+            style="
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-size: 18px;
+              color: var(--text-main);
+              margin-bottom: 5px;
+            "
+          >
+            Scenario A: High Score
+            <i class="fa-solid fa-trophy" style="color: var(--accent)"></i>
+          </h3>
+          <p style="font-size: 14px">Realistic Mix Projection</p>
+          <div class="revenue-val val-gold">₹13,203</div>
+          <span
+            style="
+              font-size: 14px;
+              font-weight: 700;
+              letter-spacing: 1px;
+              color: var(--primary);
+            "
+            >NET PROFIT</span
+          >
+        </div>
+
+        <div
+          class="bento-card"
+          style="text-align: center; justify-content: center"
+        >
+          <h3
+            style="
+              font-family: &quot;Inter&quot;, sans-serif;
+              font-size: 18px;
+              color: var(--text-main);
+              margin-bottom: 5px;
+            "
+          >
+            Scenario B: Safety Net
+            <i
+              class="fa-solid fa-shield-halved"
+              style="color: var(--text-muted)"
+            ></i>
+          </h3>
+          <p style="font-size: 14px">Worst Case Scenario</p>
+          <div class="revenue-val val-grey">₹4,897</div>
+          <span
+            style="
+              font-size: 14px;
+              font-weight: 700;
+              letter-spacing: 1px;
+              color: var(--text-muted);
+            "
+            >GUARANTEED PROFIT</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- THE ROI SHOCKER -->
+    <section class="bento-section container" style="padding-top: 0">
+      <div class="bento-card bento-wide">
+        <h2 style="text-align: center">The ROI Advantage</h2>
+        <p style="text-align: center; max-width: 800px; margin: 0 auto">
+          Why leave money in the bank? By investing in SMMR inventory, you are
+          leveraging your capital to generate returns far higher than
+          traditional investments.
+        </p>
+
+        <div class="roi-chart">
+          <div class="roi-row">
+            <div class="roi-label">
+              <span style="color: var(--text-muted)"
+                >Standard Bank Interest</span
+              >
+              <span style="color: var(--text-muted)">6%</span>
+            </div>
+            <div class="r-bar-bg">
+              <div
+                class="r-bar-fill"
+                style="width: 6%; background: var(--text-muted)"
+              ></div>
+            </div>
+          </div>
+
+          <div class="roi-row">
+            <div class="roi-label">
+              <span style="color: var(--smmr-highlight)">SMMR Leverage</span>
+              <span style="color: var(--smmr-highlight)">118%</span>
+            </div>
+            <div class="r-bar-bg" style="background: rgba(16, 185, 129, 0.1)">
+              <div
+                class="r-bar-fill"
+                style="
+                  width: 100%;
+                  background: linear-gradient(
+                    90deg,
+                    #34d399,
+                    var(--smmr-highlight)
+                  );
+                  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+                "
+              >
+                118% PROFIT
+              </div>
+            </div>
+          </div>
+        </div>
+        <p
+          style="
+            text-align: center;
+            font-style: italic;
+            margin-top: 20px;
+            font-weight: 600;
+          "
+        >
+          "You are more than DOUBLING your capital on every batch."
+        </p>
+      </div>
+    </section>
+
+    <!-- LIFETIME LOCK -->
+    <section class="bento-section container" style="padding-top: 0">
+      <div
+        class="bento-card bento-wide"
+        style="text-align: center; border-color: var(--accent)"
+      >
+        <i
+          class="fa-solid fa-lock"
+          style="font-size: 48px; color: var(--accent); margin-bottom: 20px"
+        ></i>
+        <h2>Lifetime Opportunity Lock</h2>
+        <p style="max-width: 800px; margin: 0 auto">
+          We respect the effort of your first pitch. To ensure you keep earning,
+          we provide an exclusive discount code that only YOU possess. The
+          student MUST return to you to get the best price on future volumes.
+        </p>
+
+        <div class="loop-container">
+          <span>Student</span>
+          <i class="fa-solid fa-arrow-right"></i>
+          <span>Engagement</span>
+          <i class="fa-solid fa-arrow-right"></i>
+          <span>Needs Code</span>
+          <i class="fa-solid fa-arrow-right"></i>
+          <span style="text-decoration: underline">YOU</span>
+          <i class="fa-solid fa-arrow-right"></i>
+          <span class="loop-highlight">REVENUE</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section
+      id="dominance"
+      class="bento-section container"
+      style="text-align: center; padding-bottom: 120px"
+    >
+      <h2 style="font-size: 42px; margin-bottom: 10px">Dominance Offer</h2>
+      <p
+        style="
+          font-size: 18px;
+          max-width: 800px;
+          margin: 0 auto 30px auto;
+          font-weight: 600;
+          color: var(--primary);
+        "
+      >
+        The Territory is Open. The Profit is Ready.
+      </p>
+      <p style="margin-bottom: 40px; color: var(--text-muted)">
+        This opportunity is limited to the first 10 leaders to ensure market
+        quality. We are looking for commanders ready to adopt this new reality.
+      </p>
+
+      <a
+        href="https://wa.me/919811823818?text=I%20am%20interested%20to%20be%20SMMR-Affliate,%20When%20can%20we%20talk."
+        class="btn-main btn-smmr"
+        style="padding: 20px 50px; font-size: 18px"
+        target="_blank"
+      >
+        Sign Me Up - I Am In <i class="fa-solid fa-rocket"></i>
+      </a>
+      <p
+        style="
+          margin-top: 15px;
+          font-size: 13px;
+          font-weight: 700;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+        "
+      >
+        Click to secure your Power-Up Kit
+      </p>
+    </section>
+
+    <!-- FOOTER INJECTION -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+  </body>
+</html>

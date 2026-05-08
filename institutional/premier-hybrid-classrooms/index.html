@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>360° Brain Development & Global Centers | AOA Next-Gen</title>
+
+    <meta
+      name="description"
+      content="Abacus Classes directly managed by Abacus Olympic Association at various parts of world for best learning advantage for the seeks for Mental excellence in Maths"
+    />
+
+    <!-- Next-Gen Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P5GJHFS4");
+    </script>
+
+    <style>
+      /* --- NEXT-GEN PREMIUM VARIABLES --- */
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --accent-glow: rgba(197, 160, 89, 0.4);
+        --bg-base: #f1f5f9;
+        --glass-bg: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.8) 0%,
+          rgba(255, 255, 255, 0.4) 100%
+        );
+        --glass-border: 1px solid rgba(255, 255, 255, 0.7);
+        --text-main: #0f172a;
+        --text-muted: #475569;
+        --glass-blur: blur(24px);
+        --radius-lg: 32px;
+        --shadow-soft: 0 30px 60px -12px rgba(27, 77, 62, 0.15);
+        --shadow-hover: 0 40px 80px -12px rgba(197, 160, 89, 0.25);
+      }
+
+      /* --- GLOBAL STYLES --- */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-base);
+      }
+
+      /* --- AMBIENT ANIMATED BACKGROUND --- */
+      .ambient-bg {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        overflow: hidden;
+        background: var(--bg-base);
+      }
+
+      .orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(100px);
+        opacity: 0.4;
+        animation: floatOrb 20s infinite ease-in-out alternate;
+      }
+
+      .orb-1 {
+        width: 60vw;
+        height: 60vw;
+        background: rgba(197, 160, 89, 0.15);
+        top: -10%;
+        left: -10%;
+        animation-delay: 0s;
+      }
+      .orb-2 {
+        width: 50vw;
+        height: 50vw;
+        background: rgba(27, 77, 62, 0.1);
+        bottom: -20%;
+        right: -10%;
+        animation-delay: -5s;
+        animation-direction: alternate-reverse;
+      }
+      .orb-3 {
+        width: 40vw;
+        height: 40vw;
+        background: rgba(197, 160, 89, 0.1);
+        top: 40%;
+        left: 60%;
+        animation-delay: -10s;
+      }
+
+      @keyframes floatOrb {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        50% {
+          transform: translate(5%, 10%) scale(1.1);
+        }
+        100% {
+          transform: translate(-5%, -5%) scale(0.9);
+        }
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+
+      p {
+        color: var(--text-muted);
+        margin-top: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+      }
+
+      /* --- PAGE HEADER --- */
+      .page-header {
+        text-align: center;
+        padding: 160px 0 60px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .exam-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.8);
+        border: 1px solid rgba(197, 160, 89, 0.5);
+        color: var(--primary);
+        padding: 8px 18px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 24px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+      }
+
+      .page-header h1 {
+        font-size: 54px;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+      }
+
+      .page-header p {
+        font-size: 18px;
+        max-width: 800px;
+        margin: 0 auto;
+        font-weight: 400;
+      }
+
+      /* --- BENTO BOX UI CORE --- */
+      .bento-section {
+        padding: 40px 0 80px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+
+      .bento-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: var(--glass-border);
+        border-radius: var(--radius-lg);
+        padding: 35px;
+        box-shadow: var(--shadow-soft);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .bento-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(
+          to right,
+          rgba(255, 255, 255, 0) 0%,
+          rgba(255, 255, 255, 0.4) 50%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transform: skewX(-25deg);
+        transition: all 0.7s ease;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .bento-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      .bento-card:hover::before {
+        left: 200%;
+      }
+
+      .icon-glass {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.9),
+          rgba(255, 255, 255, 0.4)
+        );
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: var(--primary);
+        margin-bottom: 24px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .bento-large {
+        grid-column: span 2;
+        grid-row: span 2;
+      }
+      .bento-wide {
+        grid-column: span 3;
+      }
+      .bento-square {
+        grid-column: span 1;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .bento-half {
+        grid-column: span 1;
+      }
+
+      /* Internal List Styling for Rules */
+      .glass-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .glass-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 16px;
+        font-size: 15px;
+      }
+
+      .glass-list li i {
+        color: var(--accent);
+        margin-top: 4px;
+        font-size: 14px;
+      }
+
+      .glass-list strong {
+        color: var(--primary-dark);
+      }
+
+      /* Levels Table Styling */
+      .glass-table-wrapper {
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        overflow: hidden;
+      }
+
+      .glass-table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      .glass-table th {
+        background: var(--primary);
+        color: #fff;
+        padding: 15px;
+        font-family: "Inter", sans-serif;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+
+      .glass-table td {
+        padding: 15px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        font-weight: 500;
+        color: var(--primary-dark);
+        text-align: center;
+      }
+
+      .glass-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      /* Location Strip Design */
+      .location-strip {
+        display: flex;
+        align-items: center;
+        background: rgba(255, 255, 255, 0.7);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 16px;
+        margin-bottom: 16px;
+        padding: 20px;
+        transition: all 0.3s ease;
+      }
+
+      .location-strip:hover {
+        background: #fff;
+        transform: translateX(5px);
+        border-color: var(--accent);
+      }
+
+      .flag-pill {
+        background: var(--primary);
+        color: #fff;
+        padding: 6px 12px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-right: 20px;
+        flex-shrink: 0;
+        min-width: 80px;
+        text-align: center;
+      }
+
+      .flag-pill.usa {
+        background: #b91c1c;
+      }
+      .flag-pill.canada {
+        background: #1e293b;
+      }
+
+      .location-info {
+        flex: 1;
+      }
+      .location-info h4 {
+        margin: 0 0 5px 0;
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        color: var(--primary-dark);
+      }
+      .location-info p {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      .btn-explore {
+        background: transparent;
+        color: var(--primary);
+        border: 1px solid var(--primary);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 600;
+        transition: 0.3s;
+        flex-shrink: 0;
+      }
+
+      .btn-explore:hover {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      /* Brain Graphic Component */
+      .brain-graphic {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        border-radius: 16px;
+        margin-top: 20px;
+      }
+      .brain-side {
+        text-align: center;
+      }
+      .brain-side i {
+        font-size: 32px;
+        margin-bottom: 10px;
+      }
+      .brain-side span {
+        display: block;
+        font-weight: 700;
+        font-size: 14px;
+        color: var(--primary);
+      }
+      .brain-side small {
+        font-size: 12px;
+        color: var(--text-muted);
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .bento-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .bento-large {
+          grid-column: span 2;
+          grid-row: span 1;
+        }
+        .bento-wide {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .page-header {
+          padding: 130px 0 50px;
+        }
+        .page-header h1 {
+          font-size: 42px;
+        }
+        .bento-grid {
+          grid-template-columns: 1fr;
+        }
+        .bento-large,
+        .bento-wide,
+        .bento-half {
+          grid-column: span 1;
+        }
+        .bento-card {
+          padding: 24px;
+        }
+
+        .location-strip {
+          flex-direction: column;
+          text-align: center;
+          gap: 15px;
+        }
+        .flag-pill {
+          margin-right: 0;
+        }
+        .brain-graphic {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P5GJHFS4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <!-- AMBIENT BACKGROUND -->
+    <div class="ambient-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+
+    <!-- HEADER INJECTION -->
+    <div id="header-placeholder"></div>
+
+    <section class="page-header container">
+      <div class="exam-badge">
+        <i class="fa-solid fa-graduation-cap"></i> AOA Certified Centers
+      </div>
+      <h1>360° Brain Development</h1>
+      <p>
+        Sophisticated Institution with well trained and fully equipped Faculty
+        of Coaches ensures <strong>100% Guaranteed Results</strong>. Choose only
+        ABACUS OLYMPIC ASSOCIATION CERTIFIED CENTERS.
+      </p>
+    </section>
+
+    <!-- INTRO GRID -->
+    <section class="bento-section container" style="padding-top: 0">
+      <div class="bento-grid">
+        <div class="bento-card bento-square">
+          <div class="icon-glass"><i class="fa-solid fa-brain"></i></div>
+          <h3>Concept</h3>
+          <p>Systematic mental math stimulating Left & Right Brain.</p>
+        </div>
+        <div class="bento-card bento-square">
+          <div class="icon-glass"><i class="fa-regular fa-clock"></i></div>
+          <h3>Schedule</h3>
+          <p>One 120-min class/week. Flexible batches.</p>
+        </div>
+        <div class="bento-card bento-square">
+          <div class="icon-glass"><i class="fa-solid fa-certificate"></i></div>
+          <h3>Success</h3>
+          <p>Certified Assessments after every level.</p>
+        </div>
+      </div>
+
+      <!-- METHODOLOGY LARGE CARD -->
+      <div class="bento-grid" style="grid-template-columns: 1fr">
+        <div class="bento-card bento-wide">
+          <div
+            class="bento-grid"
+            style="
+              grid-template-columns: repeat(2, 1fr);
+              margin-bottom: 0;
+              gap: 40px;
+              box-shadow: none;
+              border: none;
+              padding: 0;
+              background: transparent;
+              backdrop-filter: none;
+            "
+          >
+            <div>
+              <div class="icon-glass">
+                <i class="fa-solid fa-microscope"></i>
+              </div>
+              <h2>Real Benefits of Whole Brain Integration</h2>
+              <p>
+                Recent studies confirm that the
+                <strong>Abacus + Memory + Learning</strong> method develops the
+                Right Brain. Thinking in pictures leads to better understanding
+                and enhanced memory.
+              </p>
+
+              <div class="brain-graphic">
+                <div class="brain-side">
+                  <i class="fa-solid fa-cogs" style="color: var(--primary)"></i>
+                  <span>LEFT BRAIN</span>
+                  <small>Analytical Process</small>
+                </div>
+                <div style="font-weight: 800; color: #ccc">+</div>
+                <div class="brain-side">
+                  <i
+                    class="fa-solid fa-paint-brush"
+                    style="color: var(--accent)"
+                  ></i>
+                  <span>RIGHT BRAIN</span>
+                  <small>Creative Process</small>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <h3 style="margin-top: 15px">Magical Performance</h3>
+              <p style="margin-bottom: 25px">
+                Just as we focus on physical grooming,
+                <strong>Mental Strength</strong> is vital. Without it, reaching
+                goals is impossible. We build the mental resilience required to
+                reach a child's full potential in life.
+              </p>
+
+              <h3>Accuracy in Maths</h3>
+              <p style="margin-bottom: 25px">
+                Starting with the physical abacus, students progress to
+                performing complex 10-digit calculations
+                <strong>mentally</strong> without calculators. This expands
+                mental capacity and develops Memory, Concentration, Focus,
+                Speed, and Accuracy.
+              </p>
+
+              <h3>Training Makes it Easy</h3>
+              <p>
+                Fear of numbers vanishes; math becomes a fun-filled exercise.
+                Visualizing the abacus stimulates the brain to think, plan,
+                vision, and interpret thoughts spatially.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RULES & PROCEDURES GRID -->
+    <section class="bento-section container">
+      <div style="text-align: center; margin-bottom: 40px">
+        <h2 style="font-size: 36px">Rules & Procedures</h2>
+        <p>
+          Please read the following guidelines carefully to ensure a smooth
+          learning experience.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <!-- General Admin -->
+        <div class="bento-card bento-half">
+          <div
+            class="icon-glass"
+            style="width: 50px; height: 50px; font-size: 20px"
+          >
+            <i class="fa-solid fa-university"></i>
+          </div>
+          <h3>General & Administrative</h3>
+          <ul class="glass-list">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Re-registration:</strong> Needed if absent or withdrawn
+                for > 90 days.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Batch Management:</strong> Center reserves right to
+                merge or split batches.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Grade Sheets:</strong> Provided to parents. Answer
+                sheets are not shared.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Non-Compete:</strong> Materials cannot be used for
+                business or by competitor programs for 3 years after enrollment.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Student Duties -->
+        <div class="bento-card bento-half">
+          <div
+            class="icon-glass"
+            style="width: 50px; height: 50px; font-size: 20px"
+          >
+            <i class="fa-solid fa-user-graduate"></i>
+          </div>
+          <h3>Student Responsibilities</h3>
+          <ul class="glass-list">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Classroom Aids:</strong> Must bring pencil, eraser,
+                abacus, and workbooks.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Reporting Time:</strong> Report 5 minutes before class
+                starts.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Practice:</strong> 15-30 mins, 4 days a week. Complete
+                homework.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Consistency:</strong> Regular attendance is crucial for
+                development.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Parent Guidelines -->
+        <div class="bento-card bento-half">
+          <div
+            class="icon-glass"
+            style="width: 50px; height: 50px; font-size: 20px"
+          >
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3>Parental Guidelines</h3>
+          <ul class="glass-list">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Monitoring:</strong> Sign the back of each workbook
+                weekly.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Drop & Pick-up:</strong> Must be done inside the center
+                with sign-in/out.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Assessment Week:</strong> Classes last 1 to 1.5 hours.
+                Pick up early.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Contact Info:</strong> Notify us immediately of any
+                email/phone changes.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Leaves -->
+        <div class="bento-card bento-half">
+          <div
+            class="icon-glass"
+            style="width: 50px; height: 50px; font-size: 20px"
+          >
+            <i class="fa-solid fa-calendar-alt"></i>
+          </div>
+          <h3>Attendance & Leaves</h3>
+          <ul class="glass-list">
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Planned Absence:</strong> Notify 2 days in advance
+                (short leave) or 30 days (long).
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Make-up Classes:</strong> Scheduled only if notified 24
+                hours in advance.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Catch-up Classes:</strong> For students joining late or
+                falling behind.
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <div>
+                <strong>Holidays:</strong> Closings posted 7-14 days prior.
+                Make-Up Days will be arranged.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Levels Table (Spans full width at bottom) -->
+        <div class="bento-card bento-wide">
+          <h3 style="text-align: center; margin-bottom: 20px">
+            Program Levels Matrix
+          </h3>
+          <div class="glass-table-wrapper">
+            <table class="glass-table">
+              <thead>
+                <tr>
+                  <th>Age Group</th>
+                  <th>Total Levels</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>5+ to 7 Years</td>
+                  <td>10 Levels</td>
+                </tr>
+                <tr>
+                  <td>7+ to 10 Years</td>
+                  <td>9 Levels</td>
+                </tr>
+                <tr>
+                  <td>10+ to 15 Years</td>
+                  <td>8 Levels</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLOBAL CENTERS SECTION -->
+    <section class="bento-section container">
+      <div style="text-align: center; margin-bottom: 40px">
+        <div class="exam-badge" style="border-color: #3b82f6; color: #3b82f6">
+          <i class="fa-solid fa-earth-americas"></i> Company Managed
+        </div>
+        <h2 style="font-size: 36px">1Abacus Global Bases</h2>
+      </div>
+
+      <div class="bento-card">
+        <div class="location-strip">
+          <div class="flag-pill">IN - Delhi</div>
+          <div class="location-info">
+            <h4>Alok Kunj Base</h4>
+            <p>
+              <i
+                class="fa-solid fa-location-arrow"
+                style="font-size: 12px; color: var(--accent)"
+              ></i>
+              Sector 15, Rohini, Delhi
+            </p>
+          </div>
+          <a href="#" class="btn-explore">Explore Center</a>
+        </div>
+
+        <div class="location-strip">
+          <div class="flag-pill">IN - Delhi</div>
+          <div class="location-info">
+            <h4>Prashant Vihar</h4>
+            <p>
+              <i
+                class="fa-solid fa-location-arrow"
+                style="font-size: 12px; color: var(--accent)"
+              ></i>
+              Sector 14, Rohini, Delhi
+            </p>
+          </div>
+          <a href="#" class="btn-explore">Explore Center</a>
+        </div>
+
+        <div class="location-strip">
+          <div class="flag-pill">IN - UP</div>
+          <div class="location-info">
+            <h4>Pratap Vihar</h4>
+            <p>
+              <i
+                class="fa-solid fa-location-arrow"
+                style="font-size: 12px; color: var(--accent)"
+              ></i>
+              Ghaziabad, Uttar Pradesh
+            </p>
+          </div>
+          <a href="#" class="btn-explore">Explore Center</a>
+        </div>
+
+        <div class="location-strip">
+          <div class="flag-pill">IN - Delhi</div>
+          <div class="location-info">
+            <h4>Tagore Garden</h4>
+            <p>
+              <i
+                class="fa-solid fa-location-arrow"
+                style="font-size: 12px; color: var(--accent)"
+              ></i>
+              New Delhi
+            </p>
+          </div>
+          <a href="#" class="btn-explore">Explore Center</a>
+        </div>
+
+        <div class="location-strip">
+          <div class="flag-pill usa">USA</div>
+          <div class="location-info">
+            <h4>Charlotte Base</h4>
+            <p>
+              <i
+                class="fa-solid fa-location-arrow"
+                style="font-size: 12px; color: var(--accent)"
+              ></i>
+              North Carolina, USA
+            </p>
+          </div>
+          <a href="#" class="btn-explore">Explore Center</a>
+        </div>
+
+        <div class="location-strip">
+          <div class="flag-pill canada">Canada</div>
+          <div class="location-info">
+            <h4>Edmonton Base</h4>
+            <p>
+              <i
+                class="fa-solid fa-location-arrow"
+                style="font-size: 12px; color: var(--accent)"
+              ></i>
+              Alberta, Canada
+            </p>
+          </div>
+          <a href="#" class="btn-explore">Explore Center</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER INJECTION -->
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1773 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teaching Mastery Plan | Year 1 Curriculum | AOA Next-Gen</title>
+
+    <meta
+      name="description"
+      content="Year 1 Curriculum with 150+ Attachments. Exclusive school pedagogy curriculum by Jay Vardhan Rishi."
+    />
+
+    <meta name="referrer" content="no-referrer" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P5GJHFS4");
+    </script>
+
+    <style>
+      /* --- CLEAN PROFESSIONAL VARIABLES --- */
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+
+        /* Clean UI Colors */
+        --bg-base: #f4f7f6; /* Calmer, solid off-white background */
+        --surface: #ffffff; /* Crisp white cards */
+        --surface-border: #e2e8f0; /* Crisp, subtle slate border */
+
+        --text-main: #334155;
+        --text-heading: #0f172a;
+        --text-muted: #64748b;
+
+        --radius-lg: 16px; /* Slightly sharper corners for a professional look */
+        --shadow-soft:
+          0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        --shadow-hover:
+          0 10px 25px -5px rgba(0, 0, 0, 0.08),
+          0 8px 10px -6px rgba(0, 0, 0, 0.04);
+
+        /* Icon & Category Colors */
+        --video-color: #3b82f6;
+        --pdf-color: #ef4444;
+        --game-color: #f59e0b;
+        --biz-color: #10b981;
+      }
+
+      /* --- GLOBAL STYLES --- */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-base);
+        -webkit-font-smoothing: antialiased;
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      span,
+      div {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+      p {
+        color: var(--text-muted);
+        margin-top: 0;
+        font-size: 15px;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+      }
+
+      /* --- HEADER & FOOTER CSS (REQUIRED FOR INJECTION) --- */
+      .nav-container {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 48px);
+        max-width: 1200px;
+        z-index: 1000;
+      }
+      header {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid var(--surface-border);
+        border-radius: 100px;
+        padding: 12px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: var(--shadow-soft);
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      .logo img {
+        height: 45px;
+        width: auto;
+        object-fit: contain;
+      }
+      nav ul {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      nav a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-heading);
+        white-space: nowrap;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      nav a:hover {
+        color: var(--accent);
+      }
+      .search-pill {
+        background: #f1f5f9;
+        border: 1px solid var(--surface-border);
+        padding: 8px 16px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .search-pill input {
+        border: none;
+        background: transparent;
+        outline: none;
+        font-family: "Inter", sans-serif;
+        width: 120px;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: var(--primary);
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 1000;
+      }
+      .float-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        background: #fff;
+        border: 1px solid var(--surface-border);
+        box-shadow: var(--shadow-soft);
+        color: var(--primary);
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .float-btn:hover {
+        transform: scale(1.1) translateY(-5px);
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: var(--shadow-hover);
+      }
+
+      footer {
+        background: var(--primary-dark);
+        color: #fff;
+        padding: 80px 0 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 40px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+        max-width: 1200px;
+        margin: 0 auto 60px auto;
+        padding: 0 24px;
+      }
+      .footer-col h4 {
+        font-family: "Inter", sans-serif;
+        color: var(--accent);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+      }
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a,
+      .footer-col p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .footer-col ul li a:hover {
+        color: #fff;
+        padding-left: 5px;
+      }
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .social-links a:hover {
+        background: var(--accent);
+        transform: translateY(-3px);
+      }
+      .payment-icons i {
+        font-size: 32px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-right: 12px;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 30px 24px 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .language-selector {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .language-selector span {
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+      .language-selector a {
+        color: rgba(255, 255, 255, 0.7);
+        padding: 0 8px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .language-selector a:last-child {
+        border-right: none;
+      }
+      .language-selector a:hover {
+        color: #fff;
+      }
+
+      /* --- PAGE HEADER & ADVISORY --- */
+      .page-header {
+        text-align: center;
+        padding: 140px 0 40px;
+      }
+      .page-header h1 {
+        font-size: 42px;
+        letter-spacing: -1px;
+        margin-bottom: 12px;
+        color: var(--text-heading);
+      }
+      .page-header h2 {
+        font-size: 16px;
+        color: var(--text-muted);
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+      }
+
+      .badge-label {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid var(--surface-border);
+        color: var(--primary);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .advisory-box {
+        background: var(--surface);
+        border: 1px solid var(--surface-border);
+        border-left: 4px solid var(--accent);
+        padding: 24px 32px;
+        border-radius: 12px;
+        margin: 0 auto 60px;
+        max-width: 900px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      /* --- CLEAN BENTO GRIDS --- */
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .bento-card {
+        position: relative;
+        background: var(--surface);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        box-shadow: var(--shadow-soft);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        border-top: 4px solid var(--primary);
+      }
+      .bento-card:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-hover);
+      }
+
+      /* Floating Badges */
+      .chapter-badge {
+        position: absolute;
+        top: -12px;
+        right: 24px;
+        background: var(--primary);
+        color: white;
+        padding: 4px 14px;
+        font-size: 11px;
+        font-weight: 700;
+        border-radius: 20px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        box-shadow: 0 4px 6px rgba(27, 77, 62, 0.2);
+      }
+
+      /* Special Card Themes */
+      .card-bonus {
+        border-top-color: var(--game-color);
+      }
+      .card-bonus .chapter-badge {
+        background: var(--game-color);
+        box-shadow: 0 4px 6px rgba(245, 158, 11, 0.2);
+      }
+
+      .card-assessment {
+        border-top-color: var(--pdf-color);
+      }
+      .card-assessment .chapter-badge {
+        background: var(--pdf-color);
+        box-shadow: 0 4px 6px rgba(239, 68, 68, 0.2);
+      }
+
+      .card-support {
+        border-top: none;
+        background: var(--primary-dark);
+        color: white;
+      }
+      .card-support .chapter-badge {
+        background: var(--accent);
+        color: var(--primary-dark);
+        box-shadow: 0 4px 6px rgba(197, 160, 89, 0.2);
+      }
+      .bento-large {
+        grid-column: span 2;
+      }
+
+      .card-header {
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #f1f5f9;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .card-support .card-header {
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .icon-box {
+        width: 48px;
+        height: 48px;
+        background: #f1f5f9; /* Soft clean gray */
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+        color: var(--primary);
+      }
+      .card-bonus .icon-box {
+        background: #fef3c7;
+        color: var(--game-color);
+      }
+      .card-assessment .icon-box {
+        background: #fee2e2;
+        color: var(--pdf-color);
+      }
+      .card-support .icon-box {
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+      }
+
+      .card-header h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0;
+        color: var(--text-heading);
+      }
+      .card-support .card-header h3 {
+        color: white;
+      }
+      .file-count {
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--text-muted);
+        display: block;
+        margin-top: 4px;
+      }
+      .card-support .file-count {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Lists inside Cards */
+      .clean-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+      }
+      .clean-list li {
+        margin-bottom: 16px;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #f1f5f9;
+      }
+      .card-support .clean-list li {
+        border-bottom-color: rgba(255, 255, 255, 0.05);
+      }
+      .clean-list li:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border: none;
+      }
+
+      .lesson-icon {
+        font-size: 16px;
+        margin-top: 2px;
+        flex-shrink: 0;
+        width: 24px;
+        text-align: center;
+      }
+      .i-vid {
+        color: var(--video-color);
+      }
+      .i-pdf {
+        color: var(--pdf-color);
+      }
+      .i-game {
+        color: var(--game-color);
+      }
+      .i-biz {
+        color: var(--accent);
+      }
+
+      .lesson-content {
+        flex: 1;
+      }
+      .lesson-category {
+        font-size: 11px;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: var(--text-muted);
+        display: block;
+        margin-bottom: 4px;
+        letter-spacing: 0.5px;
+      }
+      .card-support .lesson-category {
+        color: rgba(255, 255, 255, 0.5);
+      }
+      .lesson-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-main);
+        line-height: 1.4;
+      }
+      .card-support .lesson-title {
+        color: white;
+      }
+
+      /* --- BOTTOM NAVIGATION --- */
+      .back-wrapper {
+        text-align: center;
+        margin: 60px 0 80px;
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        color: var(--text-heading);
+        padding: 14px 28px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 14px;
+        border: 1px solid var(--surface-border);
+        box-shadow: var(--shadow-soft);
+        transition: 0.3s;
+      }
+      .back-btn:hover {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      /* --- MOBILE RESPONSIVENESS --- */
+      @media (max-width: 992px) {
+        .bento-large {
+          grid-column: span 1;
+        }
+      }
+      @media (max-width: 768px) {
+        /* Header Mobile */
+        header {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 12px 24px;
+          border-radius: 50px;
+        }
+        .logo img {
+          height: 35px;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .nav-divider {
+          display: none;
+        }
+        nav.nav-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          margin-top: 15px;
+          background: #fff;
+          border: 1px solid var(--surface-border);
+          border-radius: 20px;
+          padding: 24px;
+          box-shadow: var(--shadow-hover);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+        }
+        nav.nav-menu.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          width: 100%;
+        }
+        nav ul li {
+          width: 100%;
+        }
+        nav a {
+          display: block;
+          padding: 12px 0;
+          font-size: 16px;
+        }
+        .search-pill {
+          width: 100%;
+          justify-content: flex-start;
+          margin-top: 10px;
+        }
+        .search-pill input {
+          width: 100%;
+        }
+
+        /* Buttons Mobile */
+        .floating-buttons {
+          bottom: 20px;
+          right: 20px;
+          gap: 10px;
+        }
+        .float-btn {
+          width: 45px;
+          height: 45px;
+          font-size: 18px;
+        }
+
+        /* Content Mobile */
+        .page-header {
+          padding-top: 120px;
+        }
+        .page-header h1 {
+          font-size: 30px;
+        }
+        .page-header h2 {
+          font-size: 14px;
+        }
+        div[style*="grid-template-columns"],
+        .bento-grid {
+          display: flex !important;
+          flex-direction: column !important;
+          width: 100% !important;
+        }
+        .container {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+        .bento-card {
+          padding: 24px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+        .advisory-box {
+          padding: 20px;
+          text-align: center;
+        }
+        * {
+          min-width: 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-col ul li a {
+          display: inline-block;
+          padding: 8px 0;
+        }
+        .language-selector a {
+          display: inline-block;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P5GJHFS4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <div id="header-placeholder"></div>
+
+    <section class="page-header container">
+      <span class="badge-label"
+        ><i
+          class="fa-solid fa-star"
+          style="color: var(--accent); margin-right: 5px"
+        ></i
+        >AOA Next-Gen Platform</span
+      >
+      <h1>Teaching Mastery Plan</h1>
+      <h2>Year 1 Curriculum • 150+ Attachments • By Jay Vardhan Rishi</h2>
+    </section>
+
+    <section class="container">
+      <div class="advisory-box">
+        <span
+          style="
+            display: block;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-size: 14px;
+            letter-spacing: 1px;
+          "
+          ><i class="fa-solid fa-lightbulb" style="color: var(--accent)"></i>
+          Year 1 Training is Crucial</span
+        >
+        <p style="margin-bottom: 10px; color: var(--text-main)">
+          The <strong>Abacus Olympic Association</strong> highly recommends a
+          5-year program for students from UKG to 5th Standard.
+        </p>
+        <p style="margin: 0">
+          This exclusive, one-of-a-kind exercise curriculum approach handles all
+          the complexities of running Abacus classes in schools. It is designed
+          to easily accommodate challenges, bridging the gap between the unique
+          school ecosystem and traditional private after-school classes.
+        </p>
+      </div>
+    </section>
+
+    <section class="container" style="padding-bottom: 60px">
+      <div class="bento-grid">
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 01</div>
+          <div class="card-header">
+            <div class="icon-box">
+              <i class="fa-solid fa-hand-sparkles"></i>
+            </div>
+            <div>
+              <h3>Mastery Lessons: Month 1</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 15 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Hello, Abacus!</span>
+                <div class="lesson-title">L1.1.1 Abacus is friend</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.1.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Reading on Abacus</span>
+                <div class="lesson-title">L1.1.2 Beads & Value</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.1.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Technique</span>
+                <div class="lesson-title">L1.1.3 Pencil Holding Rules</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.1.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Abacus Fingers</span>
+                <div class="lesson-title">L1.1.4 Abacus Fingers</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.1.4 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Mastery</span>
+                <div class="lesson-title">
+                  L1.1.5 Mastering Finger Techniques
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.1.5 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 02</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-globe-asia"></i></div>
+            <div>
+              <h3>Mastery Lessons: Month 2</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 10 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Earth Beads</span>
+                <div class="lesson-title">L1.2.1 Unleashing earth beads</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.2.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Cognitive</span>
+                <div class="lesson-title">L1.2.2 Fingers have mind too</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.2.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Flash Memory</span>
+                <div class="lesson-title">
+                  L1.2.3 Time to play with flash memory
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  L1.2.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 2
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 03</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-calculator"></i></div>
+            <div>
+              <h3>Mastery Lessons: Month 3</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 14 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Operations</span>
+                <div class="lesson-title">L1.3.1 Gaining, More, Plus</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.3.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Operations</span>
+                <div class="lesson-title">L1.3.2 Losing, Less, Minus</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.3.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Drills</span>
+                <div class="lesson-title">L1.3.3 Drilling to skill</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.3.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Visualization</span>
+                <div class="lesson-title">
+                  L1.3.4 Visualization On Image Of Abacus
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.3.4 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">XTRA Lesson mastering activities</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 3
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 04</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-cloud-sun"></i></div>
+            <div>
+              <h3>Mastery Lessons: Month 4</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 10 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Concepts</span>
+                <div class="lesson-title">L1.4.1 Heaven and Earth</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.4.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Connection</span>
+                <div class="lesson-title">L1.4.2 Finger and mind Again</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.4.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Identity</span>
+                <div class="lesson-title">L1.4.3 Identify who am I</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.4.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 4
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 05</div>
+          <div class="card-header">
+            <div class="icon-box">
+              <i class="fa-solid fa-puzzle-piece"></i>
+            </div>
+            <div>
+              <h3>Mastery Lessons: Month 5</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 13 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Operations</span>
+                <div class="lesson-title">L1.5.1 Everyone loves gaining</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.5.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Operations</span>
+                <div class="lesson-title">L1.5.2 A Big Loss</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.5.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Up-Skill</span>
+                <div class="lesson-title">L1.5.3 Time to up-skill further</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.5.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Gamification</span>
+                <div class="lesson-title">L1.5.4 Playing with Image Cards</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.5.4 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 5
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card card-bonus">
+          <div class="chapter-badge">Bonus</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-gamepad"></i></div>
+            <div>
+              <h3>Game Set 1</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-star"></i> Interactive</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-gamepad lesson-icon i-game"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">Bonus 1: Image Abacus Cards Game</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 06</div>
+          <div class="card-header">
+            <div class="icon-box">
+              <i class="fa-solid fa-people-arrows"></i>
+            </div>
+            <div>
+              <h3>Mastery Lessons: Month 6</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 14 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Synchronicity</span>
+                <div class="lesson-title">
+                  L1.6.1 Two hearts beating together
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.6.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Coordination</span>
+                <div class="lesson-title">
+                  L1.6.2 When two peas find their pod
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.6.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Growth</span>
+                <div class="lesson-title">
+                  L1.6.3 Two minds, one leap forward
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.6.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Progression</span>
+                <div class="lesson-title">L1.6.4 Time to grow up now</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Focus</span>
+                <div class="lesson-title">
+                  L1.6.5 Day dreaming, everyone does it
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 6
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card card-bonus">
+          <div class="chapter-badge">Bonus</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-gamepad"></i></div>
+            <div>
+              <h3>Game Set 2</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-star"></i> Interactive</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-gamepad lesson-icon i-game"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">Bonus 2: Image Abacus Cards Game</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 07</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-music"></i></div>
+            <div>
+              <h3>Mastery Lessons: Month 7</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 10 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Concepts</span>
+                <div class="lesson-title">L1.7.1 Number are solid</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.7.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Symphony</span>
+                <div class="lesson-title">L1.7.2 Solid Number Symphony</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.7.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Excellence</span>
+                <div class="lesson-title">
+                  L1.7.3 A Journey to Mental Arithmetic
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.7.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 7
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card card-bonus">
+          <div class="chapter-badge">Bonus</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-gamepad"></i></div>
+            <div>
+              <h3>Game Set 3</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-star"></i> Interactive</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-gamepad lesson-icon i-game"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">Bonus 3: Image Abacus Cards Game</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 08</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-brain"></i></div>
+            <div>
+              <h3>Mastery Lessons: Month 8</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 10 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Drills</span>
+                <div class="lesson-title">L1.8.1 Practices and Exercises</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.8.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Mental Math</span>
+                <div class="lesson-title">
+                  L1.8.2 Boost Your Mental Math Skills
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.8.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Wisdom</span>
+                <div class="lesson-title">
+                  L1.8.3 Silence is Gold, Speech is Silver
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.8.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 8
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 09</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-rocket"></i></div>
+            <div>
+              <h3>Mastery Lessons: Month 9</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 10 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Sharp Minds</span>
+                <div class="lesson-title">L1.9.1 Fast Fingers, Sharp Minds</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.9.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Speed</span>
+                <div class="lesson-title">L1.9.2 Fastest finger is 1st</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.9.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Imaging</span>
+                <div class="lesson-title">L1.9.3 Time to Image Abacus</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.9.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 9
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card">
+          <div class="chapter-badge">Chapter 10</div>
+          <div class="card-header">
+            <div class="icon-box"><i class="fa-solid fa-trophy"></i></div>
+            <div>
+              <h3>Mastery Lessons: Month 10</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 10 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Perfection</span>
+                <div class="lesson-title">L1.10.1 Practice makes perfect</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.10.1 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Unplugged</span>
+                <div class="lesson-title">L1.10.2 The Abacus Unplugged</div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.10.2 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-circle-play lesson-icon i-vid"></i>
+              <div class="lesson-content">
+                <span class="lesson-category">Secrets</span>
+                <div class="lesson-title">
+                  L1.10.3 Unlock Lightning-Fast Math
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  1.10.3 Lesson mastering activities
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Practice Post Training - Year 1 Month 10
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card card-assessment">
+          <div class="chapter-badge">Assessment</div>
+          <div class="card-header">
+            <div class="icon-box">
+              <i class="fa-solid fa-clipboard-check"></i>
+            </div>
+            <div>
+              <h3>Milestone Evaluation</h3>
+              <span class="file-count"
+                ><i class="fa-solid fa-paperclip"></i> 3 files</span
+              >
+            </div>
+          </div>
+          <ul class="clean-list">
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Year 1 Completion Milestone Test 1
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Year 1 Completion Milestone Test 2
+                </div>
+              </div>
+            </li>
+            <li>
+              <i class="fa-solid fa-file-pdf lesson-icon i-pdf"></i>
+              <div class="lesson-content">
+                <div class="lesson-title">
+                  Year 1 Completion Milestone Test 3
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bento-card card-support bento-large">
+          <div class="chapter-badge">Support</div>
+          <div class="card-header">
+            <div class="icon-box">
+              <i class="fa-solid fa-handshake-angle"></i>
+            </div>
+            <div>
+              <h3>Educational Moderator</h3>
+              <span class="file-count"
+                >One-On-One Live with Chief Mentor Jay Vardhan Rishi</span
+              >
+            </div>
+          </div>
+          <div
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+              gap: 0 30px;
+            "
+          >
+            <ul class="clean-list">
+              <li>
+                <i class="fa-solid fa-briefcase lesson-icon i-biz"></i>
+                <div class="lesson-content">
+                  <span class="lesson-category">Business</span>
+                  <div class="lesson-title">
+                    Understand Feasibility in a School
+                  </div>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-briefcase lesson-icon i-biz"></i>
+                <div class="lesson-content">
+                  <span class="lesson-category">Administration</span>
+                  <div class="lesson-title">
+                    Delivering in line with School Administration
+                  </div>
+                </div>
+              </li>
+            </ul>
+            <ul class="clean-list">
+              <li>
+                <i class="fa-solid fa-briefcase lesson-icon i-biz"></i>
+                <div class="lesson-content">
+                  <span class="lesson-category">Operations</span>
+                  <div class="lesson-title">Fit Perfect In a School</div>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-briefcase lesson-icon i-biz"></i>
+                <div class="lesson-content">
+                  <span class="lesson-category">Finance</span>
+                  <div class="lesson-title">Calculate Cost of Course</div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container back-wrapper">
+      <a
+        href="/institutional/teaching-abacus-made-easy-in-schools/"
+        class="back-btn"
+      >
+        <i class="fa-solid fa-arrow-left"></i> Back to Main Page
+      </a>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+    <script>
+      // Mobile Menu Toggle Script
+      document.addEventListener("DOMContentLoaded", () => {
+        // Wait a slight moment for header.js to inject the HTML
+        setTimeout(() => {
+          const menuBtn = document.querySelector(".menu-toggle");
+          const navMenu = document.querySelector(".nav-menu");
+          if (menuBtn && navMenu) {
+            const icon = menuBtn.querySelector("i");
+            menuBtn.addEventListener("click", () => {
+              navMenu.classList.toggle("active");
+              if (navMenu.classList.contains("active")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+              } else {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+              }
+            });
+          }
+        }, 500); // 500ms delay to ensure DOM is populated by header.js
+      });
+    </script>
+  </body>
+</html>

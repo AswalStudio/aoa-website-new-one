@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Terms & Policies | Abacus Olympic Association</title>
+    <meta
+      name="description"
+      content="Terms and Conditions, Cancellation, and Refund Policies for Abacus Olympic Association."
+    />
+
+    <meta name="referrer" content="no-referrer" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P5GJHFS4");
+    </script>
+
+    <style>
+      /* --- NEXT-GEN VARIABLES --- */
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --accent-glow: rgba(197, 160, 89, 0.4);
+        --bg-base: #f8fafc;
+        --surface: rgba(255, 255, 255, 0.7);
+        --surface-border: rgba(255, 255, 255, 0.4);
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --glass-blur: blur(20px);
+        --radius-lg: 32px;
+        --radius-md: 20px;
+        --shadow-soft: 0 20px 40px -10px rgba(27, 77, 62, 0.08);
+      }
+
+      /* --- GLOBAL & ANIMATED BACKGROUND --- */
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.8;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        background-color: var(--bg-base);
+        background-image:
+          radial-gradient(
+            at 0% 0%,
+            rgba(197, 160, 89, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 0%,
+            rgba(27, 77, 62, 0.08) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 100%,
+            rgba(197, 160, 89, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(27, 77, 62, 0.08) 0px,
+            transparent 50%
+          );
+        background-attachment: fixed;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      /* --- FLOATING GLASS NAV (RESTORED) --- */
+      .nav-container {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100% - 48px);
+        max-width: 1200px;
+        z-index: 1000;
+      }
+      header {
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        border-radius: 100px;
+        padding: 12px 32px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: var(--shadow-soft);
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      .logo img {
+        height: 45px;
+        width: auto;
+        object-fit: contain;
+      }
+      nav ul {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        align-items: center;
+      }
+      nav a {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--text-main);
+        white-space: nowrap;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      nav a:hover {
+        color: var(--accent);
+      }
+      .search-pill {
+        background: rgba(255, 255, 255, 0.5);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        padding: 8px 16px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .search-pill input {
+        border: none;
+        background: transparent;
+        outline: none;
+        font-family: "Inter", sans-serif;
+        width: 120px;
+      }
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 24px;
+        color: var(--primary);
+        cursor: pointer;
+        padding: 0;
+      }
+
+      /* --- NEXT-GEN FLOATING BUTTONS (RESTORED) --- */
+      .floating-buttons {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        z-index: 1000;
+      }
+      .float-btn {
+        width: 55px;
+        height: 55px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 22px;
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        box-shadow: var(--shadow-soft);
+        color: var(--primary);
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        text-decoration: none;
+      }
+      .float-btn:hover {
+        transform: scale(1.1) translateY(-5px);
+        background: var(--primary);
+        color: white;
+        border-color: var(--primary);
+        box-shadow: 0 15px 25px rgba(27, 77, 62, 0.3);
+      }
+
+      /* --- NEXT-GEN DARK FOOTER (RESTORED) --- */
+      footer {
+        background: var(--primary-dark);
+        color: #fff;
+        padding: 80px 0 40px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 40px;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 40px;
+        margin-bottom: 60px;
+        max-width: 1200px;
+        margin: 0 auto 60px auto;
+        padding: 0 24px;
+      }
+      .footer-col h4 {
+        font-family: "Inter", sans-serif;
+        color: var(--accent);
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 24px;
+      }
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      .footer-col ul li {
+        margin-bottom: 12px;
+      }
+      .footer-col ul li a,
+      .footer-col p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 15px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      .footer-col ul li a:hover {
+        color: #fff;
+        padding-left: 5px;
+      }
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+      .social-links a:hover {
+        background: var(--accent);
+        transform: translateY(-3px);
+      }
+      .payment-icons i {
+        font-size: 32px;
+        color: rgba(255, 255, 255, 0.5);
+        margin-right: 12px;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 30px 24px 0 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.5);
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .language-selector {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .language-selector span {
+        color: var(--accent);
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 12px;
+        letter-spacing: 1px;
+      }
+      .language-selector a {
+        color: rgba(255, 255, 255, 0.7);
+        padding: 0 8px;
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .language-selector a:last-child {
+        border-right: none;
+      }
+      .language-selector a:hover {
+        color: #fff;
+      }
+
+      /* --- TYPOGRAPHY & POLICY LAYOUT --- */
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        margin: 2.5rem 0 1rem 0;
+        line-height: 1.3;
+      }
+      h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+      }
+      h2 {
+        font-size: 1.75rem;
+        border-bottom: 1px solid var(--surface-border);
+        padding-bottom: 0.5rem;
+      }
+      h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 1.25rem;
+        color: var(--text-main);
+        margin: 2rem 0 1rem 0;
+        font-weight: 600;
+      }
+      p {
+        color: var(--text-muted);
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        font-size: 1.05rem;
+      }
+      strong {
+        color: var(--text-main);
+        font-weight: 600;
+      }
+      ul.policy-list {
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        color: var(--text-muted);
+      }
+      ul.policy-list li {
+        margin-bottom: 0.75rem;
+        font-size: 1.05rem;
+      }
+
+      blockquote {
+        background: rgba(27, 77, 62, 0.05);
+        border-left: 4px solid var(--accent);
+        padding: 16px 24px;
+        margin: 0 0 1.5rem 0;
+        font-style: italic;
+        color: var(--text-main);
+        border-radius: 0 8px 8px 0;
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid var(--surface-border);
+        margin: 40px 0;
+      }
+
+      .legal-section {
+        padding: 140px 24px 80px;
+      }
+      .legal-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        padding: 60px 80px;
+        box-shadow: var(--shadow-soft);
+      }
+      .legal-header {
+        text-align: center;
+        margin-bottom: 40px;
+        padding-bottom: 40px;
+        border-bottom: 2px solid var(--accent);
+      }
+      .last-updated {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.5);
+        padding: 6px 16px;
+        border-radius: 50px;
+        border: 1px solid var(--accent);
+      }
+
+      /* --- RESPONSIVE ENHANCEMENTS --- */
+      @media (max-width: 768px) {
+        /* Policy Mobile */
+        .legal-section {
+          padding: 120px 16px 40px;
+        }
+        .legal-container {
+          padding: 40px 24px;
+          border-radius: var(--radius-md);
+        }
+        h1 {
+          font-size: 2rem;
+        }
+        h2 {
+          font-size: 1.5rem;
+        }
+
+        /* Header Mobile */
+        header {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          padding: 12px 24px;
+          border-radius: 50px;
+        }
+        .logo img {
+          height: 35px;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        .nav-divider {
+          display: none;
+        }
+        nav.nav-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          margin-top: 15px;
+          background: var(--surface);
+          backdrop-filter: var(--glass-blur);
+          -webkit-backdrop-filter: var(--glass-blur);
+          border: 1px solid var(--surface-border);
+          border-radius: 20px;
+          padding: 24px;
+          box-shadow: var(--shadow-soft);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: all 0.3s ease;
+        }
+        nav.nav-menu.active {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+        nav ul {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 10px;
+          width: 100%;
+        }
+        nav ul li {
+          width: 100%;
+        }
+        nav a {
+          display: block;
+          padding: 12px 0;
+          font-size: 16px;
+        }
+        .search-pill {
+          width: 100%;
+          justify-content: flex-start;
+          margin-top: 10px;
+        }
+        .search-pill input {
+          width: 100%;
+        }
+
+        /* Buttons Mobile */
+        .floating-buttons {
+          bottom: 20px;
+          right: 20px;
+          gap: 10px;
+        }
+        .float-btn {
+          width: 45px;
+          height: 45px;
+          font-size: 18px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .footer-col ul li a {
+          display: inline-block;
+          padding: 8px 0;
+        }
+        .language-selector a {
+          display: inline-block;
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P5GJHFS4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <div id="header-placeholder"></div>
+
+    <section class="legal-section">
+      <div class="legal-container">
+        <div class="legal-header">
+          <h1>Terms & Policies</h1>
+          <div class="last-updated">
+            <i class="fa-solid fa-file-contract"></i> Official Legal Document
+          </div>
+        </div>
+
+        <h2>Terms & Conditions</h2>
+
+        <p>
+          For the purpose of these Terms and Conditions, the term
+          <strong>"we"</strong>, <strong>"us"</strong>, and
+          <strong>"our"</strong> used anywhere on this page shall mean
+          <strong>1Abacus</strong> (also operating as
+          <strong>Abacus Olympic Association</strong>), whose
+          registered/operational office is:
+        </p>
+
+        <blockquote>
+          PEARLS OMAXE, NETAJI SUBHASH PLACE, PITAMPURA, SHOP NO. SF-44, Delhi,
+          North West Delhi, SECOND FLOOR, 110034, Delhi, DELHI 110034.
+        </blockquote>
+
+        <p>
+          <strong>"You"</strong>, <strong>"your"</strong>,
+          <strong>"user"</strong>, and <strong>"visitor"</strong> shall mean any
+          natural or legal person who is visiting our website and/or has agreed
+          to purchase from us.
+        </p>
+
+        <p>
+          Your use of the website and/or purchase from us are governed by the
+          following Terms and Conditions:
+        </p>
+
+        <ul class="policy-list">
+          <li>
+            <strong>Content Subject to Change:</strong> The content of the pages
+            of this website is subject to change without notice.
+          </li>
+          <li>
+            <strong>No Warranties:</strong> Neither we nor any third parties
+            provide any warranty or guarantee as to the accuracy, timeliness,
+            performance, completeness, or suitability of the information and
+            materials found or offered on this website for any particular
+            purpose. You acknowledge that such information and materials may
+            contain inaccuracies or errors, and we expressly exclude liability
+            for any such inaccuracies or errors to the fullest extent permitted
+            by law.
+          </li>
+          <li>
+            <strong>User Responsibility:</strong> Your use of any information or
+            materials on our website and/or product pages is entirely at your
+            own risk, for which we shall not be liable. It shall be your own
+            responsibility to ensure that any products, services, or information
+            available through our website meet your specific requirements.
+          </li>
+          <li>
+            <strong>Intellectual Property:</strong> Our website contains
+            material which is owned by or licensed to us. This material
+            includes, but is not limited to, the design, layout, look,
+            appearance, and graphics. Reproduction is prohibited other than in
+            accordance with the copyright notice, which forms part of these
+            terms and conditions.
+          </li>
+          <li>
+            <strong>Trademarks:</strong> All trademarks reproduced in our
+            website which are not the property of, or licensed to, the operator
+            are acknowledged on the website.
+          </li>
+          <li>
+            <strong>Unauthorized Use:</strong> Unauthorized use of information
+            provided by us shall give rise to a claim for damages and/or be a
+            criminal offense.
+          </li>
+          <li>
+            <strong>External Links:</strong> From time to time, our website may
+            also include links to other websites. These links are provided for
+            your convenience to provide further information.
+          </li>
+          <li>
+            <strong>Backlinking:</strong> You may not create a link to our
+            website from another website or document without the prior written
+            consent of <strong>1Abacus</strong> and
+            <strong>Abacus Olympic Association</strong>.
+          </li>
+          <li>
+            <strong>Governing Law:</strong> Any dispute arising out of use of
+            our website and/or purchase with us and/or any engagement with us is
+            subject to the <strong>laws of India</strong>.
+          </li>
+          <li>
+            <strong>Transaction Liability:</strong> We shall be under no
+            liability whatsoever in respect of any loss or damage arising
+            directly or indirectly out of the decline of authorization for any
+            transaction, on account of the cardholder having exceeded the preset
+            limit mutually agreed by us with our acquiring bank from time to
+            time.
+          </li>
+        </ul>
+
+        <hr />
+
+        <h2>Cancellation & Refund Policy</h2>
+
+        <p>
+          At <strong>1Abacus</strong> and
+          <strong>Abacus Olympic Association</strong>, we strive to provide
+          high-quality digital solutions and personalized services. Because our
+          business model involves the delivery of intangible goods and
+          customized service setups, we adhere to the following policy:
+        </p>
+
+        <h3>1. No Cancellations</h3>
+        <p>
+          Due to the nature of our services, we do not offer cancellations once
+          an order has been placed.
+        </p>
+        <ul class="policy-list">
+          <li>
+            <strong>Intangible/Digital Goods:</strong> Many of our services are
+            delivered as soft copies or digital assets. Once access is granted
+            or the file is dispatched, the service is considered "consumed."
+          </li>
+          <li>
+            <strong>Immediate Processing:</strong> To ensure fast delivery, our
+            team begins work on your order immediately upon receipt.
+          </li>
+        </ul>
+
+        <h3>2. No Refunds</h3>
+        <p>
+          <strong>All sales are final.</strong> We do not offer refunds for any
+          services or products purchased through our website.
+        </p>
+        <ul class="policy-list">
+          <li>
+            <strong>White-Labeling:</strong> Our services often require
+            significant "white-labeling" and custom configuration specifically
+            for your brand. This process involves dedicated labor and resources
+            that cannot be recovered or reused for other clients.
+          </li>
+          <li>
+            <strong>Digital Nature:</strong> As our products are non-tangible
+            and irrevocable, we do not issue refunds once the order is processed
+            or the digital product is delivered.
+          </li>
+        </ul>
+
+        <h3>3. Quality Assurance</h3>
+        <p>
+          While we do not offer refunds, your satisfaction is important to us.
+          If you believe there is a technical error or the service delivered
+          does not match the specifications agreed upon:
+        </p>
+        <ul class="policy-list">
+          <li>
+            Please contact our Customer Service team within
+            <strong>24 hours</strong> of receiving your service or product.
+          </li>
+          <li>
+            Our management team will review the case and, at its sole
+            discretion, may offer a correction or revision to ensure the
+            deliverable meets the original project scope.
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+    <script>
+      // Mobile Menu Toggle Script
+      document.addEventListener("DOMContentLoaded", () => {
+        // Wait a slight moment for header.js to inject the HTML
+        setTimeout(() => {
+          const menuBtn = document.querySelector(".menu-toggle");
+          const navMenu = document.querySelector(".nav-menu");
+          if (menuBtn && navMenu) {
+            const icon = menuBtn.querySelector("i");
+            menuBtn.addEventListener("click", () => {
+              navMenu.classList.toggle("active");
+              if (navMenu.classList.contains("active")) {
+                icon.classList.remove("fa-bars");
+                icon.classList.add("fa-xmark");
+              } else {
+                icon.classList.remove("fa-xmark");
+                icon.classList.add("fa-bars");
+              }
+            });
+          }
+        }, 500); // 500ms delay to ensure DOM is populated by header.js
+      });
+    </script>
+  </body>
+</html>

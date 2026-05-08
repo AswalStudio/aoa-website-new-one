@@ -1,0 +1,989 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Teaching Abacus Made Easy in Schools | AOA Next-Gen</title>
+
+    <meta
+      name="description"
+      content="Mastering the Classroom: Specialized pedagogy required for the fast-paced school ecosystem. Bridge the gap between traditional knowledge and modern classroom management."
+    />
+
+    <!-- Next-Gen Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P5GJHFS4");
+    </script>
+
+    <style>
+      /* --- NEXT-GEN VARIABLES --- */
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --bg-base: #f8fafc;
+        --surface: rgba(255, 255, 255, 0.85);
+        --surface-border: rgba(255, 255, 255, 0.5);
+        --text-main: #0f172a;
+        --text-muted: #475569;
+        --glass-blur: blur(24px);
+        --radius-lg: 24px;
+        --shadow-soft: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+
+        /* Education Colors */
+        --edu-mint: #f0fdf4;
+        --edu-mustard: #d97706;
+        --edu-gold: #fbbf24;
+      }
+
+      /* --- GLOBAL STYLES (Mobile Overflow Strictly Fixed) --- */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.7;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-base);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(
+            at 0% 0%,
+            rgba(197, 160, 89, 0.08) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 0%,
+            rgba(27, 77, 62, 0.05) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 100%,
+            rgba(217, 119, 6, 0.04) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(251, 191, 36, 0.04) 0px,
+            transparent 50%
+          );
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      span,
+      div {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+      p {
+        color: var(--text-muted);
+        margin-top: 0;
+        font-size: 15px;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+      }
+
+      /* --- PAGE HEADER --- */
+      .page-header {
+        text-align: center;
+        padding: 100px 0 40px;
+      }
+      .page-header h1 {
+        font-size: 48px;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+      }
+      .page-header h2 {
+        font-size: 18px;
+        color: var(--text-muted);
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .badge-label {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid var(--accent);
+        color: var(--primary);
+        padding: 8px 20px;
+        border-radius: 50px;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      /* Section Divider */
+      .section-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        margin: 80px 0 40px;
+        font-family: "Cinzel", serif;
+        font-size: 32px;
+        color: var(--primary);
+        font-weight: 700;
+        text-align: center;
+      }
+      .section-divider::before,
+      .section-divider::after {
+        content: "";
+        height: 2px;
+        flex: 1;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
+        opacity: 0.5;
+      }
+
+      /* --- NEXT-GEN IMAGE FRAME --- */
+      .image-frame {
+        position: relative;
+        width: 100%;
+        border-radius: var(--radius-lg);
+        border: 4px solid var(--surface);
+        box-shadow: var(--shadow-soft);
+        overflow: hidden;
+        background: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .image-frame img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        aspect-ratio: 4/3;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .image-frame:hover img {
+        transform: scale(1.02);
+      }
+
+      /* --- CLEAN BENTO GRIDS --- */
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        justify-content: center;
+      }
+      .bento-card {
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        border-radius: var(--radius-lg);
+        padding: 32px;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .bento-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+      }
+      .bento-large {
+        grid-column: span 2;
+      }
+      .bento-full {
+        grid-column: 1 / -1;
+      }
+
+      .card-header {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .card-header .icon-glass {
+        width: 52px;
+        height: 52px;
+        background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.4));
+        border: 1px solid #fff;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 22px;
+        flex-shrink: 0;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.04);
+        color: var(--accent);
+      }
+      .card-header h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+        color: var(--primary);
+      }
+      .card-header span {
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        letter-spacing: 1px;
+        display: block;
+        margin-top: 4px;
+      }
+
+      /* Warning / Callout Boxes */
+      .challenge-banner {
+        background: linear-gradient(
+          135deg,
+          var(--primary),
+          var(--primary-dark)
+        );
+        color: white;
+        padding: 30px;
+        border-radius: var(--radius-lg);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin: 40px auto;
+        box-shadow: 0 15px 30px rgba(27, 77, 62, 0.15);
+      }
+      .challenge-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: "Inter", sans-serif;
+        font-weight: 600;
+        font-size: 16px;
+        color: white;
+      }
+      .challenge-item i {
+        color: var(--edu-gold);
+        font-size: 20px;
+      }
+
+      .callout-box {
+        background: var(--bg-base);
+        border-left: 4px solid var(--accent);
+        padding: 24px;
+        border-radius: 0 12px 12px 0;
+        margin: 20px 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.03);
+        border-right: 1px solid rgba(0, 0, 0, 0.03);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      }
+
+      /* --- MOBILE RESPONSIVENESS (The Strict Fixes) --- */
+      @media (max-width: 992px) {
+        .bento-large {
+          grid-column: span 1;
+        }
+      }
+      @media (max-width: 768px) {
+        .page-header h1 {
+          font-size: 34px;
+        }
+        .section-divider {
+          font-size: 22px;
+          margin: 50px 0 20px;
+        }
+        .section-divider::before,
+        .section-divider::after {
+          display: none;
+        }
+
+        .challenge-banner {
+          flex-direction: column;
+          gap: 20px;
+          text-align: center;
+        }
+
+        /* Forces ALL grids to stack into 1 column */
+        div[style*="grid-template-columns"],
+        .bento-grid {
+          display: flex !important;
+          flex-direction: column !important;
+          width: 100% !important;
+        }
+        .container {
+          padding-left: 16px !important;
+          padding-right: 16px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+        }
+        .bento-card {
+          padding: 24px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+
+        * {
+          min-width: 0;
+        }
+      }
+
+      /* ===== BOTTOM NAVIGATION ===== */
+
+      .back-wrapper {
+        max-width: 1200px;
+        margin: 70px auto 90px;
+        padding: 0 24px;
+        box-sizing: border-box;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .nav-buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        flex-wrap: wrap;
+        width: 100%;
+      }
+
+      /* Shared Button Style */
+      .nav-btn {
+        min-width: 240px;
+        height: 64px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+
+        padding: 0 28px;
+
+        border-radius: 999px;
+
+        font-size: 18px;
+        font-weight: 700;
+
+        transition: all 0.3s ease;
+
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      }
+
+      /* Back Button */
+      .prev-btn {
+        background: #ffffff;
+        color: var(--primary);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      /* Forward Button */
+      .next-btn {
+        background: var(--primary);
+        color: #ffffff;
+        border: 1px solid var(--primary);
+      }
+
+      /* Hover Effects */
+      .prev-btn:hover {
+        transform: translateY(-3px);
+        background: #f8fafc;
+      }
+
+      .next-btn:hover {
+        transform: translateY(-3px);
+        background: var(--primary-dark);
+      }
+
+      /* Mobile */
+      @media (max-width: 768px) {
+        .nav-buttons {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .nav-btn {
+          width: 100%;
+          max-width: 320px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P5GJHFS4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <!-- 1. HEADER INJECTION PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+
+    <!-- Page Header & Hero -->
+    <section class="page-header container">
+      <span class="badge-label">School Pedagogy Program</span>
+      <h1>Mastering the Classroom: <br />Teaching Abacus In Schools</h1>
+      <p
+        style="
+          font-size: 20px;
+          font-weight: 600;
+          color: var(--primary);
+          margin-bottom: 10px;
+        "
+      >
+        You don't need Tutoring in Schools, All you need is a
+        <strong>School-Ready Mental Math Coaching</strong>.
+      </p>
+      <h2>
+        Specialized pedagogy required for the fast-paced school ecosystem.
+      </h2>
+    </section>
+
+    <!-- Hero Image & Intro -->
+    <section class="container">
+      <div class="bento-grid">
+        <div
+          class="bento-card bento-full"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+            padding: 24px;
+          "
+        >
+          <div class="image-frame">
+            <img
+              src="https://image2.jdomni.in/banner/06012026/2A/2B/81/A3C77E9F7B936C049FA004C2B7_1767680306544.jpeg?output-format=webp"
+              alt="Abacus Teacher Training"
+            />
+          </div>
+          <div>
+            <h3
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 24px;
+                color: var(--primary);
+                margin-bottom: 20px;
+              "
+            >
+              The Reality Check: Why Schools are Different
+            </h3>
+            <p>
+              Teaching Abacus in a private center is one thing; teaching it in a
+              formal school environment is an entirely different challenge. In
+              centers, students arrive fresh. In schools, they operate on a
+              rigid, high-pressure timeline.
+            </p>
+
+            <div class="callout-box">
+              <h3
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 16px;
+                  margin: 0 0 5px;
+                "
+              >
+                The "Assembly Line" Problem:
+              </h3>
+              <p style="margin: 0; font-size: 14px">
+                Students face back-to-back classes. They might move from History
+                to Science, and then immediately to your Abacus class. By then,
+                their cognitive fatigue is high.
+              </p>
+            </div>
+
+            <p>
+              Unlike open-ended tuition sessions, schools operate on strict bell
+              timings (35 to 40 mins). You don't have the luxury of time; you
+              need impact, and you need it fast.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The School Challenge Banner -->
+    <section class="container">
+      <div class="challenge-banner">
+        <h3
+          style="
+            color: white;
+            margin: 0;
+            font-size: 22px;
+            font-family: &quot;Inter&quot;, sans-serif;
+          "
+        >
+          The School Challenge:
+        </h3>
+        <div class="challenge-item">
+          <i class="fas fa-clock"></i> Strict Timetables
+        </div>
+        <div class="challenge-item">
+          <i class="fas fa-users"></i> Large Groups
+        </div>
+        <div class="challenge-item">
+          <i class="fas fa-brain"></i> Cognitive Load
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 1: THE SOLUTION
+         ========================================== -->
+    <div class="section-divider container">A Specialized Training Approach</div>
+
+    <section class="container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 40px">
+        <p>
+          To succeed in reputed institutions, you need to be a
+          <strong>Mental Math Coach</strong>, not just a teacher. We bridge the
+          gap between traditional knowledge and modern classroom management.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card">
+          <div class="card-header">
+            <div class="icon-glass">
+              <i class="fa-regular fa-calendar-check"></i>
+            </div>
+            <h3>Time-Table Sync</h3>
+          </div>
+          <p>
+            Structure a powerful lesson plan that fits perfectly into a
+            40-minute period, ensuring every minute creates value.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-users-gear"></i></div>
+            <h3>Group Dynamics</h3>
+          </div>
+          <p>
+            Master techniques to teach 30+ students simultaneously while
+            ensuring no child is left behind.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-dumbbell"></i></div>
+            <h3>"Brain Gym" Approach</h3>
+          </div>
+          <p>
+            Position Abacus as a fun, recreational brain exercise that wakes
+            students up for their next class.
+          </p>
+        </div>
+
+        <div class="bento-card">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-bolt"></i></div>
+            <h3>Gamified Learning</h3>
+          </div>
+          <p>
+            Integrate speed-writing, flashcards, and oral drills to create an
+            electric atmosphere.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: GAMIFIED LEARNING Z-LAYOUT
+         ========================================== -->
+    <div class="section-divider container" style="margin-top: 100px">
+      Abacus Maths is now Gamified
+    </div>
+
+    <section class="container">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 40px">
+        <p>
+          We've transformed traditional learning! Our enhanced curriculum now
+          integrates interactive gaming dynamics to keep students engaged,
+          motivated, and excited to learn.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        <div
+          class="bento-card bento-full"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            align-items: center;
+            padding: 24px;
+          "
+        >
+          <!-- Image -->
+          <div class="image-frame" style="border-color: var(--edu-mustard)">
+            <img
+              src="https://images.unsplash.com/photo-1596495578065-6e0763fa1178?q=80&w=1920&auto=format&fit=crop"
+              alt="High Quality Gamified Abacus Learning"
+            />
+          </div>
+
+          <!-- Content Pillars -->
+          <div style="display: flex; flex-direction: column; gap: 20px">
+            <div
+              style="
+                background: var(--edu-mint);
+                padding: 20px;
+                border-radius: 12px;
+                border-left: 4px solid var(--primary);
+              "
+            >
+              <h3
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 16px;
+                  margin: 0 0 5px;
+                  color: var(--primary);
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <i
+                  class="fa-solid fa-trophy"
+                  style="color: var(--edu-mustard)"
+                ></i>
+                World's 1st Learning Games
+              </h3>
+              <p style="margin: 0; font-size: 14px">
+                Merging the <strong>Traditional Abacus</strong> discipline with
+                a <strong>Modern Gaming Framework</strong>.
+              </p>
+            </div>
+
+            <div
+              style="
+                background: var(--edu-mint);
+                padding: 20px;
+                border-radius: 12px;
+                border-left: 4px solid var(--primary);
+              "
+            >
+              <h3
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 16px;
+                  margin: 0 0 5px;
+                  color: var(--primary);
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <i
+                  class="fa-solid fa-arrow-trend-up"
+                  style="color: var(--edu-mustard)"
+                ></i>
+                Enhanced Value
+              </h3>
+              <p style="margin: 0; font-size: 14px">
+                Driving <strong>Self Motivation</strong> and creating healthy,
+                <strong>Positive Peer Competitiveness</strong>.
+              </p>
+            </div>
+
+            <div
+              style="
+                background: var(--edu-mint);
+                padding: 20px;
+                border-radius: 12px;
+                border-left: 4px solid var(--primary);
+              "
+            >
+              <h3
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 16px;
+                  margin: 0 0 5px;
+                  color: var(--primary);
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <i
+                  class="fa-solid fa-gamepad"
+                  style="color: var(--edu-mustard)"
+                ></i>
+                Interactive Fun
+              </h3>
+              <p style="margin: 0; font-size: 14px">
+                Designed with <strong>Interactive Elements</strong> and
+                <strong>Engaging Gameplay</strong> mechanics.
+              </p>
+            </div>
+
+            <div
+              style="
+                background: var(--edu-mint);
+                padding: 20px;
+                border-radius: 12px;
+                border-left: 4px solid var(--primary);
+              "
+            >
+              <h3
+                style="
+                  font-family: &quot;Inter&quot;, sans-serif;
+                  font-size: 16px;
+                  margin: 0 0 5px;
+                  color: var(--primary);
+                  display: flex;
+                  align-items: center;
+                  gap: 10px;
+                "
+              >
+                <i
+                  class="fa-solid fa-bolt"
+                  style="color: var(--edu-mustard)"
+                ></i>
+                Training Booster
+              </h3>
+              <p style="margin: 0; font-size: 14px">
+                Injecting genuine <strong>Challenge</strong> and
+                <strong>Excitement</strong> into daily practice.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gamification Benefits -->
+    <section class="container" style="margin-top: 40px">
+      <div class="bento-grid">
+        <div
+          class="bento-card"
+          style="
+            padding: 24px;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: flex-start;
+          "
+        >
+          <div
+            style="
+              background: var(--edu-gold);
+              color: var(--primary);
+              width: 44px;
+              height: 44px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 18px;
+              flex-shrink: 0;
+            "
+          >
+            <i class="fa-solid fa-star"></i>
+          </div>
+          <div>
+            <h4
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 16px;
+                margin-bottom: 5px;
+                color: var(--primary);
+              "
+            >
+              Motivational Learning
+            </h4>
+            <p style="font-size: 14px; margin: 0">
+              Captivating tasks ensure students stay motivated to complete every
+              level.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bento-card"
+          style="
+            padding: 24px;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: flex-start;
+          "
+        >
+          <div
+            style="
+              background: var(--edu-gold);
+              color: var(--primary);
+              width: 44px;
+              height: 44px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 18px;
+              flex-shrink: 0;
+            "
+          >
+            <i class="fa-solid fa-brain"></i>
+          </div>
+          <div>
+            <h4
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 16px;
+                margin-bottom: 5px;
+                color: var(--primary);
+              "
+            >
+              Skill Development
+            </h4>
+            <p style="font-size: 14px; margin: 0">
+              While playing, children naturally enhance calculation abilities
+              and speed.
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="bento-card"
+          style="
+            padding: 24px;
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
+            align-items: flex-start;
+          "
+        >
+          <div
+            style="
+              background: var(--edu-gold);
+              color: var(--primary);
+              width: 44px;
+              height: 44px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 18px;
+              flex-shrink: 0;
+            "
+          >
+            <i class="fa-solid fa-face-smile"></i>
+          </div>
+          <div>
+            <h4
+              style="
+                font-family: &quot;Inter&quot;, sans-serif;
+                font-size: 16px;
+                margin-bottom: 5px;
+                color: var(--primary);
+              "
+            >
+              Engaging Experience
+            </h4>
+            <p style="font-size: 14px; margin: 0">
+              An attractive learning process that keeps students eager to
+              participate.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOTTOM NAVIGATION -->
+    <div class="container back-wrapper">
+      <div class="nav-buttons">
+        <!-- Back Button -->
+        <a href="#" class="nav-btn prev-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Back to Main Page</span>
+        </a>
+
+        <!-- Forward Button -->
+        <a
+          href="/institutional/teaching-abacus-made-easy-in-schools/mastery-plan/"
+          class="nav-btn next-btn"
+        >
+          <span>Teaching Plan</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- 2. FOOTER INJECTION PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 3. LOAD THE JAVASCRIPT FILES -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+  </body>
+</html>

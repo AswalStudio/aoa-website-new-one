@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abacus Olympiad Level 1 Exam Pattern | AOA Next-Gen</title>
+
+    <meta
+      name="description"
+      content="View the official Abacus Olympiad Level 1 Exam Pattern. Master Direct Addition & Subtraction with our detailed breakdown of Sections A, B, & C for all age groups."
+    />
+
+    <!-- Next-Gen Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-P5GJHFS4");
+    </script>
+
+    <style>
+      /* --- NEXT-GEN VARIABLES --- */
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --bg-base: #f8fafc;
+        --surface: rgba(255, 255, 255, 0.7);
+        --surface-border: rgba(255, 255, 255, 0.4);
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --glass-blur: blur(20px);
+        --radius-lg: 32px;
+        --shadow-soft: 0 20px 40px -10px rgba(27, 77, 62, 0.08);
+      }
+
+      /* --- GLOBAL STYLES (Mobile Overflow & Scroll Fixed) --- */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-base);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(
+            at 0% 0%,
+            rgba(197, 160, 89, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 0%,
+            rgba(27, 77, 62, 0.08) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 100%,
+            rgba(197, 160, 89, 0.1) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 0% 100%,
+            rgba(27, 77, 62, 0.08) 0px,
+            transparent 50%
+          );
+      }
+
+      p,
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6,
+      span,
+      div {
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        margin: 0 0 1rem 0;
+        line-height: 1.2;
+      }
+      p {
+        color: var(--text-muted);
+        margin-top: 0;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+        transition: all 0.3s ease;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 24px;
+        box-sizing: border-box;
+      }
+
+      /* --- ALERT BANNER --- */
+      .glass-alert {
+        margin: 120px auto 0;
+        width: fit-content;
+        max-width: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        padding: 8px 12px 8px 24px;
+        border-radius: 100px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 30px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        font-weight: 600;
+        font-size: 14px;
+        animation: slideDown 0.5s ease;
+      }
+      .btn-gold {
+        background: var(--accent);
+        color: #fff;
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        text-transform: uppercase;
+        font-size: 13px;
+        white-space: nowrap;
+        box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+      }
+      .btn-gold:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+      }
+      @keyframes slideDown {
+        from {
+          transform: translateY(-20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      /* --- EXAM HEADER SECTION --- */
+      .exam-header {
+        text-align: center;
+        padding: 60px 0 40px;
+      }
+      .exam-badge {
+        display: inline-block;
+        background: #fff;
+        border: 1px solid var(--accent);
+        color: var(--primary);
+        padding: 6px 16px;
+        border-radius: 50px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .exam-header h1 {
+        font-size: 48px;
+        letter-spacing: -1px;
+        margin-bottom: 15px;
+      }
+      .exam-header h2 {
+        font-size: 24px;
+        color: var(--text-muted);
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+      }
+
+      .age-group-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+      }
+      .age-pill {
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        padding: 10px 20px;
+        border-radius: 12px;
+        font-weight: 600;
+        color: var(--primary);
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 14px;
+      }
+      .age-pill i {
+        color: var(--accent);
+      }
+
+      /* --- BENTO BOX EXAM PATTERN GRID --- */
+      .bento-section {
+        padding: 40px 0 80px;
+      }
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+      .bento-card {
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        border: 1px solid var(--surface-border);
+        border-top: 4px solid var(--primary);
+        border-radius: var(--radius-lg);
+        padding: 40px 30px;
+        box-shadow: var(--shadow-soft);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+      .bento-card:hover {
+        transform: translateY(-5px);
+        border-top-color: var(--accent);
+      }
+
+      .card-header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      }
+      .card-header .icon-glass {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.4));
+        border: 1px solid #fff;
+        border-radius: 16px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: var(--accent);
+        margin-bottom: 15px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+      }
+      .card-header h3 {
+        font-family: "Inter", sans-serif;
+        font-size: 22px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .card-header span {
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        letter-spacing: 1px;
+      }
+
+      .stat-row {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .stat-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: var(--primary);
+        margin-right: 15px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+      }
+      .stat-info h4 {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        font-size: 12px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .stat-info p {
+        margin: 0;
+        font-size: 15px;
+        color: var(--text-main);
+        font-weight: 700;
+      }
+
+      .total-box {
+        margin-top: auto;
+        background: var(--primary);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border-radius: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 15px;
+        box-shadow: 0 10px 20px rgba(27, 77, 62, 0.2);
+      }
+
+      /* --- BOTTOM NAVIGATION --- */
+      .back-wrapper {
+        text-align: center;
+        margin-top: 40px;
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        color: var(--primary);
+        padding: 12px 24px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 14px;
+        border: 1px solid var(--surface-border);
+        box-shadow: var(--shadow-soft);
+        transition: 0.3s;
+      }
+      .back-btn:hover {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+
+      /* --- MOBILE RESPONSIVENESS --- */
+      @media (max-width: 992px) {
+        .bento-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .exam-header h1 {
+          font-size: 36px;
+        }
+        .exam-header h2 {
+          font-size: 18px;
+        }
+
+        .glass-alert {
+          flex-direction: column;
+          text-align: center;
+          border-radius: 24px;
+          padding: 20px;
+        }
+        .age-group-wrapper {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .age-pill {
+          justify-content: center;
+        }
+
+        .bento-card {
+          padding: 24px !important;
+          width: 100% !important;
+          box-sizing: border-box !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+        }
+
+        /* The Overflow Fix */
+        div[style*="grid-template-columns"] {
+          display: flex !important;
+          flex-direction: column !important;
+          width: 100% !important;
+        }
+
+        .bento-grid {
+          grid-template-columns: 1fr;
+        }
+        * {
+          min-width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-P5GJHFS4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+
+    <!-- 1. HEADER INJECTION PLACEHOLDER -->
+    <div id="header-placeholder"></div>
+
+    <!-- Alert Banner -->
+    <div class="container">
+      <div class="glass-alert">
+        <span
+          ><i
+            class="fa-solid fa-bolt"
+            style="color: var(--accent); margin-right: 10px"
+          ></i>
+          FAST APPLY AND REGISTER NOW!
+        </span>
+        <a href="#" class="btn-gold">Sign-Up</a>
+      </div>
+    </div>
+
+    <!-- Exam Title Section -->
+    <section class="exam-header container">
+      <div class="exam-badge">Exam Category</div>
+      <h1>Mental Abacus Level 1</h1>
+      <h2>Direct Addition & Subtraction Championship</h2>
+
+      <div class="age-group-wrapper">
+        <div class="age-pill">
+          <i class="fa-solid fa-child-reaching"></i> Group A: 4 to 7 Years
+        </div>
+        <div class="age-pill">
+          <i class="fa-solid fa-user-graduate"></i> Group B: 8 to 10 Years
+        </div>
+        <div class="age-pill">
+          <i class="fa-solid fa-user-tie"></i> Group C: 11 to 18 Years
+        </div>
+      </div>
+    </section>
+
+    <!-- Bento Box Pattern Grid -->
+    <section class="bento-section container">
+      <div class="bento-grid">
+        <!-- Section A Card -->
+        <div class="bento-card">
+          <div class="card-header">
+            <div class="icon-glass"><i class="fa-solid fa-star"></i></div>
+            <h3>Exam Section A</h3>
+            <span>Foundational Speed</span>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="stat-info">
+              <h4>Method</h4>
+              <p>Simultaneous Add/Sub</p>
+            </div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Digit Size</h4>
+              <p>1 Digit</p>
+            </div>
+          </div>
+
+          <div class="stat-row" style="margin-bottom: 30px">
+            <div class="stat-icon"><i class="fa-solid fa-list-ol"></i></div>
+            <div class="stat-info">
+              <h4>Question Length</h4>
+              <p>4 Rows</p>
+            </div>
+          </div>
+
+          <div class="total-box">
+            <i
+              class="fa-solid fa-circle-check"
+              style="color: var(--accent)"
+            ></i>
+            30 Questions
+          </div>
+        </div>
+
+        <!-- Section B Card -->
+        <div class="bento-card" style="border-top-color: var(--accent)">
+          <div class="card-header">
+            <div class="icon-glass" style="color: var(--primary)">
+              <i class="fa-solid fa-gauge-high"></i>
+            </div>
+            <h3>Exam Section B</h3>
+            <span>Intermediate Focus</span>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="stat-info">
+              <h4>Method</h4>
+              <p>Simultaneous Add/Sub</p>
+            </div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Digit Size</h4>
+              <p>1 Digit</p>
+            </div>
+          </div>
+
+          <div class="stat-row" style="margin-bottom: 30px">
+            <div class="stat-icon"><i class="fa-solid fa-list-ol"></i></div>
+            <div class="stat-info">
+              <h4>Question Length</h4>
+              <p>5 Rows</p>
+            </div>
+          </div>
+
+          <div class="total-box">
+            <i
+              class="fa-solid fa-circle-check"
+              style="color: var(--accent)"
+            ></i>
+            30 Questions
+          </div>
+        </div>
+
+        <!-- Section C Card -->
+        <div class="bento-card" style="border-top-color: #3b82f6">
+          <div class="card-header">
+            <div class="icon-glass" style="color: #3b82f6">
+              <i class="fa-solid fa-trophy"></i>
+            </div>
+            <h3>Exam Section C</h3>
+            <span>Advanced Challenge</span>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-calculator"></i></div>
+            <div class="stat-info">
+              <h4>Method</h4>
+              <p>Simultaneous Add/Sub</p>
+            </div>
+          </div>
+
+          <div class="stat-row">
+            <div class="stat-icon"><i class="fa-solid fa-hashtag"></i></div>
+            <div class="stat-info">
+              <h4>Digit Size</h4>
+              <p>2 Digits</p>
+            </div>
+          </div>
+
+          <div class="stat-row" style="margin-bottom: 30px">
+            <div class="stat-icon"><i class="fa-solid fa-list-ol"></i></div>
+            <div class="stat-info">
+              <h4>Question Length</h4>
+              <p>2 Rows</p>
+            </div>
+          </div>
+
+          <div class="total-box" style="background: #3b82f6">
+            <i class="fa-solid fa-circle-check" style="color: #fff"></i> 40
+            Questions
+          </div>
+        </div>
+      </div>
+
+      <div class="back-wrapper">
+        <a
+          href="/parents-and-students/original-abacus-olympiad/"
+          class="back-btn"
+        >
+          <i class="fa-solid fa-arrow-left"></i> Back to Abacus Olympiad Main
+          Page
+        </a>
+      </div>
+    </section>
+
+    <!-- 2. FOOTER INJECTION PLACEHOLDER -->
+    <div id="footer-placeholder"></div>
+
+    <!-- 3. LOAD THE JAVASCRIPT FILES -->
+    <script src="/js/header.js"></script>
+    <script src="/js/footer.js"></script>
+  </body>
+</html>

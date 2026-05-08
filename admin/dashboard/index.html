@@ -1,0 +1,957 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard | AOA Command Center</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --bg-base: #f1f5f9;
+        --glass-bg: rgba(255, 255, 255, 0.75);
+        --glass-border: 1px solid rgba(255, 255, 255, 0.6);
+        --text-main: #0f172a;
+        --text-muted: #64748b;
+        --glass-blur: blur(24px);
+        --shadow-soft: 0 20px 40px -10px rgba(27, 77, 62, 0.08);
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        background: var(--bg-base);
+        display: flex;
+        height: 100vh;
+        overflow: hidden;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(
+            at 0% 0%,
+            rgba(197, 160, 89, 0.15) 0,
+            transparent 50%
+          ),
+          radial-gradient(at 100% 0%, rgba(27, 77, 62, 0.1) 0, transparent 50%);
+      }
+
+      /* SIDEBAR */
+      .sidebar {
+        width: 260px;
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border-right: var(--glass-border);
+        display: flex;
+        flex-direction: column;
+        padding: 30px 20px;
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.02);
+        z-index: 100;
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+      }
+      .sidebar-brand {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .sidebar-brand h2 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        font-size: 24px;
+      }
+      .sidebar-brand span {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--accent);
+      }
+      .nav-menu {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+      }
+      .nav-item {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 13px 18px;
+        border-radius: 12px;
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.2s;
+        text-decoration: none;
+      }
+      .nav-item:hover {
+        background: rgba(27, 77, 62, 0.07);
+        color: var(--primary);
+      }
+      .nav-item.active {
+        background: var(--primary);
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(27, 77, 62, 0.25);
+      }
+      .nav-item i {
+        width: 18px;
+        text-align: center;
+        font-size: 16px;
+      }
+      .logout-btn {
+        margin-top: auto;
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        border: none;
+        padding: 14px;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        transition: 0.3s;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+      }
+      .logout-btn:hover {
+        background: #ef4444;
+        color: #fff;
+      }
+
+      /* OVERLAY */
+      .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 90;
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      /* MAIN */
+      .main-content {
+        flex: 1;
+        overflow-y: auto;
+        position: relative;
+        width: 100%;
+      }
+
+      /* VIEWS */
+      .view {
+        display: none;
+        padding: 40px;
+      }
+      .view.active {
+        display: block;
+      }
+
+      /* TOP HEADER */
+      .top-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .header-title-group {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+      .mobile-menu-btn {
+        display: none;
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+      }
+      .top-header h1 {
+        font-family: "Cinzel", serif;
+        color: var(--primary-dark);
+        font-size: 32px;
+      }
+      .admin-profile {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        padding: 8px 16px;
+        border-radius: 50px;
+        box-shadow: var(--shadow-soft);
+      }
+      .admin-profile i {
+        color: var(--accent);
+        font-size: 20px;
+      }
+      .admin-profile span {
+        font-weight: 600;
+        font-size: 14px;
+        max-width: 150px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      /* STATS */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+        margin-bottom: 40px;
+      }
+      .stat-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: var(--glass-border);
+        padding: 24px;
+        border-radius: 20px;
+        box-shadow: var(--shadow-soft);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+      .stat-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        color: #fff;
+        flex-shrink: 0;
+      }
+      .stat-info h3 {
+        font-size: 12px;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .stat-info p {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-top: 5px;
+      }
+
+      /* TABLE CONTAINER */
+      .table-container {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: var(--glass-border);
+        border-radius: 24px;
+        padding: 30px;
+        box-shadow: var(--shadow-soft);
+      }
+      .table-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .table-header h2 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        font-size: 20px;
+      }
+      .table-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .search-bar {
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 10px 20px;
+        border-radius: 50px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        width: 260px;
+        max-width: 100%;
+      }
+      .search-bar input {
+        border: none;
+        background: transparent;
+        outline: none;
+        width: 100%;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+      }
+      .btn-export {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.2s;
+        font-family: "Inter", sans-serif;
+        white-space: nowrap;
+      }
+      .btn-export:hover {
+        background: var(--primary-dark);
+      }
+      .table-responsive {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        min-width: 700px;
+      }
+      th {
+        padding: 14px 16px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+        white-space: nowrap;
+      }
+      td {
+        padding: 14px 16px;
+        font-size: 14px;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+        color: var(--primary-dark);
+        white-space: nowrap;
+      }
+      tbody tr {
+        cursor: pointer;
+        transition: 0.15s;
+      }
+      tbody tr:hover td {
+        background: rgba(27, 77, 62, 0.04);
+      }
+      .status-pill {
+        padding: 5px 12px;
+        border-radius: 50px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: inline-block;
+      }
+      .status-paid {
+        background: rgba(16, 185, 129, 0.15);
+        color: #059669;
+      }
+      .status-pending {
+        background: rgba(245, 158, 11, 0.15);
+        color: #d97706;
+      }
+      .click-hint {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin-top: 12px;
+        text-align: right;
+      }
+
+      /* DETAIL VIEW */
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(27, 77, 62, 0.08);
+        color: var(--primary);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        margin-bottom: 30px;
+        transition: 0.2s;
+        font-family: "Inter", sans-serif;
+      }
+      .back-btn:hover {
+        background: rgba(27, 77, 62, 0.15);
+      }
+      .detail-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        border: var(--glass-border);
+        border-radius: 24px;
+        padding: 40px;
+        box-shadow: var(--shadow-soft);
+      }
+      .detail-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .detail-top h2 {
+        font-family: "Cinzel", serif;
+        color: var(--primary-dark);
+        font-size: 26px;
+      }
+      .detail-section {
+        margin-bottom: 30px;
+      }
+      .detail-section-title {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        font-size: 15px;
+        border-bottom: 2px solid rgba(197, 160, 89, 0.3);
+        padding-bottom: 8px;
+        margin-bottom: 16px;
+      }
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+      .detail-field {
+        background: rgba(255, 255, 255, 0.6);
+        border-radius: 12px;
+        padding: 14px 18px;
+      }
+      .detail-field label {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: block;
+        margin-bottom: 4px;
+      }
+      .detail-field span {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--primary-dark);
+      }
+
+      /* Mark Paid Button */
+      .btn-mark-paid {
+        background: #10b981;
+        color: #fff;
+        border: none;
+        padding: 10px 22px;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 13px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition: 0.2s;
+        font-family: "Inter", sans-serif;
+      }
+      .btn-mark-paid:hover {
+        background: #059669;
+      }
+      .btn-mark-paid:disabled {
+        background: var(--text-muted);
+        cursor: not-allowed;
+      }
+
+      @media (max-width: 992px) {
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        .sidebar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          height: 100%;
+          transform: translateX(-100%);
+        }
+        .sidebar.active {
+          transform: translateX(0);
+        }
+        .sidebar-overlay.active {
+          display: block;
+          opacity: 1;
+        }
+        .mobile-menu-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .view {
+          padding: 20px;
+        }
+        .top-header h1 {
+          font-size: 22px;
+        }
+        .stats-grid {
+          grid-template-columns: 1fr;
+          gap: 15px;
+        }
+        .detail-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .table-header {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+      @media (max-width: 480px) {
+        .detail-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="sidebar-overlay"
+      id="sidebarOverlay"
+      onclick="toggleSidebar()"
+    ></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <h2>A.O.A</h2>
+        <span>Admin Panel</span>
+      </div>
+      <ul class="nav-menu">
+        <li
+          class="nav-item active"
+          id="nav-registrations"
+          onclick="showView('registrations')"
+        >
+          <i class="fa-solid fa-layer-group"></i> Registrations
+        </li>
+        <li class="nav-item" id="nav-export" onclick="exportCSV()">
+          <i class="fa-solid fa-file-csv"></i> Export CSV
+        </li>
+      </ul>
+      <button class="logout-btn" onclick="logoutAdmin()">
+        <i class="fa-solid fa-right-from-bracket"></i> Secure Logout
+      </button>
+    </aside>
+
+    <main class="main-content">
+      <!-- ===== VIEW: REGISTRATIONS LIST ===== -->
+      <div class="view active" id="view-registrations">
+        <div class="top-header">
+          <div class="header-title-group">
+            <button class="mobile-menu-btn" onclick="toggleSidebar()">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <h1>Submissions</h1>
+          </div>
+          <div class="admin-profile">
+            <i class="fa-solid fa-user-shield"></i>
+            <span id="admin-email-display">Loading...</span>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--primary)">
+              <i class="fa-solid fa-users"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Total Applications</h3>
+              <p id="total-apps">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: #10b981">
+              <i class="fa-solid fa-indian-rupee-sign"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Fees Collected</h3>
+              <p id="total-revenue">₹0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: #f59e0b">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Pending Payments</h3>
+              <p id="pending-payments">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-header">
+            <h2>Data Logs</h2>
+            <div class="table-actions">
+              <div class="search-bar">
+                <i
+                  class="fa-solid fa-magnifying-glass"
+                  style="color: var(--text-muted)"
+                ></i>
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Search name, mobile..."
+                  onkeyup="filterTable()"
+                />
+              </div>
+              <button class="btn-export" onclick="exportCSV()">
+                <i class="fa-solid fa-download"></i> Export CSV
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table id="dataTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Date</th>
+                  <th>Student Name</th>
+                  <th>Olympiad</th>
+                  <th>Level</th>
+                  <th>Parent Mobile</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr>
+                  <td colspan="7" style="text-align: center; padding: 40px">
+                    Fetching secure data...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="click-hint">
+            <i class="fa-solid fa-circle-info"></i> Click any row to view full
+            details
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== VIEW: DETAIL ===== -->
+      <div class="view" id="view-detail">
+        <div class="top-header">
+          <div class="header-title-group">
+            <button class="mobile-menu-btn" onclick="toggleSidebar()">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <h1>Registration Detail</h1>
+          </div>
+          <div class="admin-profile">
+            <i class="fa-solid fa-user-shield"></i>
+            <span id="admin-email-display-2">—</span>
+          </div>
+        </div>
+
+        <button class="back-btn" onclick="showView('registrations')">
+          <i class="fa-solid fa-arrow-left"></i> Back to List
+        </button>
+
+        <div class="detail-card" id="detailCard">
+          <!-- Filled by JS -->
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const DB_URL = "https://azdhqelzwptdyjypjkcb.supabase.co";
+      const DB_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZGhxZWx6d3B0ZHlqeXBqa2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjQwODEsImV4cCI6MjA5MTY0MDA4MX0.g6YLwLhe_pG_27FQlKgwlrDDlsqeory5s5HWSTe3nKA";
+      const db = window.supabase.createClient(DB_URL, DB_KEY);
+
+      let allData = [];
+
+      function toggleSidebar() {
+        document.getElementById("sidebar").classList.toggle("active");
+        document.getElementById("sidebarOverlay").classList.toggle("active");
+      }
+
+      function showView(name) {
+        document
+          .querySelectorAll(".view")
+          .forEach((v) => v.classList.remove("active"));
+        document.getElementById("view-" + name).classList.add("active");
+        document
+          .querySelectorAll(".nav-item")
+          .forEach((n) => n.classList.remove("active"));
+        const nav = document.getElementById("nav-" + name);
+        if (nav) nav.classList.add("active");
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("sidebarOverlay").classList.remove("active");
+      }
+
+      async function initializeDashboard() {
+        const {
+          data: { session },
+        } = await db.auth.getSession();
+        if (!session) {
+          window.location.href = "/admin-login.html";
+          return;
+        }
+        const email = session.user.email;
+        document.getElementById("admin-email-display").innerText = email;
+        document.getElementById("admin-email-display-2").innerText = email;
+        fetchRegistrations();
+      }
+
+      async function fetchRegistrations() {
+        const tbody = document.getElementById("tableBody");
+        const { data, error } = await db
+          .from("championship_registrations")
+          .select("*")
+          .order("created_at", { ascending: false });
+
+        if (error) {
+          tbody.innerHTML = `<tr><td colspan="7" style="color:red;text-align:center">Error: ${error.message}</td></tr>`;
+          return;
+        }
+        if (!data || !data.length) {
+          tbody.innerHTML =
+            '<tr><td colspan="7" style="text-align:center;padding:40px">No records found.</td></tr>';
+          return;
+        }
+
+        allData = data;
+        renderTable(data);
+      }
+
+      function renderTable(data) {
+        let revenue = 0,
+          pending = 0;
+        const tbody = document.getElementById("tableBody");
+        tbody.innerHTML = "";
+
+        data.forEach((row, i) => {
+          if (row.payment_status === "paid") revenue += row.fee_amount || 2300;
+          if (row.payment_status === "pending") pending++;
+
+          const date = new Date(row.created_at).toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          });
+          const sc =
+            row.payment_status === "paid" ? "status-paid" : "status-pending";
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+        <td style="color:var(--text-muted);font-size:13px">${i + 1}</td>
+        <td>${date}</td>
+        <td style="font-weight:700">${row.student_name || "N/A"}</td>
+        <td>${row.olympiad_type || "N/A"}</td>
+        <td>${row.level_of_participation || "N/A"}</td>
+        <td>${row.parent_mobile || row.applicant_mobile || "N/A"}</td>
+        <td><span class="status-pill ${sc}">${(row.payment_status || "pending").toUpperCase()}</span></td>
+      `;
+          tr.onclick = () => openDetail(row);
+          tbody.appendChild(tr);
+        });
+
+        document.getElementById("total-apps").innerText = data.length;
+        document.getElementById("total-revenue").innerText =
+          "₹" + revenue.toLocaleString("en-IN");
+        document.getElementById("pending-payments").innerText = pending;
+      }
+
+      function openDetail(row) {
+        const sc =
+          row.payment_status === "paid" ? "status-paid" : "status-pending";
+        const date = new Date(row.created_at).toLocaleString("en-IN", {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+
+        const field = (label, val) => `
+      <div class="detail-field">
+        <label>${label}</label>
+        <span>${val || "—"}</span>
+      </div>`;
+
+        document.getElementById("detailCard").innerHTML = `
+      <div class="detail-top">
+        <div>
+          <h2>${row.student_name || "Student"}</h2>
+          <p style="color:var(--text-muted);font-size:14px;margin-top:4px">Submitted on ${date}</p>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+          <span class="status-pill ${sc}" style="font-size:13px;padding:8px 16px">${(row.payment_status || "pending").toUpperCase()}</span>
+          ${row.payment_status !== "paid" ? `<button class="btn-mark-paid" id="markPaidBtn" onclick="markAsPaid('${row.id}')"><i class="fa-solid fa-check"></i> Mark as Paid</button>` : ""}
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-title">Applicant Details</div>
+        <div class="detail-grid">
+          ${field("Applicant Name", row.applicant_name)}
+          ${field("Applicant Mobile", row.applicant_mobile)}
+          ${field("Country", row.country)}
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-title">Student Information</div>
+        <div class="detail-grid">
+          ${field("Student Name", row.student_name)}
+          ${field("Gender", row.student_gender)}
+          ${field("Age", row.student_age ? row.student_age + " yrs" : "—")}
+          ${field("T-Shirt Size", row.tshirt_size)}
+          ${field("Father's Name", row.father_name)}
+          ${field("Parent Mobile", row.parent_mobile)}
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-title">Academic Details</div>
+        <div class="detail-grid">
+          ${field("Olympiad", row.olympiad_type)}
+          ${field("Level of Participation", row.level_of_participation)}
+          ${field("Last Level Passed", row.last_level_passed)}
+          ${field("Coach / Teacher", row.coach_name)}
+        </div>
+      </div>
+
+      <div class="detail-section">
+        <div class="detail-section-title">Address & Payment</div>
+        <div class="detail-grid">
+          ${field("Postal Address", row.postal_address)}
+          ${field("Fee Amount", "₹" + (row.fee_amount || 2300))}
+          ${field("Payment Status", (row.payment_status || "pending").toUpperCase())}
+        </div>
+      </div>
+    `;
+
+        showView("detail");
+      }
+
+      async function markAsPaid(id) {
+        const btn = document.getElementById("markPaidBtn");
+        btn.disabled = true;
+        btn.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin"></i> Updating...';
+
+        const { error } = await db
+          .from("championship_registrations")
+          .update({ payment_status: "paid" })
+          .eq("id", id);
+
+        if (error) {
+          alert("Error: " + error.message);
+          btn.disabled = false;
+          btn.innerHTML = '<i class="fa-solid fa-check"></i> Mark as Paid';
+          return;
+        }
+
+        // Refresh data & go back
+        await fetchRegistrations();
+        showView("registrations");
+      }
+
+      function filterTable() {
+        const filter = document
+          .getElementById("searchInput")
+          .value.toUpperCase();
+        const rows = document
+          .getElementById("dataTable")
+          .getElementsByTagName("tr");
+        for (let i = 1; i < rows.length; i++) {
+          const text = rows[i].innerText.toUpperCase();
+          rows[i].style.display = text.includes(filter) ? "" : "none";
+        }
+      }
+
+      function exportCSV() {
+        if (!allData.length) {
+          alert("No data to export.");
+          return;
+        }
+
+        const cols = [
+          "id",
+          "created_at",
+          "applicant_name",
+          "applicant_mobile",
+          "country",
+          "student_name",
+          "student_gender",
+          "student_age",
+          "tshirt_size",
+          "father_name",
+          "parent_mobile",
+          "olympiad_type",
+          "level_of_participation",
+          "last_level_passed",
+          "coach_name",
+          "postal_address",
+          "fee_amount",
+          "payment_status",
+        ];
+
+        const escape = (v) => {
+          if (v == null) return "";
+          const s = String(v).replace(/"/g, '""');
+          return s.includes(",") || s.includes('"') || s.includes("\n")
+            ? `"${s}"`
+            : s;
+        };
+
+        const header = cols.join(",");
+        const rows = allData.map((r) =>
+          cols.map((c) => escape(r[c])).join(","),
+        );
+        const csv = [header, ...rows].join("\n");
+
+        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download =
+          "aoa_registrations_" + new Date().toISOString().slice(0, 10) + ".csv";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      async function logoutAdmin() {
+        await db.auth.signOut();
+        window.location.href = "/admin-login.html";
+      }
+
+      window.onload = initializeDashboard;
+    </script>
+  </body>
+</html>
