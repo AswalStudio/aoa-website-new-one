@@ -195,17 +195,17 @@ const headerHTML = `
                 <li><a href="/">Home</a></li>
                 
                 <li class="dropdown-trigger" onclick="toggleDropdown(this)">
-                    <a href="javascript:void(0)">Institutional <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
-                    <div class="dropdown-content">
-                    <a href="/institutional/abacus-teacher-training">1Abacus Class Room</a>
-                        <a href="/institutional/premier-hybrid-classrooms">Premier Hybrid Classrooms</a>
-                        <a href="/institutional/1abacusmart">1Abacus MART</a>
-                        <a href="/institutional/aoa-powered-opportunity">AOA Powered Opportunity</a>
-                        <a href="/institutional/teaching-abacus-made-easy-in-schools">Abacus Maths Classes Made Easy For Schools</a>
-                        <a href="/institutional/mmape">M.M.A.P.E.</a>
-                        <a href="/institutional/mgp-affiliate">M.G.P. Affiliate</a>
-                    </div>
-                </li>
+    <a href="javascript:void(0)">Institutional <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+    <div class="dropdown-content">
+        <a href="https://1abacus.in/institutional/abacus-teacher-training">1Abacus Class Room</a>
+        <a href="https://1abacus.in/institutional/premier-hybrid-classrooms">Premier Hybrid Classrooms</a>
+        <a href="https://1abacus.in/institutional/1abacusmart">1Abacus MART</a>
+        <a href="https://1abacus.in/institutional/aoa-powered-opportunity">AOA Powered Opportunity</a>
+        <a href="https://1abacus.in/institutional/teaching-abacus-made-easy-in-schools">Abacus Maths Classes Made Easy For Schools</a>
+        <a href="https://1abacus.in/institutional/mmape">M.M.A.P.E.</a>
+        <a href="https://1abacus.in/institutional/mgp-affiliate">M.G.P. Affiliate</a>
+    </div>
+</li>
 
                 <li class="dropdown-trigger" onclick="toggleDropdown(this)">
                     <a href="javascript:void(0)">Parents & Students <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
@@ -216,11 +216,7 @@ const headerHTML = `
                     </div>
                 </li>
                 
-                <li>
-                    <a href="https://abacusolympicassociation.com" class="portal-btn"target="_blank" rel="noopener noreferrer">
-                        Exercise-N-Play 
-                    </a>
-                </li>
+                
             </ul>
         </header>
     </div>
