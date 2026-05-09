@@ -5,14 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Abacus Olympiad | The Original | AOA</title>
 
-    <!-- Next-Gen Fonts -->
+    <!-- Playful Next-Gen Fonts (Nunito for bubbly headers, Inter for readability) -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;800;900&family=Inter:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+
     <!-- FontAwesome -->
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      href="https://cdnjs.cloudflare.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
       rel="stylesheet"
     />
 
@@ -34,29 +35,36 @@
       rel="shortcut icon"
       href="https://image1.jdomni.in/storeLogo/23022026/23/0A/4A/6F82981B0A8135832085D87DAE_1771865831290.png?output-format=webp"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://image1.jdomni.in/storeLogo/23022026/23/0A/4A/6F82981B0A8135832085D87DAE_1771865831290.png?output-format=webp"
+
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
     />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
 
     <style>
       :root {
-        --primary: #1b4d3e;
-        --primary-dark: #0f2e25;
-        --accent: #c5a059;
-        --bg-base: #f8fafc;
-        --surface: rgba(255, 255, 255, 0.7);
-        --text-main: #0f172a;
-        --text-muted: #64748b;
-        --glass-blur: blur(20px);
-        --radius-lg: 32px;
+        /* Vibrant, joyful color palette */
+        --bg-base: #f0fdf4; /* Very soft mint green background */
+        --text-main: #1e293b;
+        --text-muted: #475569;
+
+        --color-blue: #3b82f6;
+        --color-pink: #ec4899;
+        --color-yellow: #f59e0b;
+        --color-green: #10b981;
+        --color-purple: #8b5cf6;
+
+        --shadow-color: #0f172a;
+        --radius-fun: 24px;
       }
-      /* --- GLOBAL STYLES (Mobile Overflow Fixed) --- */
+
+      /* --- GLOBAL STYLES --- */
       html,
       body {
         max-width: 100%;
-        overflow-x: hidden; /* Strictly prevents horizontal scrolling */
+        overflow-x: hidden;
       }
 
       body {
@@ -66,170 +74,223 @@
         margin: 0;
         padding: 0;
         background-color: var(--bg-base);
-      }
-
-      body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%; /* Changed from 100vw to fix mobile overflow */
-        height: 100%; /* Changed from 100vh */
-        z-index: -1;
-        pointer-events: none;
         background-image:
-          radial-gradient(
-            at 0% 0%,
-            rgba(197, 160, 89, 0.1) 0px,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 100% 0%,
-            rgba(27, 77, 62, 0.08) 0px,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 100% 100%,
-            rgba(197, 160, 89, 0.1) 0px,
-            transparent 50%
-          ),
-          radial-gradient(
-            at 0% 100%,
-            rgba(27, 77, 62, 0.08) 0px,
-            transparent 50%
-          );
+          radial-gradient(#10b981 1px, transparent 1px),
+          radial-gradient(#3b82f6 1px, transparent 1px);
+        background-size: 40px 40px;
+        background-position:
+          0 0,
+          20px 20px;
+        background-attachment: fixed;
       }
 
-      /* Ensures no long words or links can break the screen width */
-      p,
       h1,
       h2,
       h3,
       h4,
       h5,
-      h6,
-      span,
-      div {
-        overflow-wrap: break-word;
-        word-wrap: break-word;
+      h6 {
+        font-family: "Nunito", sans-serif;
+        font-weight: 900;
+        color: var(--text-main);
       }
+
       p {
         color: var(--text-muted);
         margin-top: 0;
+        font-size: 16px;
       }
       a {
         text-decoration: none;
         color: inherit;
-        transition: 0.3s;
+        transition: 0.2s;
       }
+
       .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 20px;
       }
 
-      /* --- ALERT BANNER --- */
-      .glass-alert {
+      /* --- FUN ANIMATIONS --- */
+      @keyframes floatyBob {
+        0%,
+        100% {
+          transform: translateY(0) rotate(-2deg);
+        }
+        50% {
+          transform: translateY(-15px) rotate(2deg);
+        }
+      }
+      @keyframes spinSlow {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes popIn {
+        0% {
+          transform: scale(0.9);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      /* --- FLOATING DECORATIONS --- */
+      .blob {
+        position: absolute;
+        z-index: -1;
+        opacity: 0.6;
+        filter: blur(40px);
+        border-radius: 50%;
+        animation: spinSlow 20s linear infinite;
+      }
+      .blob-1 {
+        top: -100px;
+        left: -100px;
+        width: 400px;
+        height: 400px;
+        background: var(--color-pink);
+      }
+      .blob-2 {
+        top: 40%;
+        right: -150px;
+        width: 500px;
+        height: 500px;
+        background: var(--color-yellow);
+      }
+      .blob-3 {
+        bottom: -200px;
+        left: 20%;
+        width: 600px;
+        height: 600px;
+        background: var(--color-blue);
+      }
+
+      /* --- ALERT BANNER (Floating Ticket Style) --- */
+      .fun-alert {
         margin: 100px auto 0;
         width: fit-content;
         max-width: 100%;
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: var(--glass-blur);
-        border: 1px solid rgba(255, 255, 255, 0.8);
-        padding: 8px 12px 8px 24px;
+        background: #fff;
+        border: 3px solid var(--text-main);
+        padding: 10px 15px 10px 25px;
         border-radius: 100px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         gap: 20px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        font-weight: 600;
-        font-size: 14px;
+        box-shadow: 6px 6px 0px var(--color-purple);
+        font-family: "Nunito", sans-serif;
+        font-weight: 800;
+        font-size: 15px;
+        animation: floatyBob 4s infinite ease-in-out;
       }
-      .btn-gold {
-        background: var(--accent);
-        color: #fff;
-        padding: 10px 24px;
+      .btn-action {
+        background: var(--color-yellow);
+        color: var(--text-main);
+        border: 3px solid var(--text-main);
+        padding: 10px 28px;
         border-radius: 50px;
-        font-weight: 700;
+        font-weight: 900;
         text-transform: uppercase;
-        font-size: 12px;
+        font-size: 14px;
         white-space: nowrap;
-        box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
+        box-shadow: 3px 3px 0px var(--text-main);
+        transition: all 0.1s;
+        cursor: pointer;
       }
-      .btn-gold:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(197, 160, 89, 0.5);
+      .btn-action:active {
+        transform: translate(3px, 3px);
+        box-shadow: 0px 0px 0px var(--text-main);
+      }
+      .btn-action:hover {
+        background: #ffb020;
       }
 
       /* --- HERO SECTION --- */
       .hero-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        padding: 60px 0;
+        gap: 50px;
+        padding: 80px 0 60px;
         align-items: center;
+        position: relative;
       }
       .hero-badge {
         display: inline-block;
-        background: #fff;
-        border: 1px solid var(--accent);
-        color: var(--primary);
-        padding: 6px 16px;
+        background: var(--color-pink);
+        border: 3px solid var(--text-main);
+        color: #fff;
+        padding: 8px 20px;
         border-radius: 50px;
-        font-size: 12px;
-        font-weight: 600;
-        margin-bottom: 20px;
+        font-size: 14px;
+        font-weight: 800;
+        font-family: "Nunito", sans-serif;
+        margin-bottom: 25px;
+        box-shadow: 4px 4px 0px var(--text-main);
+        transform: rotate(-2deg);
       }
       .hero h1 {
-        font-size: 50px;
+        font-size: 65px;
+        line-height: 1.1;
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+        text-shadow:
+          3px 3px 0px #fff,
+          6px 6px 0px var(--color-blue);
       }
       .hero h1 span {
-        background: linear-gradient(135deg, var(--accent), #e6ca8a);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
+        color: var(--color-pink);
       }
 
-      .date-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 12px;
-        margin: 30px 0;
-      }
       .date-pill {
+        display: inline-block;
         background: #fff;
-        padding: 12px;
-        border-radius: 12px;
-        font-size: 13px;
-        font-weight: 600;
-        color: var(--primary);
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        border: 3px solid var(--text-main);
+        padding: 12px 20px;
+        border-radius: 16px;
+        font-size: 15px;
+        font-weight: 700;
+        box-shadow: 5px 5px 0px var(--color-green);
+        margin-top: 20px;
+        transform: rotate(1deg);
       }
       .badge-label {
-        background: var(--primary);
+        background: var(--color-blue);
         color: white;
-        padding: 3px 8px;
-        border-radius: 4px;
-        font-size: 10px;
-        margin-right: 8px;
+        padding: 4px 10px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 900;
+        margin-right: 10px;
         text-transform: uppercase;
-      }
-      .badge-label.summer {
-        background: var(--accent);
-        color: var(--primary-dark);
-      }
-      .badge-label.online {
-        background: #3b82f6;
+        border: 2px solid var(--text-main);
       }
 
+      /* Playful Video Container */
+      .video-wrapper {
+        position: relative;
+        background: var(--color-yellow);
+        border-radius: var(--radius-fun);
+        padding: 15px;
+        border: 4px solid var(--text-main);
+        box-shadow: 12px 12px 0px var(--color-blue);
+        transform: rotate(2deg);
+        transition: transform 0.3s;
+      }
+      .video-wrapper:hover {
+        transform: rotate(0deg) scale(1.02);
+      }
       .video-container {
         position: relative;
         padding-bottom: 56.25%;
         height: 0;
-        border-radius: 20px;
+        border-radius: 12px;
         overflow: hidden;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        border: 4px solid #fff;
+        border: 3px solid var(--text-main);
       }
       .video-container iframe {
         position: absolute;
@@ -240,41 +301,79 @@
         border: 0;
       }
 
-      /* --- BENTO BOX UI --- */
+      /* Playful Section Divider */
+      .wave-divider {
+        width: 100%;
+        height: 100px;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1200 120' preserveAspectRatio='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z' opacity='.25' class='shape-fill'%3E%3C/path%3E%3Cpath d='M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z' opacity='.5' class='shape-fill'%3E%3C/path%3E%3Cpath d='M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z' class='shape-fill'%3E%3C/path%3E%3C/svg%3E");
+        background-size: cover;
+        background-repeat: no-space;
+        fill: #fff;
+        margin-top: 40px;
+      }
+
+      .content-bg {
+        background-color: #fff;
+        padding-top: 40px;
+        padding-bottom: 80px;
+      }
+
+      /* --- FUN BENTO CARDS --- */
       .bento-section {
         padding: 40px 0;
       }
       .bento-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 24px;
+        gap: 30px;
       }
       .bento-card {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: var(--glass-blur);
-        border: 1px solid rgba(255, 255, 255, 0.6);
-        border-radius: 24px;
-        padding: 32px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-        transition: 0.3s;
+        background: #fff;
+        border: 4px solid var(--text-main);
+        border-radius: var(--radius-fun);
+        padding: 35px;
+        box-shadow: 8px 8px 0px var(--text-main);
+        transition: all 0.2s ease-in-out;
+        position: relative;
+        z-index: 1;
       }
-      .bento-card:hover {
-        transform: translateY(-5px);
+      /* Colorful card hover states */
+      .bento-card:nth-child(1):hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 12px 12px 0px var(--color-blue);
       }
-      .icon-glass {
-        width: 50px;
-        height: 50px;
-        background: linear-gradient(135deg, #fff, rgba(255, 255, 255, 0.4));
-        border: 1px solid #fff;
-        border-radius: 12px;
+      .bento-card:nth-child(2):hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 12px 12px 0px var(--color-pink);
+      }
+      .bento-card:nth-child(3):hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 12px 12px 0px var(--color-yellow);
+      }
+
+      .icon-blob {
+        width: 60px;
+        height: 60px;
+        border-radius: 20px 20px 20px 8px; /* Fun organic shape */
+        border: 3px solid var(--text-main);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 20px;
-        color: var(--primary);
+        font-size: 24px;
+        color: var(--text-main);
         margin-bottom: 20px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
       }
+      /* Colorful Icons */
+      .bento-card:nth-child(1) .icon-blob {
+        background: var(--color-yellow);
+      }
+      .bento-card:nth-child(2) .icon-blob {
+        background: var(--color-green);
+      }
+      .bento-card:nth-child(3) .icon-blob {
+        background: var(--color-purple);
+      }
+
       .bento-large {
         grid-column: span 2;
       }
@@ -282,176 +381,255 @@
         grid-column: span 3;
       }
 
-      /* --- LEVELS TRACK (MOBILE FRIENDLY) --- */
+      /* --- RAINBOW LEVELS TRACK --- */
       .level-header-wrap {
         display: flex;
         justify-content: space-between;
         align-items: flex-end;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         flex-wrap: wrap;
         gap: 15px;
       }
+      .level-header-wrap h2 {
+        font-size: 38px;
+        margin-bottom: 5px;
+      }
+
       .scroll-buttons {
         display: flex;
-        gap: 10px;
+        gap: 15px;
       }
       .scroll-btn {
         background: #fff;
-        border: 1px solid var(--accent);
-        color: var(--primary);
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        font-size: 16px;
+        border: 3px solid var(--text-main);
+        color: var(--text-main);
+        width: 50px;
+        height: 50px;
+        border-radius: 15px;
+        font-size: 18px;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: 0.3s;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        box-shadow: 4px 4px 0px var(--text-main);
+        transition: 0.1s;
       }
-      .scroll-btn:hover {
-        background: var(--accent);
-        color: #fff;
+      .scroll-btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 0px 0px 0px var(--text-main);
       }
 
       .levels-track {
         display: flex;
-        gap: 20px;
+        gap: 25px;
         overflow-x: auto;
-        padding: 10px 0 30px 0;
+        padding: 10px 10px 40px 10px;
         scroll-behavior: smooth;
-        scrollbar-width: thin;
-        scrollbar-color: var(--accent) transparent;
+        scrollbar-width: none; /* Hide scrollbar for clean look */
       }
       .levels-track::-webkit-scrollbar {
-        height: 6px;
         display: none;
       }
 
-      .level-card-modern {
+      .level-card-fun {
         flex: 0 0 300px;
         background: #fff;
-        border-radius: 20px;
+        border-radius: var(--radius-fun);
         padding: 30px 24px;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+        border: 4px solid var(--text-main);
+        box-shadow: 6px 6px 0px var(--text-main);
         position: relative;
-        overflow: hidden;
         display: flex;
         flex-direction: column;
-        transition: 0.3s;
-        scroll-snap-align: start;
+        transition: 0.2s;
+        scroll-snap-align: center;
+        background-clip: padding-box;
       }
-      .level-card-modern:hover {
-        transform: translateY(-5px);
-        border-color: var(--accent);
+
+      /* The Rainbow CSS Magic */
+      .level-card-fun:nth-child(5n + 1) {
+        border-bottom: 12px solid var(--color-green);
       }
-      .level-card-modern::before {
+      .level-card-fun:nth-child(5n + 2) {
+        border-bottom: 12px solid var(--color-blue);
+      }
+      .level-card-fun:nth-child(5n + 3) {
+        border-bottom: 12px solid var(--color-pink);
+      }
+      .level-card-fun:nth-child(5n + 4) {
+        border-bottom: 12px solid var(--color-yellow);
+      }
+      .level-card-fun:nth-child(5n + 5) {
+        border-bottom: 12px solid var(--color-purple);
+      }
+
+      .level-card-fun:hover {
+        transform: translateY(-8px);
+      }
+      .level-card-fun::before {
         content: attr(data-level);
         position: absolute;
-        top: -10px;
-        right: 10px;
-        font-size: 120px;
-        font-weight: 700;
-        color: rgba(27, 77, 62, 0.03);
+        top: -15px;
+        right: 15px;
+        font-size: 100px;
+        font-weight: 900;
+        font-family: "Nunito", sans-serif;
+        color: rgba(0, 0, 0, 0.04);
         z-index: 0;
-        line-height: 1;
         pointer-events: none;
       }
-      .level-card-modern > * {
+      .level-card-fun > * {
         position: relative;
         z-index: 1;
       }
-      .level-icon-modern {
-        font-size: 24px;
-        color: var(--accent);
+
+      .level-icon-fun {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: var(--bg-base);
+        border: 3px solid var(--text-main);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: var(--text-main);
         margin-bottom: 15px;
       }
-      .level-card-modern h4 {
-        font-size: 20px;
+      .level-card-fun h4 {
+        font-size: 22px;
         margin-bottom: 10px;
       }
-      .level-card-modern p {
-        font-size: 14px;
+      .level-card-fun p {
+        font-size: 15px;
         margin-bottom: 20px;
         flex-grow: 1;
+        font-weight: 500;
       }
-      .level-btn-modern {
-        padding-top: 15px;
-        border-top: 1px solid rgba(0, 0, 0, 0.05);
-        color: var(--primary);
-        font-weight: 600;
-        font-size: 14px;
+
+      .level-btn-fun {
+        padding: 10px 15px;
+        background: #f1f5f9;
+        border-radius: 12px;
+        color: var(--text-main);
+        font-weight: 800;
+        font-family: "Nunito", sans-serif;
         display: flex;
         justify-content: space-between;
         align-items: center;
+        border: 2px solid transparent;
+      }
+      .level-card-fun:hover .level-btn-fun {
+        border-color: var(--text-main);
+        background: #fff;
       }
 
       /* --- TAGS --- */
       .tag-cloud {
         display: flex;
         flex-wrap: wrap;
-        gap: 10px;
+        gap: 12px;
         margin-top: 20px;
       }
       .tag {
         background: #fff;
-        border: 1px solid rgba(0, 0, 0, 0.1);
+        border: 3px solid var(--text-main);
         padding: 8px 16px;
         border-radius: 50px;
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--primary);
+        font-size: 13px;
+        font-family: "Nunito", sans-serif;
+        font-weight: 800;
+        color: var(--text-main);
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
+        box-shadow: 3px 3px 0px var(--text-main);
       }
 
-      /* --- GRADUATION CARD --- */
+      /* --- GRADUATION CARD (Party Mode) --- */
       .graduation-card {
-        background: radial-gradient(circle at center, #1a2a6c, #0d1530);
+        background: var(--color-purple);
+        background-image: radial-gradient(
+          circle at top right,
+          var(--color-pink),
+          transparent 60%
+        );
         color: white;
-        border-radius: var(--radius-lg);
-        padding: 50px;
+        border-radius: var(--radius-fun);
+        border: 4px solid var(--text-main);
+        padding: 60px 50px;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 40px;
+        gap: 50px;
         align-items: center;
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+        box-shadow: 12px 12px 0px var(--text-main);
+        position: relative;
+        overflow: hidden;
       }
       .graduation-card h2,
       .graduation-card p {
         color: white;
+        position: relative;
+        z-index: 2;
+      }
+      .graduation-card h2 {
+        font-size: 48px;
+        line-height: 1.1;
+        margin: 15px 0;
       }
       .graduation-card h2 span {
-        color: var(--accent);
-      }
-      .grad-date-box {
-        background: rgba(255, 255, 255, 0.1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        padding: 15px 20px;
-        border-radius: 12px;
-        display: inline-block;
-        margin-top: 20px;
-        backdrop-filter: blur(10px);
+        color: var(--color-yellow);
+        text-shadow: 3px 3px 0px var(--text-main);
       }
 
-      /* --- CTA --- */
-      .cta-btn {
+      .grad-date-box {
+        background: var(--color-yellow);
+        border: 3px solid var(--text-main);
+        padding: 15px 25px;
+        border-radius: 16px;
         display: inline-block;
-        background: var(--primary);
-        color: white;
-        padding: 16px 32px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 16px;
-        box-shadow: 0 10px 20px rgba(27, 77, 62, 0.2);
-        margin-top: 20px;
+        margin-top: 25px;
+        box-shadow: 5px 5px 0px var(--text-main);
+        color: var(--text-main);
+        transform: rotate(-2deg);
       }
-      .cta-btn:hover {
-        background: var(--accent);
-        color: #fff;
+      .grad-video {
+        border: 4px solid var(--text-main);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.3);
+        transform: rotate(2deg);
+      }
+
+      /* --- CALL TO ACTION --- */
+      .cta-section {
+        text-align: center;
+        padding: 60px 20px 100px;
+        background: var(--bg-base);
+      }
+      .cta-section h2 {
+        font-size: 42px;
+        color: var(--color-purple);
+        text-shadow: 2px 2px 0px var(--text-main);
+      }
+
+      .cta-btn-mega {
+        display: inline-block;
+        background: var(--color-pink);
+        color: white;
+        border: 4px solid var(--text-main);
+        padding: 20px 50px;
+        border-radius: 50px;
+        font-family: "Nunito", sans-serif;
+        font-weight: 900;
+        font-size: 20px;
+        box-shadow: 6px 6px 0px var(--text-main);
+        margin-top: 30px;
+        transition: 0.1s;
+      }
+      .cta-btn-mega:active {
+        transform: translate(4px, 4px);
+        box-shadow: 0px 0px 0px var(--text-main);
       }
 
       /* --- MOBILE RESPONSIVENESS --- */
@@ -462,7 +640,7 @@
           text-align: center;
         }
         .hero h1 {
-          font-size: 40px;
+          font-size: 48px;
         }
         .bento-grid {
           grid-template-columns: 1fr;
@@ -471,53 +649,29 @@
         .bento-full {
           grid-column: span 1;
         }
-        .glass-alert {
+        .fun-alert {
           flex-direction: column;
           text-align: center;
           border-radius: 24px;
           padding: 20px;
         }
-        .level-card-modern {
+        .level-card-fun {
           flex: 0 0 85vw;
         }
-        .date-grid {
-          grid-template-columns: 1fr;
-          text-align: left;
+        .date-pill {
+          margin: 20px auto 0;
         }
       }
       @media (max-width: 768px) {
         .container {
-          padding-left: 24px !important;
-          padding-right: 24px !important;
-          width: 100% !important;
-          box-sizing: border-box !important;
-          overflow-x: hidden !important;
+          padding: 0 20px !important;
         }
-
-        /* 2. Stop the white cards from bleeding into the padding */
         .bento-card,
         .graduation-card {
-          width: 100% !important;
-          max-width: 100% !important;
-          box-sizing: border-box !important;
-          margin-left: 0 !important;
-          margin-right: 0 !important;
+          padding: 25px;
         }
-
-        /* 3. Add inner padding to the raw text sections (like the Eye/Ear section) */
-        .eval-grid > div {
-          padding-left: 10px !important;
-          padding-right: 10px !important;
-          box-sizing: border-box !important;
-        }
-
-        /* Forces any hard-coded grids to stack into 1 column on phones */
-        div[style*="grid-template-columns"] {
-          grid-template-columns: 1fr !important;
-        }
-
-        .bento-card {
-          padding: 24px; /* Reduces massive padding on small screens */
+        .video-wrapper {
+          padding: 8px;
         }
       }
     </style>
@@ -532,21 +686,29 @@
         style="display: none; visibility: hidden"
       ></iframe
     ></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Animated Color Blobs in Background -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
 
     <div id="header-placeholder"></div>
 
     <!-- Alert Banner -->
     <div class="container">
-      <div class="glass-alert">
+      <div class="fun-alert">
         <span
           ><i
-            class="fa-solid fa-bullhorn"
-            style="color: var(--accent); margin-right: 10px"
+            class="fa-solid fa-ticket-alt"
+            style="
+              color: var(--color-pink);
+              margin-right: 10px;
+              font-size: 20px;
+            "
           ></i>
-          ABACUS OLYMPIAD PARTICIPATION APPLICATION FORMS NOW AVAILABLE!</span
+          ABACUS OLYMPIAD APPLICATION FORMS NOW AVAILABLE!</span
         >
-        <a href="#" class="btn-gold">Sign-Up</a>
+        <a href="/registration" class="btn-action">Sign-Up</a>
       </div>
     </div>
 
@@ -554,773 +716,625 @@
     <section class="hero-grid container">
       <div>
         <div class="hero-badge">
-          <i
-            class="fa-solid fa-star"
-            style="color: var(--accent); margin-right: 6px"
-          ></i>
-          Original Competition & Championship
+          <i class="fa-solid fa-star"></i> The Original Championship
         </div>
         <h1>Abacus Olympiad <br /><span>2026</span></h1>
-        <p>
-          Approaching two decades of excellence, the Abacus Olympiad by the
-          Abacus Olympic Association has established itself as the global
-          benchmark for mental math competitions.
+        <p style="font-size: 18px; font-weight: 500">
+          Approaching two decades of excellence, the Abacus Olympiad has
+          established itself as the global playground for mental math champions!
         </p>
 
-        <div class="date-grid">
-          <div class="date-pill">
-            <span class="badge-label summer">Summer</span> Sunday, 2nd August
-            2026
-          </div>
-        </div>
-      </div>
-      <div class="video-container">
-        <iframe
-          src="https://www.youtube.com/embed/sqx1dwzEtAk?si=FRZjLt5586p7OdY_"
-          title="Olympiad Video"
-          allowfullscreen
-        ></iframe>
-      </div>
-    </section>
-
-    <!-- Highlights Bento -->
-    <section class="bento-section container">
-      <div class="bento-grid">
-        <div class="bento-card">
-          <div class="icon-glass">
-            <i class="fa-solid fa-map-location-dot"></i>
-          </div>
-          <h3>Host City: New Delhi</h3>
-          <p>
-            <strong>New Delhi</strong> serves as the official host city. As the
-            capital of India, it provides a prestigious venue for the Abacus
-            Olympic Association to welcome talent.
-          </p>
-        </div>
-        <div class="bento-card">
-          <div class="icon-glass"><i class="fa-solid fa-layer-group"></i></div>
-          <h3>10 Levels of Mastery</h3>
-          <p>
-            Participants are strictly grouped by age and evaluated across
-            <strong>10 distinct skill levels</strong>. This comprehensive format
-            ensures fair competition for every student.
-          </p>
-        </div>
-        <div class="bento-card">
-          <div class="icon-glass"><i class="fa-solid fa-trophy"></i></div>
-          <h3>Global Awards</h3>
-          <p>
-            Glory awaits! <strong>Champions</strong> will be crowned in each age
-            group. Students demonstrating exceptional speed and accuracy will
-            receive special performance awards.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Interactive Levels Track -->
-    <section class="bento-section container">
-      <div class="level-header-wrap">
-        <div>
-          <h2>Skill Evaluation Format</h2>
-          <p>
-            Explore the requirements and format for each level of the Abacus
-            Olympiad.
-          </p>
-        </div>
-        <div class="scroll-buttons">
-          <button
-            class="scroll-btn"
-            onclick="document.getElementById('levelTrack').scrollBy(-320, 0)"
-          >
-            <i class="fa-solid fa-arrow-left"></i>
-          </button>
-          <button
-            class="scroll-btn"
-            onclick="document.getElementById('levelTrack').scrollBy(320, 0)"
-          >
-            <i class="fa-solid fa-arrow-right"></i>
-          </button>
+        <div class="date-pill">
+          <span class="badge-label summer">Summer</span> Sunday, 2nd August 2026
         </div>
       </div>
 
-      <div class="levels-track" id="levelTrack">
-        <div class="level-card-modern" data-level="1">
-          <div class="level-icon-modern">
-            <i class="fa-solid fa-calculator"></i>
-          </div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 1</span
-          >
-          <h4>Mental Abacus Level 1</h4>
-          <p>Direct Addition & Subtraction Championship.</p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-1/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="2">
-          <div class="level-icon-modern">
-            <i class="fa-solid fa-rocket"></i>
-          </div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 2</span
-          >
-          <h4>Advanced Stage</h4>
-          <p>
-            Advanced Techniques: Skills of Small Friend & Big Friend Family.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-2/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="3">
-          <div class="level-icon-modern"><i class="fa-solid fa-brain"></i></div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 3</span
-          >
-          <h4>Next Level</h4>
-          <p>
-            Mastering Complex Combinations: Small Friend, Big Friend & Mix
-            Friend Family.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-3/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="4">
-          <div class="level-icon-modern">
-            <i class="fa-solid fa-lightbulb"></i>
-          </div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 4</span
-          >
-          <h4>Expert Level</h4>
-          <p>
-            Advanced Skills Mastery: Small Friend, Big Friend & Mix Friend
-            Family.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-4/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="5">
-          <div class="level-icon-modern">
-            <i class="fa-solid fa-bullseye"></i>
-          </div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 5</span
-          >
-          <h4>Intermediate Mastery</h4>
-          <p>
-            Advancing Calculation Skills: Intermediate Addition/Subtraction &
-            Beginner's Multiplication.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-5/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="6">
-          <div class="level-icon-modern">
-            <i class="fa-solid fa-chart-line"></i>
-          </div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 6</span
-          >
-          <h4>Advanced Proficiency</h4>
-          <p>
-            Complete Arithmetic Mastery: Intermediate Addition/Subtraction,
-            Multiplication & Introduction to Division.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-6/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="7">
-          <div class="level-icon-modern"><i class="fa-solid fa-medal"></i></div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 7</span
-          >
-          <h4>Level 7 Mastery</h4>
-          <p>
-            Advanced Calculation Skills: Addition/Subtraction Mastery, Advance
-            Multiplication & Intermediate Division.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-7/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="8">
-          <div class="level-icon-modern">
-            <i class="fa-solid fa-graduation-cap"></i>
-          </div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 8</span
-          >
-          <h4>Professional Grade</h4>
-          <p>
-            The Pinnacle of Mental Math: Pro Addition/Subtraction, Advanced
-            Decimals & Pro Division/Multiplication.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-8/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="9">
-          <div class="level-icon-modern"><i class="fa-solid fa-star"></i></div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 9</span
-          >
-          <h4>Mastery Level</h4>
-          <p>
-            Elite Calculation Skills: Pro Addition, Advanced Decimal Operations
-            & Division Mastery.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-9/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-
-        <div class="level-card-modern" data-level="10">
-          <div class="level-icon-modern"><i class="fa-solid fa-crown"></i></div>
-          <span
-            style="
-              font-size: 11px;
-              font-weight: 700;
-              color: #888;
-              text-transform: uppercase;
-            "
-            >Level 10</span
-          >
-          <h4>Grand Master</h4>
-          <p>
-            The Final Frontier: Core Arithmetic Mastery, Percentage, Number
-            Theory (LCM/HCF), and Square Roots.
-          </p>
-          <a
-            href="/parents-and-students/original-abacus-olympiad/levels/level-10/"
-            class="level-btn-modern"
-            >View Format <i class="fa-solid fa-arrow-right"></i
-          ></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- International Participation Bento -->
-    <section class="bento-section container">
-      <div class="bento-grid">
-        <div
-          class="bento-card bento-full"
-          style="
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            align-items: center;
-          "
-        >
-          <div class="video-container" style="border: none">
-            <iframe
-              src="https://www.youtube.com/embed/jbmqeglkPMU"
-              title="Abacus Olympiad Global Event"
-              allowfullscreen
-            ></iframe>
-          </div>
-          <div>
-            <h3>
-              <i class="fa-solid fa-globe" style="color: var(--accent)"></i>
-              International Participation
-            </h3>
-            <p>Joining hands across the world for mental excellence.</p>
-            <div class="tag-cloud">
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> India</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> USA</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> UK</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Australia</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Canada</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Netherlands</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> South Africa</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Nepal</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Iran</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Palestine</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Myanmar</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Belgium</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Morocco</span
-              >
-              <span class="tag"
-                ><i class="fa-solid fa-location-dot"></i> Croatia</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- The Story Bento -->
-    <section class="bento-section container">
-      <div style="text-align: center; margin-bottom: 40px">
-        <span
-          style="
-            font-size: 12px;
-            font-weight: 700;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-          "
-          >By Abacus Olympic Association | Est. 2009</span
-        >
-        <h2 style="font-size: 36px; margin-top: 10px">
-          THE ORIGINAL ABACUS OLYMPIAD
-        </h2>
-        <p>Where Competition Meets Celebration. Where Every Child Evolves.</p>
-      </div>
-
-      <div class="bento-grid">
-        <div class="bento-card bento-large">
-          <div class="icon-glass"><i class="fa-solid fa-history"></i></div>
-          <h3>OUR GENESIS: A Legacy of Evolution</h3>
-          <p>
-            The journey began in 2004. Originally known as the Abacus
-            Championship, it was a testing ground for young minds. But true
-            evolution requires change. By its fifth year, under the visionary
-            leadership of Jay Vardhan Rishi, the event underwent a democratic
-            transformation, emerging with a new identity:
-            <strong>The Abacus Olympiad</strong>.
-          </p>
-          <p>
-            Organized by the Abacus Olympic Association (AOA), this was not just
-            a name change; it was a paradigm shift. It was the birth of a global
-            platform designed not just to test students, but to celebrate the
-            art of Mental Mathematics.
-          </p>
-
-          <h4 style="margin-top: 20px">
-            THE PHILOSOPHY: From "Battleground" to "Betterment"
-          </h4>
-          <p
-            style="
-              border-left: 3px solid var(--accent);
-              padding-left: 15px;
-              margin: 15px 0;
-              font-style: italic;
-            "
-          >
-            “How can we subject a 4-year-old to the ruthless stress of winning
-            and losing? True education should build confidence, not anxiety.”
-          </p>
-          <p>
-            This question became our guiding star. We realized that traditional
-            competitions often felt like a "game of war," leaving young
-            aspirants disheartened. We refused to let the spirit of learning be
-            crushed by the pressure of ranking.
-          </p>
-          <p>
-            Our purpose shifted from identifying a single winner to fostering a
-            community of learners. We turned the arena of stress into a
-            sanctuary of joy, where the goal is improvement, higher mastery, and
-            the thrill of surpassing one’s own previous best.
-          </p>
-        </div>
-
-        <div class="bento-card">
-          <div class="icon-glass"><i class="fa-solid fa-microscope"></i></div>
-          <h3>THE SCIENCE OF EVALUATION: Why We Are "The Original"</h3>
-          <p>
-            The Abacus Olympiad is distinct because our evaluation metrics are
-            holistic. We do not just count correct answers; we measure the
-            cognitive evolution of the child. Our proprietary
-            <strong>5-Point Evaluation Grid</strong> assesses:
-          </p>
-          <ul
-            style="
-              list-style: none;
-              padding: 0;
-              margin-top: 15px;
-              color: var(--text-muted);
-              font-size: 14px;
-            "
-          >
-            <li style="margin-bottom: 12px">
-              <strong
-                ><i
-                  class="fa-solid fa-hand-pointer"
-                  style="color: var(--accent); width: 20px"
-                ></i>
-                Tool Maneuvering:</strong
-              >
-              The precision of finger technique.
-            </li>
-            <li style="margin-bottom: 12px">
-              <strong
-                ><i
-                  class="fa-solid fa-eye"
-                  style="color: var(--accent); width: 20px"
-                ></i>
-                Visualization:</strong
-              >
-              The ability to manipulate the Abacus mentally.
-            </li>
-            <li style="margin-bottom: 12px">
-              <strong
-                ><i
-                  class="fa-solid fa-bullseye"
-                  style="color: var(--accent); width: 20px"
-                ></i>
-                Accuracy:</strong
-              >
-              The exactness of the calculation.
-            </li>
-            <li style="margin-bottom: 12px">
-              <strong
-                ><i
-                  class="fa-solid fa-bolt"
-                  style="color: var(--accent); width: 20px"
-                ></i>
-                Speed:</strong
-              >
-              The reflex and processing time.
-            </li>
-            <li style="margin-bottom: 12px">
-              <strong
-                ><i
-                  class="fa-solid fa-brain"
-                  style="color: var(--accent); width: 20px"
-                ></i>
-                Mental Stamina:</strong
-              >
-              The capacity for sustained focus and concentration.
-            </li>
-          </ul>
-        </div>
-
-        <div
-          class="bento-card bento-full"
-          style="
-            background: linear-gradient(
-              135deg,
-              var(--primary),
-              var(--primary-dark)
-            );
-            color: white;
-          "
-        >
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-              gap: 40px;
-            "
-          >
-            <div>
-              <h3 style="color: var(--accent)">
-                THE PROMISE: "Start Smiling, End Smiling"
-              </h3>
-              <p
-                style="
-                  color: #fff;
-                  font-size: 16px;
-                  font-weight: 600;
-                  margin-bottom: 20px;
-                "
-              >
-                At the Abacus Olympic Association, we hold a radical belief:
-                There are no losers here.
-              </p>
-              <p
-                style="
-                  color: #c5a059;
-                  font-weight: 700;
-                  margin-bottom: 5px;
-                  font-size: 14px;
-                "
-              >
-                For the Student
-              </p>
-              <p style="color: #ccc; font-size: 14px; margin-bottom: 15px">
-                You participate to excel. By the time the Olympiad ends, you are
-                faster, sharper, and more confident than when you started. That
-                is the true victory.
-              </p>
-              <p
-                style="
-                  color: #c5a059;
-                  font-weight: 700;
-                  margin-bottom: 5px;
-                  font-size: 14px;
-                "
-              >
-                For the Parent
-              </p>
-              <p style="color: #ccc; font-size: 14px">
-                Witness your child’s growth in a supportive, high-energy
-                environment that prioritizes their mental well-being alongside
-                their academic prowess.
-              </p>
-            </div>
-            <div>
-              <h3 style="color: var(--accent)">
-                A GLOBAL MOVEMENT: The "Prosperity Engine" for Coaches
-              </h3>
-              <p style="color: #ccc; font-size: 14px; margin-bottom: 20px">
-                The authenticity of our mission has sparked a viral movement.
-                The Original Abacus Olympiad has become the most sought-after
-                event for Abacus Institutes worldwide.
-              </p>
-              <p
-                style="
-                  color: #fff;
-                  font-weight: 600;
-                  font-size: 14px;
-                  margin-bottom: 5px;
-                "
-              >
-                <i
-                  class="fa-solid fa-chart-line"
-                  style="color: var(--accent)"
-                ></i>
-                Coach Success
-              </p>
-              <p style="color: #ccc; font-size: 14px; margin-bottom: 15px">
-                Our partners and coaches report flourishing centers.
-                Participation in the AOA Olympiad is a badge of honor that
-                drives admissions and builds parental trust.
-              </p>
-              <p
-                style="
-                  color: #fff;
-                  font-weight: 600;
-                  font-size: 14px;
-                  margin-bottom: 5px;
-                "
-              >
-                <i
-                  class="fa-solid fa-fire-alt"
-                  style="color: var(--accent)"
-                ></i>
-                Unprecedented Demand
-              </p>
-              <p style="color: #ccc; font-size: 14px">
-                The enthusiasm is palpable. Our registration lists fill up
-                instantly, with waiting lists forming for future events before
-                the current championship even concludes.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Graduation Ceremony -->
-    <section class="bento-section container">
-      <div class="graduation-card">
-        <div>
-          <span
-            style="
-              color: var(--accent);
-              font-weight: 700;
-              font-size: 12px;
-              text-transform: uppercase;
-              letter-spacing: 1px;
-            "
-            >MEGA ATTRACTION: GRADUATION CONVOCATION FOR ALL 10 LEVEL PASSING
-            STUDENTS</span
-          >
-          <h2 style="font-size: 42px; margin: 15px 0">
-            Remarkable Graduates <br />
-            <span>Class of 2025-2026</span>
-          </h2>
-          <p style="font-size: 15px; color: #e2e8f0">
-            As we stand on the cusp of your long-awaited graduation day, we are
-            filled with immense pride. You have weathered storms, burned the
-            midnight oil, and danced with uncertainty to reach this pivotal
-            moment.
-          </p>
-          <p style="font-size: 15px; color: #e2e8f0">
-            Your certificates aren’t mere pieces of paper; they are badges of
-            resilience, determination, and intellectual curiosity. Each lecture
-            and study session has woven the fabric of your success. Now, channel
-            that fire into your final sessions. Let these weeks be a crescendo—a
-            symphony of brilliance.
-          </p>
-          <p
-            style="
-              font-style: italic;
-              border-left: 3px solid var(--accent);
-              padding-left: 15px;
-              margin-top: 20px;
-              font-size: 15px;
-              color: #e2e8f0;
-            "
-          >
-            "Leave no stone unturned, for greatness awaits. We will cheer, clap,
-            and celebrate your metamorphosis from students to lifelong
-            learners."
-          </p>
-
-          <div class="grad-date-box">
-            <span
-              style="
-                display: block;
-                font-size: 12px;
-                text-transform: uppercase;
-                color: #ccc;
-              "
-              >Mark Your Calendars</span
-            >
-            <strong style="font-size: 18px"
-              ><i
-                class="fa-regular fa-calendar-check"
-                style="color: var(--accent); margin-right: 10px"
-              ></i>
-              February 1st, 2026</strong
-            >
-          </div>
-        </div>
-
-        <div
-          class="video-container"
-          style="border-color: rgba(255, 255, 255, 0.1); box-shadow: none"
-        >
+      <div class="video-wrapper">
+        <div class="video-container">
           <iframe
-            src="https://www.youtube.com/embed/_dDjshhwJAg?si=GCU9kVgqZzP2QdMG"
-            title="Graduation Ceremony Video"
+            src="https://www.youtube.com/embed/sqx1dwzEtAk?si=FRZjLt5586p7OdY_"
+            title="Olympiad Video"
             allowfullscreen
           ></iframe>
         </div>
       </div>
     </section>
 
+    <!-- Wavy flow breaker into main content -->
+    <div class="wave-divider"></div>
+
+    <div class="content-bg">
+      <!-- Highlights Bento -->
+      <section class="bento-section container">
+        <div class="bento-grid">
+          <div class="bento-card">
+            <div class="icon-blob">
+              <i class="fa-solid fa-map-location-dot"></i>
+            </div>
+            <h3>Host City: New Delhi</h3>
+            <p>
+              <strong>New Delhi</strong> serves as the official host city. As
+              the capital of India, it provides a prestigious and exciting venue
+              for the Association!
+            </p>
+          </div>
+          <div class="bento-card">
+            <div class="icon-blob"><i class="fa-solid fa-layer-group"></i></div>
+            <h3>10 Levels of Mastery</h3>
+            <p>
+              Participants are grouped by age and evaluated across
+              <strong>10 distinct skill levels</strong>. A fair and fun
+              competition for every single student.
+            </p>
+          </div>
+          <div class="bento-card">
+            <div class="icon-blob"><i class="fa-solid fa-trophy"></i></div>
+            <h3>Global Awards</h3>
+            <p>
+              Glory awaits! <strong>Champions</strong> are crowned in each age
+              group. Exceptional speed and accuracy are rewarded with huge
+              performance prizes.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Rainbow Levels Track -->
+      <section class="bento-section container">
+        <div class="level-header-wrap">
+          <div>
+            <h2>Skill Evaluation Format</h2>
+            <p style="font-weight: 500">
+              Explore the journey through our 10 levels of mental math mastery!
+            </p>
+          </div>
+          <div class="scroll-buttons">
+            <button
+              class="scroll-btn"
+              onclick="document.getElementById('levelTrack').scrollBy(-320, 0)"
+            >
+              <i class="fa-solid fa-chevron-left"></i>
+            </button>
+            <button
+              class="scroll-btn"
+              onclick="document.getElementById('levelTrack').scrollBy(320, 0)"
+            >
+              <i class="fa-solid fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="levels-track" id="levelTrack">
+          <div class="level-card-fun" data-level="1">
+            <div class="level-icon-fun">
+              <i class="fa-solid fa-calculator"></i>
+            </div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-green);
+                text-transform: uppercase;
+              "
+              >Level 1</span
+            >
+            <h4>Mental Abacus 1</h4>
+            <p>Direct Addition & Subtraction Championship.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-1/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="2">
+            <div class="level-icon-fun"><i class="fa-solid fa-rocket"></i></div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-blue);
+                text-transform: uppercase;
+              "
+              >Level 2</span
+            >
+            <h4>Advanced Stage</h4>
+            <p>Advanced Techniques: Small Friend & Big Friend Family.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-2/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="3">
+            <div class="level-icon-fun"><i class="fa-solid fa-brain"></i></div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-pink);
+                text-transform: uppercase;
+              "
+              >Level 3</span
+            >
+            <h4>Next Level</h4>
+            <p>Complex Combinations: Small, Big & Mix Friend Family.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-3/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="4">
+            <div class="level-icon-fun">
+              <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-yellow);
+                text-transform: uppercase;
+              "
+              >Level 4</span
+            >
+            <h4>Expert Level</h4>
+            <p>Advanced Skills Mastery across all Friend Families.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-4/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="5">
+            <div class="level-icon-fun">
+              <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-purple);
+                text-transform: uppercase;
+              "
+              >Level 5</span
+            >
+            <h4>Intermediate Mastery</h4>
+            <p>Intermediate Add/Subtract & Beginner's Multiplication.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-5/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="6">
+            <div class="level-icon-fun">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-green);
+                text-transform: uppercase;
+              "
+              >Level 6</span
+            >
+            <h4>Advanced Pro</h4>
+            <p>Addition/Subtraction, Multiplication & Intro to Division.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-6/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="7">
+            <div class="level-icon-fun"><i class="fa-solid fa-medal"></i></div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-blue);
+                text-transform: uppercase;
+              "
+              >Level 7</span
+            >
+            <h4>Level 7 Mastery</h4>
+            <p>Advance Multiplication & Intermediate Division.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-7/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="8">
+            <div class="level-icon-fun">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-pink);
+                text-transform: uppercase;
+              "
+              >Level 8</span
+            >
+            <h4>Pro Grade</h4>
+            <p>The Pinnacle: Pro Add/Subtract, Decimals & Pro Division.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-8/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="9">
+            <div class="level-icon-fun"><i class="fa-solid fa-star"></i></div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-yellow);
+                text-transform: uppercase;
+              "
+              >Level 9</span
+            >
+            <h4>Mastery Level</h4>
+            <p>Elite Skills: Advanced Decimal Operations & Division Mastery.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-9/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+
+          <div class="level-card-fun" data-level="10">
+            <div class="level-icon-fun"><i class="fa-solid fa-crown"></i></div>
+            <span
+              style="
+                font-size: 12px;
+                font-weight: 800;
+                color: var(--color-purple);
+                text-transform: uppercase;
+              "
+              >Level 10</span
+            >
+            <h4>Grand Master</h4>
+            <p>Core Arithmetic Mastery, Percentage, LCM/HCF & Square Roots.</p>
+            <a
+              href="/parents-and-students/original-abacus-olympiad/levels/level-10/"
+              class="level-btn-fun"
+              >View Format <i class="fa-solid fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- International Participation Bento -->
+      <section class="bento-section container">
+        <div class="bento-grid">
+          <div
+            class="bento-card bento-full"
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+              gap: 40px;
+              align-items: center;
+              background: #fffde7;
+            "
+          >
+            <div
+              class="video-container"
+              style="
+                border: 4px solid var(--text-main);
+                border-radius: 16px;
+                box-shadow: 6px 6px 0px var(--color-pink);
+              "
+            >
+              <iframe
+                src="https://www.youtube.com/embed/jbmqeglkPMU"
+                title="Abacus Olympiad Global Event"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div>
+              <h3>
+                <i
+                  class="fa-solid fa-globe"
+                  style="color: var(--color-blue)"
+                ></i>
+                International Event
+              </h3>
+              <p style="font-weight: 500">
+                Joining hands across the world for mental excellence!
+              </p>
+              <div class="tag-cloud">
+                <span class="tag"
+                  ><i
+                    class="fa-solid fa-location-dot"
+                    style="color: var(--color-pink)"
+                  ></i>
+                  India</span
+                >
+                <span class="tag"
+                  ><i
+                    class="fa-solid fa-location-dot"
+                    style="color: var(--color-blue)"
+                  ></i>
+                  USA</span
+                >
+                <span class="tag"
+                  ><i
+                    class="fa-solid fa-location-dot"
+                    style="color: var(--color-yellow)"
+                  ></i>
+                  UK</span
+                >
+                <span class="tag"
+                  ><i
+                    class="fa-solid fa-location-dot"
+                    style="color: var(--color-green)"
+                  ></i>
+                  Australia</span
+                >
+                <span class="tag"
+                  ><i
+                    class="fa-solid fa-location-dot"
+                    style="color: var(--color-purple)"
+                  ></i>
+                  Canada</span
+                >
+                <span class="tag"
+                  ><i
+                    class="fa-solid fa-location-dot"
+                    style="color: var(--color-pink)"
+                  ></i>
+                  Netherlands</span
+                >
+                <span class="tag"
+                  ><i
+                    class="fa-solid fa-location-dot"
+                    style="color: var(--color-blue)"
+                  ></i>
+                  S. Africa</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- The Story Bento -->
+      <section class="bento-section container">
+        <div style="text-align: center; margin-bottom: 40px">
+          <span
+            style="
+              font-size: 14px;
+              font-family: &quot;Nunito&quot;, sans-serif;
+              font-weight: 900;
+              color: var(--color-pink);
+              text-transform: uppercase;
+              letter-spacing: 1.5px;
+              border: 2px solid var(--text-main);
+              padding: 5px 15px;
+              border-radius: 20px;
+              box-shadow: 2px 2px 0px var(--text-main);
+            "
+            >By Abacus Olympic Association</span
+          >
+          <h2 style="font-size: 42px; margin-top: 20px">
+            THE ORIGINAL OLYMPIAD
+          </h2>
+          <p style="font-size: 18px; font-weight: 500">
+            Where Competition Meets Celebration. Where Every Child Evolves.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <div class="bento-card bento-large">
+            <div
+              class="icon-blob"
+              style="background: var(--color-blue); color: white"
+            >
+              <i class="fa-solid fa-history"></i>
+            </div>
+            <h3>Our Genesis</h3>
+            <p>
+              The journey began in 2004. Originally a testing ground for young
+              minds, true evolution requires change. By its fifth year, under
+              the visionary leadership of Jay Vardhan Rishi, the event emerged
+              with a new, joyful identity: <strong>The Abacus Olympiad</strong>.
+            </p>
+
+            <h4 style="margin-top: 25px; color: var(--color-purple)">
+              From "Battleground" to "Betterment"
+            </h4>
+            <p
+              style="
+                background: #f8fafc;
+                border: 3px dashed var(--color-pink);
+                border-radius: 12px;
+                padding: 15px;
+                margin: 15px 0;
+                font-weight: 700;
+                color: var(--text-main);
+              "
+            >
+              “How can we subject a 4-year-old to the ruthless stress of winning
+              and losing? True education should build confidence, not anxiety.”
+            </p>
+            <p>
+              We refused to let the spirit of learning be crushed by the
+              pressure of ranking. Our purpose shifted from identifying a single
+              winner to fostering a community. We turned the arena of stress
+              into a sanctuary of joy!
+            </p>
+          </div>
+
+          <div
+            class="bento-card"
+            style="background: var(--color-blue); color: white"
+          >
+            <div
+              class="icon-blob"
+              style="
+                background: #fff;
+                border-color: #fff;
+                color: var(--color-blue);
+              "
+            >
+              <i class="fa-solid fa-microscope"></i>
+            </div>
+            <h3 style="color: #fff">The Science of Fun</h3>
+            <p style="color: #e2e8f0">
+              We do not just count correct answers; we measure cognitive
+              evolution. Our proprietary <strong>5-Point Grid</strong> assesses:
+            </p>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin-top: 15px;
+                font-size: 15px;
+                font-weight: 600;
+              "
+            >
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-hand-pointer"
+                  style="color: var(--color-yellow); width: 25px"
+                ></i>
+                Tool Maneuvering
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-eye"
+                  style="color: var(--color-yellow); width: 25px"
+                ></i>
+                Visualization
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-bullseye"
+                  style="color: var(--color-yellow); width: 25px"
+                ></i>
+                Accuracy
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-bolt"
+                  style="color: var(--color-yellow); width: 25px"
+                ></i>
+                Speed
+              </li>
+              <li style="margin-bottom: 12px">
+                <i
+                  class="fa-solid fa-brain"
+                  style="color: var(--color-yellow); width: 25px"
+                ></i>
+                Mental Stamina
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- Graduation Ceremony -->
+      <section class="bento-section container">
+        <div class="graduation-card">
+          <div>
+            <span
+              style="
+                background: var(--color-yellow);
+                color: var(--text-main);
+                font-weight: 900;
+                font-size: 12px;
+                text-transform: uppercase;
+                padding: 5px 12px;
+                border-radius: 10px;
+                border: 2px solid var(--text-main);
+              "
+              >MEGA ATTRACTION</span
+            >
+            <h2>Remarkable Graduates <br /><span>Class of '26</span></h2>
+            <p style="font-size: 16px; font-weight: 500">
+              Your certificates aren’t mere pieces of paper; they are badges of
+              resilience and intellectual curiosity. We will cheer, clap, and
+              celebrate your metamorphosis from students to lifelong learners!
+            </p>
+
+            <div class="grad-date-box">
+              <span
+                style="
+                  display: block;
+                  font-size: 12px;
+                  text-transform: uppercase;
+                  font-weight: 900;
+                  color: var(--text-muted);
+                "
+                >Mark Your Calendars</span
+              >
+              <strong
+                style="
+                  font-size: 20px;
+                  font-family: &quot;Nunito&quot;, sans-serif;
+                "
+                ><i
+                  class="fa-solid fa-calendar-check"
+                  style="color: var(--color-purple); margin-right: 5px"
+                ></i>
+                February 1st, 2026</strong
+              >
+            </div>
+          </div>
+
+          <div class="grad-video">
+            <div class="video-container" style="border: none">
+              <iframe
+                src="https://www.youtube.com/embed/_dDjshhwJAg?si=GCU9kVgqZzP2QdMG"
+                title="Graduation Ceremony Video"
+                allowfullscreen
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- End content-bg -->
+
     <!-- Call to Action -->
-    <section style="text-align: center; padding: 40px 20px 100px">
+    <section class="cta-section">
       <div class="container">
         <h2>JOIN THE LEGACY</h2>
-        <p style="font-weight: 600; color: var(--primary)">
+        <p style="font-weight: 700; color: var(--text-main); font-size: 20px">
           Experience the event where Intelligence meets Joy.
         </p>
-        <p style="max-width: 600px; margin: 15px auto; font-size: 14px">
-          The Original Abacus Olympiad is not just a competition; it is a
-          festival of the mind. Whether you are a student ready to test your
-          skills, a parent seeking holistic growth for your child, or a coach
-          looking to elevate your institute—you belong here.
-        </p>
-        <p style="font-weight: 700; color: var(--primary); margin-top: 20px">
-          Join the revolution of smiling faces and sharper minds.
+        <p
+          style="
+            max-width: 600px;
+            margin: 15px auto;
+            font-size: 16px;
+            font-weight: 500;
+          "
+        >
+          The Original Abacus Olympiad is a festival of the mind. Whether you
+          are a student, parent, or coach—you belong here.
         </p>
         <a
           href="/parents-and-students/original-abacus-olympiad/abacus-olympiad-rewards-policy-terms/"
-          class="cta-btn"
+          class="cta-btn-mega"
           >Read Rewards Policy & Terms</a
         >
       </div>
     </section>
 
-    <!-- 2. FOOTER INJECTION PLACEHOLDER -->
-    <div id="footer-placeholder"></div>
-
-    <!-- 3. LOAD THE JAVASCRIPT FILES -->
     <script src="/js/header.js"></script>
     <script src="/js/footer.js"></script>
   </body>

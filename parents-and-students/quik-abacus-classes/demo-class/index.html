@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Championship Registration | AOA Next-Gen</title>
+    <title>Book My No-Fee-Class | AOA Next-Gen</title>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -16,36 +16,10 @@
       rel="stylesheet"
     />
 
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-NDHWK24L");
-    </script>
-    <!-- End Google Tag Manager -->
-
     <link
       rel="shortcut icon"
       href="https://image1.jdomni.in/storeLogo/23022026/23/0A/4A/6F82981B0A8135832085D87DAE_1771865831290.png?output-format=webp"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      href="https://image1.jdomni.in/storeLogo/23022026/23/0A/4A/6F82981B0A8135832085D87DAE_1771865831290.png?output-format=webp"
-    />
-
-    <meta
-      http-equiv="Cache-Control"
-      content="no-cache, no-store, must-revalidate"
-    />
-    <meta http-equiv="Pragma" content="no-cache" />
-    <meta http-equiv="Expires" content="0" />
 
     <style>
       :root {
@@ -115,11 +89,15 @@
         font-family: "Cinzel", serif;
         color: var(--primary);
         font-size: 42px;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
       }
-      .page-header p {
-        color: var(--text-muted);
-        font-size: 16px;
+      .page-header h2 {
+        font-family: "Inter", sans-serif;
+        color: var(--accent);
+        font-size: 18px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
         margin: 0;
       }
 
@@ -170,6 +148,19 @@
         color: #ef4444;
       }
 
+      .input-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .input-prefix {
+        position: absolute;
+        left: 15px;
+        color: var(--text-muted);
+        font-weight: 600;
+        font-size: 15px;
+      }
+
       .input-group input,
       .input-group select,
       .input-group textarea {
@@ -183,6 +174,10 @@
         transition: 0.3s;
         width: 100%;
       }
+      .input-group input.has-prefix {
+        padding-left: 50px;
+      }
+
       .input-group input:focus,
       .input-group select:focus,
       .input-group textarea:focus {
@@ -191,22 +186,12 @@
         box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
       }
 
-      .info-banner {
-        background: rgba(197, 160, 89, 0.12);
-        border: 1px solid rgba(197, 160, 89, 0.5);
-        color: #92670a;
-        padding: 18px 24px;
-        border-radius: 16px;
-        text-align: center;
-        margin: 40px 0 20px;
-        font-size: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-      }
-      .info-banner i {
-        font-size: 18px;
+      .char-counter {
+        font-size: 12px;
+        color: var(--text-muted);
+        text-align: right;
+        margin-top: 6px;
+        font-weight: 500;
       }
 
       .btn-submit {
@@ -227,6 +212,7 @@
         align-items: center;
         gap: 10px;
         box-shadow: 0 10px 20px rgba(27, 77, 62, 0.2);
+        margin-top: 30px;
       }
       .btn-submit:hover {
         background: var(--primary-dark);
@@ -269,17 +255,6 @@
         max-width: 420px;
         margin: 0 auto 8px;
       }
-      .success-ref {
-        display: inline-block;
-        margin-top: 20px;
-        background: rgba(27, 77, 62, 0.08);
-        color: var(--primary-dark);
-        padding: 10px 24px;
-        border-radius: 50px;
-        font-weight: 700;
-        font-size: 14px;
-        letter-spacing: 1px;
-      }
 
       #statusMessage {
         margin-top: 20px;
@@ -316,221 +291,144 @@
 
     <div class="container">
       <div class="page-header">
-        <h1>Competition and Tournament</h1>
-        <p>Abacus Olympiad Participants Registration</p>
+        <h1>Book My No-Fee-Class</h1>
+        <h2>Free Trial Class</h2>
       </div>
 
       <div class="form-card">
-        <!-- FORM -->
-        <form id="registrationForm">
-          <h2 class="section-title">Applicant Details</h2>
+        <form id="trialClassForm">
+          <h2 class="section-title">Parent Information</h2>
           <div class="form-grid">
             <div class="input-group">
-              <label>Applicant Name <span>*</span></label>
+              <label>Participant's Parent Name <span>*</span></label>
               <input
                 type="text"
-                id="applicant_name"
+                id="parent_name"
                 required
-                placeholder="Enter full name"
+                placeholder="Enter parent's full name"
               />
             </div>
+
             <div class="input-group">
-              <label>Applicant Mobile <span>*</span></label>
-              <input
-                type="tel"
-                id="applicant_mobile"
-                required
-                placeholder="+91 Enter mobile number"
-              />
+              <label>Mobile Number <span>*</span></label>
+              <div class="input-wrapper">
+                <span class="input-prefix">+91</span>
+                <input
+                  type="tel"
+                  id="mobile_number"
+                  class="has-prefix"
+                  required
+                  placeholder="Enter mobile number"
+                  pattern="[0-9]{10}"
+                  title="Please enter a valid 10-digit mobile number"
+                />
+              </div>
             </div>
+
             <div class="input-group full-width">
-              <label>Email Address <span>*</span></label>
+              <label>Email (Optional)</label>
               <input
                 type="email"
                 id="email"
-                required
                 placeholder="Enter email address"
               />
-            </div>
-            <div class="input-group full-width">
-              <label>Country <span>*</span></label>
-              <select id="country" required>
-                <option value="" disabled selected>Select your country</option>
-                <option value="India">India</option>
-                <option value="USA">United States</option>
-                <option value="Canada">Canada</option>
-                <option value="UK">United Kingdom</option>
-                <option value="UAE">United Arab Emirates</option>
-                <option value="Australia">Australia</option>
-                <option value="Other">Other</option>
-              </select>
             </div>
           </div>
 
           <h2 class="section-title">Student Information</h2>
           <div class="form-grid">
             <div class="input-group">
-              <label>Student Name (Capital Letters) <span>*</span></label>
+              <label>Student's Name <span>*</span></label>
               <input
                 type="text"
                 id="student_name"
-                oninput="this.value = this.value.toUpperCase()"
                 required
-                placeholder="STUDENT NAME"
+                placeholder="Enter student's name"
+                oninput="this.value = this.value.toUpperCase()"
               />
             </div>
+
             <div class="input-group">
-              <label>Student Gender <span>*</span></label>
+              <label>Student's Gender <span>*</span></label>
               <select id="student_gender" required>
                 <option value="" disabled selected>Select Gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
               </select>
             </div>
+
             <div class="input-group">
-              <label>Student Age (Years) <span>*</span></label>
+              <label>Student Age <span>*</span></label>
               <input
                 type="number"
                 id="student_age"
                 required
-                placeholder="Enter Age"
-                min="4"
+                placeholder="Enter age"
+                min="3"
                 max="25"
-              />
-            </div>
-            <div class="input-group">
-              <label>Participant's T-Shirt Size <span>*</span></label>
-              <select id="tshirt_size" required>
-                <option value="" disabled selected>Select Size</option>
-                <option value="XS (24)">Extra Small (24)</option>
-                <option value="S (26)">Small (26)</option>
-                <option value="M (28)">Medium (28)</option>
-                <option value="L (30)">Large (30)</option>
-                <option value="XL (32)">Extra Large (32)</option>
-                <option value="XXL (34)">Double XL (34)</option>
-              </select>
-            </div>
-            <div class="input-group">
-              <label>Father's Name (Capital Letters) <span>*</span></label>
-              <input
-                type="text"
-                id="father_name"
-                oninput="this.value = this.value.toUpperCase()"
-                required
-                placeholder="FATHER'S NAME"
-              />
-            </div>
-            <div class="input-group">
-              <label>Parent Mobile Number <span>*</span></label>
-              <input
-                type="tel"
-                id="parent_mobile"
-                required
-                placeholder="Enter parent's mobile"
               />
             </div>
           </div>
 
-          <h2 class="section-title">Academic Details</h2>
+          <h2 class="section-title">Class Preferences</h2>
           <div class="form-grid">
             <div class="input-group full-width">
-              <label>I Will Appear For Olympiad <span>*</span></label>
-              <select id="olympiad_type" required>
-                <option value="" disabled selected>Select Olympiad</option>
-                <option value="Abacus Mental Math">
-                  Abacus Mental Math Olympiad
-                </option>
-                <option value="Vedic Math">Vedic Math Olympiad</option>
-              </select>
-            </div>
-            <div class="input-group">
-              <label>Choose Level of Participation <span>*</span></label>
-              <select id="level_of_participation" required>
-                <option value="" disabled selected>Select Level</option>
-                <option value="Level 1">Level 1</option>
-                <option value="Level 2">Level 2</option>
-                <option value="Level 3">Level 3</option>
-                <option value="Level 4">Level 4</option>
-                <option value="Level 5">Level 5</option>
-                <option value="Level 6">Level 6</option>
-                <option value="Level 7">Level 7</option>
-                <option value="Level 8">Level 8</option>
-                <option value="Level 9">Level 9</option>
-                <option value="Level 10">Level 10</option>
-              </select>
-            </div>
-            <div class="input-group">
-              <label>Last Level Passed in Academy <span>*</span></label>
-              <select id="last_level_passed" required>
-                <option value="" disabled selected>Select Last Level</option>
-                <option value="None (Beginner)">None (Beginner)</option>
-                <option value="Level 1">Level 1</option>
-                <option value="Level 2">Level 2</option>
-                <option value="Level 3">Level 3</option>
-                <option value="Level 4">Level 4</option>
-                <option value="Level 5">Level 5</option>
-                <option value="Level 6">Level 6</option>
-                <option value="Level 7">Level 7</option>
-                <option value="Level 8">Level 8</option>
-                <option value="Level 9">Level 9</option>
-              </select>
-            </div>
-            <div class="input-group full-width">
               <label
-                >Coach / Teacher Name (Capital Letters) <span>*</span></label
+                >My Preferred Day & Time of Trial Class <span>*</span></label
               >
-              <input
-                type="text"
-                id="coach_name"
-                oninput="this.value = this.value.toUpperCase()"
-                required
-                placeholder="COACH OR TEACHER NAME"
-              />
+              <input type="datetime-local" id="preferred_datetime" required />
             </div>
+
             <div class="input-group full-width">
-              <label
-                >Complete Postal Address (Capital Letters) <span>*</span></label
-              >
+              <label>Message (Optional)</label>
               <textarea
-                id="postal_address"
+                id="message"
                 rows="3"
-                oninput="this.value = this.value.toUpperCase()"
                 maxlength="1000"
-                required
-                placeholder="ENTER FULL ADDRESS WITH PINCODE"
+                placeholder="Any specific requirements or questions?"
               ></textarea>
+              <div class="char-counter">
+                <span id="charCount">0</span> of 1000 characters
+              </div>
             </div>
           </div>
 
           <button type="submit" id="submitBtn" class="btn-submit">
-            Submit Registration <i class="fa-solid fa-paper-plane"></i>
+            Confirm Booking <i class="fa-regular fa-calendar-check"></i>
           </button>
 
           <div id="statusMessage"></div>
         </form>
 
-        <!-- SUCCESS SCREEN -->
         <div class="success-screen" id="successScreen">
           <div class="success-icon"><i class="fa-solid fa-check"></i></div>
-          <h2>Registration Submitted!</h2>
-          <p>Your registration has been received successfully.</p>
+          <h2>Booking Request Sent!</h2>
+          <p>Thank you for requesting a free trial class.</p>
           <p>
-            Our team will reach out to you on your mobile number to complete the
-            process.
+            Our academic coordinator will contact you shortly to confirm your
+            preferred time slot.
           </p>
-          <span class="success-ref" id="successRef"></span>
         </div>
       </div>
     </div>
 
     <script src="/js/header.js"></script>
     <script>
+      // Character Counter Logic
+      const messageInput = document.getElementById("message");
+      const charCountDisplay = document.getElementById("charCount");
+
+      messageInput.addEventListener("input", function () {
+        charCountDisplay.textContent = this.value.length;
+      });
+
+      // Supabase Integration
       const DB_URL = "https://azdhqelzwptdyjypjkcb.supabase.co";
       const DB_KEY =
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZGhxZWx6d3B0ZHlqeXBqa2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjQwODEsImV4cCI6MjA5MTY0MDA4MX0.g6YLwLhe_pG_27FQlKgwlrDDlsqeory5s5HWSTe3nKA";
       const db = window.supabase.createClient(DB_URL, DB_KEY);
 
-      const form = document.getElementById("registrationForm");
+      const form = document.getElementById("trialClassForm");
       const submitBtn = document.getElementById("submitBtn");
       const statusMsg = document.getElementById("statusMessage");
 
@@ -543,53 +441,35 @@
         statusMsg.style.display = "none";
 
         const formData = {
-          applicant_name: document
-            .getElementById("applicant_name")
-            .value.trim(),
-          applicant_mobile: document
-            .getElementById("applicant_mobile")
-            .value.trim(),
-          email: document.getElementById("email").value.trim(),
-          country: document.getElementById("country").value,
+          parent_name: document.getElementById("parent_name").value.trim(),
+          mobile_number:
+            "+91 " + document.getElementById("mobile_number").value.trim(),
+          email: document.getElementById("email").value.trim(), // <-- Updated this line
           student_name: document.getElementById("student_name").value.trim(),
           student_gender: document.getElementById("student_gender").value,
           student_age: parseInt(document.getElementById("student_age").value),
-          tshirt_size: document.getElementById("tshirt_size").value,
-          father_name: document.getElementById("father_name").value.trim(),
-          parent_mobile: document.getElementById("parent_mobile").value.trim(),
-          olympiad_type: document.getElementById("olympiad_type").value,
-          level_of_participation: document.getElementById(
-            "level_of_participation",
-          ).value,
-          last_level_passed: document.getElementById("last_level_passed").value,
-          coach_name: document.getElementById("coach_name").value.trim(),
-          postal_address: document
-            .getElementById("postal_address")
-            .value.trim(),
-          fee_amount: 2300,
-          payment_status: "pending",
+          preferred_datetime:
+            document.getElementById("preferred_datetime").value,
+          message: document.getElementById("message").value.trim() || null,
         };
-
         try {
+          // IMPORTANT: Make sure the 'free_trial_bookings' table exists in Supabase
           const { error } = await db
-            .from("championship_registrations")
+            .from("free_trial_bookings")
             .insert([formData]);
 
           if (error) throw error;
 
           // Show success screen
           form.style.display = "none";
-          const s = document.getElementById("successScreen");
-          s.style.display = "block";
-          document.getElementById("successRef").textContent =
-            "Reference: " + Date.now().toString().slice(-6);
+          document.getElementById("successScreen").style.display = "block";
         } catch (err) {
           statusMsg.textContent = "Submission failed: " + err.message;
           statusMsg.className = "status-error";
           statusMsg.style.display = "block";
           submitBtn.disabled = false;
           submitBtn.innerHTML =
-            'Submit Registration <i class="fa-solid fa-paper-plane"></i>';
+            'Confirm Booking <i class="fa-regular fa-calendar-check"></i>';
         }
       });
     </script>

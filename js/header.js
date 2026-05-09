@@ -195,7 +195,7 @@ const headerHTML = `
                 <li><a href="/">Home</a></li>
                 
                 <li class="dropdown-trigger" onclick="toggleDropdown(this)">
-    <a href="javascript:void(0)">Institutional <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+    <a href="javascript:void(0)">Coaches and Schools <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
     <div class="dropdown-content">
         <a href="https://1abacus.in/institutional/abacus-teacher-training">1Abacus Class Room</a>
         <a href="https://1abacus.in/institutional/premier-hybrid-classrooms">Premier Hybrid Classrooms</a>
@@ -212,7 +212,7 @@ const headerHTML = `
                     <div class="dropdown-content">
                         <a href="/parents-and-students/original-abacus-olympiad">Original Abacus Olympiad</a>
                         <a href="/parents-and-students/the-maha-guru-program">The Maha Guru Program</a>
-                        <a href="/parents-and-students/quik-classes">Quik Classes</a>
+                        <a href="/parents-and-students/quik-abacus-classes">Quik Abacus Classes</a>
                     </div>
                 </li>
                 
