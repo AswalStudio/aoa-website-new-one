@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Request a Callback | AOA Next-Gen</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-NDHWK24L");
+    </script>
+
+    <link
+      rel="shortcut icon"
+      href="https://image1.jdomni.in/storeLogo/23022026/23/0A/4A/6F82981B0A8135832085D87DAE_1771865831290.png?output-format=webp"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://image1.jdomni.in/storeLogo/23022026/23/0A/4A/6F82981B0A8135832085D87DAE_1771865831290.png?output-format=webp"
+    />
+
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <style>
+      :root {
+        --primary: #1b4d3e;
+        --primary-dark: #0f2e25;
+        --accent: #c5a059;
+        --bg-base: #f1f5f9;
+        --glass-bg: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.8) 0%,
+          rgba(255, 255, 255, 0.4) 100%
+        );
+        --glass-border: 1px solid rgba(255, 255, 255, 0.7);
+        --text-main: #0f172a;
+        --text-muted: #475569;
+        --glass-blur: blur(24px);
+        --radius-lg: 32px;
+        --shadow-soft: 0 30px 60px -12px rgba(27, 77, 62, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: var(--text-main);
+        line-height: 1.6;
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-base);
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(
+            at 0% 0%,
+            rgba(197, 160, 89, 0.15) 0px,
+            transparent 50%
+          ),
+          radial-gradient(
+            at 100% 0%,
+            rgba(27, 77, 62, 0.1) 0px,
+            transparent 50%
+          );
+      }
+
+      .container {
+        max-width: 640px;
+        margin: 0 auto;
+        padding: 60px 24px;
+      }
+
+      .page-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .page-header .icon-wrap {
+        width: 72px;
+        height: 72px;
+        background: rgba(27, 77, 62, 0.08);
+        border: 2px solid rgba(27, 77, 62, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+        font-size: 28px;
+        color: var(--primary);
+      }
+      .page-header h1 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        font-size: 36px;
+        margin: 0 0 10px;
+      }
+      .page-header p {
+        color: var(--text-muted);
+        font-size: 15px;
+        margin: 0;
+      }
+
+      .form-card {
+        background: var(--glass-bg);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: var(--glass-border);
+        border-radius: var(--radius-lg);
+        padding: 40px;
+        box-shadow: var(--shadow-soft);
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .full-width {
+        grid-column: span 2;
+      }
+
+      .input-group {
+        display: flex;
+        flex-direction: column;
+      }
+      .input-group label {
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--primary);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+      .input-group label span {
+        color: #ef4444;
+      }
+
+      .input-group input,
+      .input-group select,
+      .input-group textarea {
+        padding: 14px 20px;
+        border-radius: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        font-family: "Inter", sans-serif;
+        font-size: 15px;
+        background: rgba(255, 255, 255, 0.7);
+        outline: none;
+        transition: 0.3s;
+        width: 100%;
+        color: var(--text-main);
+      }
+      .input-group textarea {
+        resize: vertical;
+        min-height: 110px;
+      }
+      .input-group input:focus,
+      .input-group select:focus,
+      .input-group textarea:focus {
+        border-color: var(--accent);
+        background: #fff;
+        box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
+      }
+
+      .char-count {
+        font-size: 11px;
+        color: var(--text-muted);
+        text-align: right;
+        margin-top: 4px;
+      }
+
+      .info-banner {
+        background: rgba(197, 160, 89, 0.1);
+        border: 1px solid rgba(197, 160, 89, 0.4);
+        color: #92670a;
+        padding: 14px 20px;
+        border-radius: 14px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 28px;
+      }
+      .info-banner i {
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+
+      .btn-submit {
+        background: var(--primary);
+        color: #fff;
+        border: none;
+        padding: 18px 30px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 16px;
+        width: 100%;
+        cursor: pointer;
+        transition: 0.3s;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 10px 20px rgba(27, 77, 62, 0.2);
+        margin-top: 28px;
+      }
+      .btn-submit:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+      .btn-submit:disabled {
+        background: var(--text-muted);
+        cursor: not-allowed;
+        transform: none;
+      }
+
+      /* Success */
+      .success-screen {
+        display: none;
+        text-align: center;
+        padding: 50px 20px;
+      }
+      .success-icon {
+        width: 90px;
+        height: 90px;
+        background: rgba(16, 185, 129, 0.1);
+        border: 2px solid #10b981;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-size: 40px;
+        color: #059669;
+      }
+      .success-screen h2 {
+        font-family: "Cinzel", serif;
+        color: var(--primary);
+        font-size: 26px;
+        margin-bottom: 12px;
+      }
+      .success-screen p {
+        color: var(--text-muted);
+        font-size: 15px;
+        max-width: 380px;
+        margin: 0 auto 8px;
+      }
+      .success-ref {
+        display: inline-block;
+        margin-top: 20px;
+        background: rgba(27, 77, 62, 0.08);
+        color: var(--primary-dark);
+        padding: 10px 24px;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+
+      #statusMessage {
+        margin-top: 16px;
+        padding: 14px;
+        border-radius: 12px;
+        text-align: center;
+        font-weight: 600;
+        display: none;
+        font-size: 14px;
+      }
+      .status-error {
+        background: #fee2e2;
+        color: #991b1b;
+        border: 1px solid #f87171;
+      }
+
+      @media (max-width: 600px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+        .full-width {
+          grid-column: span 1;
+        }
+        .form-card {
+          padding: 24px;
+        }
+        .page-header h1 {
+          font-size: 26px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+      <div class="page-header">
+        <div class="icon-wrap"><i class="fa-solid fa-phone-volume"></i></div>
+        <h1>Request a Callback</h1>
+        <p>Fill in your details and our team will call you back shortly.</p>
+      </div>
+
+      <div class="form-card">
+        <div class="info-banner">
+          <i class="fa-solid fa-circle-info"></i>
+          We typically respond within 24 hours on working days (Mon–Sat).
+        </div>
+
+        <form id="callbackForm">
+          <div class="form-grid">
+            <div class="input-group">
+              <label>Your Name <span>*</span></label>
+              <input
+                type="text"
+                id="name"
+                required
+                placeholder="Enter your full name"
+              />
+            </div>
+
+            <div class="input-group">
+              <label>Mobile Number <span>*</span></label>
+              <input
+                type="tel"
+                id="mobile"
+                required
+                placeholder="+91 Enter mobile number"
+                inputmode="numeric"
+                maxlength="15"
+              />
+            </div>
+
+            <div class="input-group full-width">
+              <label>Email Address <span>*</span></label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="Enter your email address"
+              />
+            </div>
+
+            <div class="input-group">
+              <label>City <span>*</span></label>
+              <input
+                type="text"
+                id="city"
+                required
+                placeholder="Enter your city"
+              />
+            </div>
+
+            <div class="input-group">
+              <label>Country <span>*</span></label>
+              <select id="country" required>
+                <option value="" disabled selected>Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="UAE">United Arab Emirates</option>
+                <option value="Australia">Australia</option>
+                <option value="Singapore">Singapore</option>
+                <option value="New Zealand">New Zealand</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="input-group full-width">
+              <label
+                >Could you share a little more context regarding your
+                query?</label
+              >
+              <textarea
+                id="query_context"
+                maxlength="500"
+                placeholder="Tell us what you'd like to discuss — e.g. registration queries, course details, competition info..."
+              ></textarea>
+              <div class="char-count"><span id="charCount">0</span> / 500</div>
+            </div>
+          </div>
+
+          <button type="submit" id="submitBtn" class="btn-submit">
+            Request Callback <i class="fa-solid fa-phone"></i>
+          </button>
+
+          <div id="statusMessage"></div>
+        </form>
+
+        <!-- SUCCESS -->
+        <div class="success-screen" id="successScreen">
+          <div class="success-icon"><i class="fa-solid fa-check"></i></div>
+          <h2>We'll Call You Back!</h2>
+          <p>
+            Your request has been received. Our team will reach out to you on
+            your mobile number soon.
+          </p>
+          <p>
+            Please keep your phone handy during working hours (Mon–Sat,
+            10am–6pm).
+          </p>
+          <span class="success-ref" id="successRef"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="/js/header.js"></script>
+    <script>
+      const DB_URL = "https://azdhqelzwptdyjypjkcb.supabase.co";
+      const DB_KEY =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZGhxZWx6d3B0ZHlqeXBqa2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjQwODEsImV4cCI6MjA5MTY0MDA4MX0.g6YLwLhe_pG_27FQlKgwlrDDlsqeory5s5HWSTe3nKA";
+      const db = window.supabase.createClient(DB_URL, DB_KEY);
+
+      const form = document.getElementById("callbackForm");
+      const submitBtn = document.getElementById("submitBtn");
+      const statusMsg = document.getElementById("statusMessage");
+      const textarea = document.getElementById("query_context");
+      const charCount = document.getElementById("charCount");
+
+      // Live character count
+      textarea.addEventListener("input", () => {
+        charCount.textContent = textarea.value.length;
+      });
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.innerHTML =
+          '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+        statusMsg.style.display = "none";
+
+        const formData = {
+          name: document.getElementById("name").value.trim(),
+          mobile: document.getElementById("mobile").value.trim(),
+          email: document.getElementById("email").value.trim(),
+          city: document.getElementById("city").value.trim(),
+          country: document.getElementById("country").value,
+          query_context: textarea.value.trim() || null,
+          status: "pending",
+        };
+
+        try {
+          const { error } = await db
+            .from("callback_requests")
+            .insert([formData]);
+
+          if (error) throw error;
+
+          form.style.display = "none";
+          document.getElementById("successScreen").style.display = "block";
+          document.getElementById("successRef").textContent =
+            "Reference: CB-" + Date.now().toString().slice(-6);
+        } catch (err) {
+          statusMsg.textContent = "Submission failed: " + err.message;
+          statusMsg.className = "status-error";
+          statusMsg.style.display = "block";
+          submitBtn.disabled = false;
+          submitBtn.innerHTML =
+            'Request Callback <i class="fa-solid fa-phone"></i>';
+        }
+      });
+    </script>
+  </body>
+</html>
