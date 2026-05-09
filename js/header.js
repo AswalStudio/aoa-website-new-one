@@ -204,7 +204,7 @@ const headerHTML = `
         <a href="https://1abacus.in/institutional/abacus-teacher-training">Certified Abacus Teachers Training</a>
                 <a href="https://1abacus.in/institutional/aoa-powered-opportunity">AOA Franchise</a>
 
-        <a href="https://1abacus.in/institutional/premier-hybrid-classrooms">AOA Certified Classroom</a>
+        <a href="https://1abacus.in/institutional/premier-hybrid-classrooms">AOA Certified Classrooms</a>
     </div>
 </li>
 
