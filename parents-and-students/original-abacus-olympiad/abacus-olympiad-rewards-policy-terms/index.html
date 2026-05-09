@@ -86,7 +86,10 @@
         padding: 0;
         background-color: var(--bg-base);
       }
-      h1, h2, h3, h4 {
+      h1,
+      h2,
+      h3,
+      h4 {
         font-family: "Cinzel", serif;
         color: var(--primary);
         margin: 0 0 1rem 0;
@@ -509,6 +512,42 @@
           min-width: 0;
         }
       }
+      /* --- GO BACK BUTTON --- */
+      /* --- GO BACK BUTTON --- */
+      .btn-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px; /* Increased gap between icon and text */
+        background: var(--surface);
+        backdrop-filter: var(--glass-blur);
+        -webkit-backdrop-filter: var(--glass-blur);
+        border: 2px solid var(--surface-border); /* Slightly thicker border for a premium feel */
+        color: var(--primary);
+        padding: 16px 40px; /* Much larger padding (top/bottom and left/right) */
+        border-radius: 50px;
+        font-size: 18px; /* Larger text */
+        font-weight: 700; /* Bolder text to match the new size */
+        text-decoration: none;
+        box-shadow: 0 15px 35px -5px rgba(27, 77, 62, 0.15); /* A slightly stronger shadow to lift it off the page */
+        transition: all 0.3s ease;
+        margin-top: 100px;
+      }
+
+      .btn-back i {
+        font-size: 22px; /* Made the arrow icon bigger */
+      }
+
+      .btn-back:hover {
+        background: var(--primary);
+        color: #fff;
+        transform: translateX(-5px);
+        border-color: var(--primary);
+        box-shadow: 0 20px 40px -5px rgba(27, 77, 62, 0.25);
+      }
+
+      .btn-back:hover i {
+        color: var(--accent);
+      }
     </style>
   </head>
   <body>
@@ -526,7 +565,6 @@
     <!-- HEADER PLACEHOLDER -->
     <div id="header-placeholder"></div>
 
-    <!-- Copyright Alert -->
     <div class="container">
       <div class="glass-alert">
         <i
@@ -1058,6 +1096,11 @@
         </div>
       </div>
     </section>
+    <div class="container" style="text-align: center">
+      <a href="javascript:history.back()" class="btn-back">
+        <i class="fa-solid fa-arrow-left"></i> Go Back
+      </a>
+    </div>
 
     <!-- 2. FOOTER INJECTION PLACEHOLDER -->
     <div id="footer-placeholder" style="margin-top: 80px"></div>
