@@ -442,7 +442,7 @@ const footerHTML = `
     <a href="#" class="scroll-top" title="Back to Top"><i class="fa-solid fa-chevron-up"></i></a>
     
     <div class="floating-buttons-wrapper">
-        <a href="/parents-and-students/quik-abacus-classes/demo-class/" class="float-register">Demo Class</a>
+        <a href="/parents-and-students/quik-abacus-classes/demo-class/" class="float-register">Book My Trail Class</a>
         
         <div class="float-contact-row">
             <a href="javascript:void(0)" class="float-btn float-call" title="Call Us" onclick="openContactModal()"><i class="fa-solid fa-headset"></i></a>
