@@ -163,7 +163,6 @@
         color: #fff;
       }
 
-      /* OVERLAY */
       .sidebar-overlay {
         position: fixed;
         inset: 0;
@@ -182,7 +181,6 @@
         width: 100%;
       }
 
-      /* VIEWS */
       .view {
         display: none;
         padding: 40px;
@@ -285,7 +283,7 @@
         margin-top: 5px;
       }
 
-      /* TABLE CONTAINER */
+      /* TABLE */
       .table-container {
         background: var(--glass-bg);
         backdrop-filter: var(--glass-blur);
@@ -385,6 +383,7 @@
       tbody tr:hover td {
         background: rgba(27, 77, 62, 0.04);
       }
+
       .status-pill {
         padding: 5px 12px;
         border-radius: 50px;
@@ -402,6 +401,11 @@
         background: rgba(245, 158, 11, 0.15);
         color: #d97706;
       }
+      .status-resolved {
+        background: rgba(99, 102, 241, 0.15);
+        color: #4f46e5;
+      }
+
       .click-hint {
         font-size: 12px;
         color: var(--text-muted);
@@ -409,7 +413,7 @@
         text-align: right;
       }
 
-      /* DETAIL VIEW */
+      /* DETAIL */
       .back-btn {
         display: inline-flex;
         align-items: center;
@@ -487,7 +491,6 @@
         word-break: break-word;
       }
 
-      /* Actions Buttons */
       .btn-action {
         background: #10b981;
         color: #fff;
@@ -515,6 +518,18 @@
       }
       .btn-danger:hover {
         background: #dc2626;
+      }
+      .btn-amber {
+        background: #f59e0b;
+      }
+      .btn-amber:hover {
+        background: #d97706;
+      }
+      .btn-indigo {
+        background: #6366f1;
+      }
+      .btn-indigo:hover {
+        background: #4f46e5;
       }
 
       @media (max-width: 992px) {
@@ -590,6 +605,9 @@
         <li class="nav-item" id="nav-demo" onclick="showView('demo')">
           <i class="fa-solid fa-chalkboard-user"></i> Demo Classes
         </li>
+        <li class="nav-item" id="nav-callbacks" onclick="showView('callbacks')">
+          <i class="fa-solid fa-phone-volume"></i> Callbacks
+        </li>
         <li class="nav-item" id="nav-export" onclick="exportCSV()">
           <i class="fa-solid fa-file-csv"></i> Export Data
         </li>
@@ -600,6 +618,9 @@
     </aside>
 
     <main class="main-content">
+      <!-- ═══════════════════════════════════════ -->
+      <!-- VIEW: REGISTRATIONS LIST               -->
+      <!-- ═══════════════════════════════════════ -->
       <div class="view active" id="view-registrations">
         <div class="top-header">
           <div class="header-title-group">
@@ -674,8 +695,8 @@
                   <th>Student Name</th>
                   <th>Olympiad</th>
                   <th>Level</th>
+                  <th>City</th>
                   <th>Parent Mobile</th>
-                  <th>Email Address</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -695,6 +716,9 @@
         </div>
       </div>
 
+      <!-- ═══════════════════════════════════════ -->
+      <!-- VIEW: REGISTRATION DETAIL              -->
+      <!-- ═══════════════════════════════════════ -->
       <div class="view" id="view-detail">
         <div class="top-header">
           <div class="header-title-group">
@@ -708,14 +732,15 @@
             <span id="admin-email-display-2">—</span>
           </div>
         </div>
-
         <button class="back-btn" onclick="showView('registrations')">
           <i class="fa-solid fa-arrow-left"></i> Back to List
         </button>
-
         <div class="detail-card" id="detailCard"></div>
       </div>
 
+      <!-- ═══════════════════════════════════════ -->
+      <!-- VIEW: DEMO CLASSES LIST                -->
+      <!-- ═══════════════════════════════════════ -->
       <div class="view" id="view-demo">
         <div class="top-header">
           <div class="header-title-group">
@@ -810,6 +835,9 @@
         </div>
       </div>
 
+      <!-- ═══════════════════════════════════════ -->
+      <!-- VIEW: DEMO DETAIL                      -->
+      <!-- ═══════════════════════════════════════ -->
       <div class="view" id="view-demo-detail">
         <div class="top-header">
           <div class="header-title-group">
@@ -823,12 +851,130 @@
             <span id="admin-email-display-4">—</span>
           </div>
         </div>
-
         <button class="back-btn" onclick="showView('demo')">
           <i class="fa-solid fa-arrow-left"></i> Back to List
         </button>
-
         <div class="detail-card" id="demoDetailCard"></div>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- VIEW: CALLBACKS LIST                   -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="view" id="view-callbacks">
+        <div class="top-header">
+          <div class="header-title-group">
+            <button class="mobile-menu-btn" onclick="toggleSidebar()">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <h1>Callback Requests</h1>
+          </div>
+          <div class="admin-profile">
+            <i class="fa-solid fa-user-shield"></i>
+            <span id="admin-email-display-5">—</span>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon" style="background: var(--primary)">
+              <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Total Requests</h3>
+              <p id="cb-total">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: #f59e0b">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Pending</h3>
+              <p id="cb-pending">0</p>
+            </div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon" style="background: #6366f1">
+              <i class="fa-solid fa-check-double"></i>
+            </div>
+            <div class="stat-info">
+              <h3>Resolved</h3>
+              <p id="cb-resolved">0</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-container">
+          <div class="table-header">
+            <h2>Callback Logs</h2>
+            <div class="table-actions">
+              <div class="search-bar">
+                <i
+                  class="fa-solid fa-magnifying-glass"
+                  style="color: var(--text-muted)"
+                ></i>
+                <input
+                  type="text"
+                  id="cbSearchInput"
+                  placeholder="Search name, city..."
+                  onkeyup="filterTable('cbTable', 'cbSearchInput')"
+                />
+              </div>
+              <button class="btn-export" onclick="exportCallbackCSV()">
+                <i class="fa-solid fa-download"></i> Export CSV
+              </button>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table id="cbTable">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Date</th>
+                  <th>Name</th>
+                  <th>Mobile</th>
+                  <th>Email</th>
+                  <th>City</th>
+                  <th>Country</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="cbTableBody">
+                <tr>
+                  <td colspan="8" style="text-align: center; padding: 40px">
+                    Fetching secure data...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="click-hint">
+            <i class="fa-solid fa-circle-info"></i> Click any row to view full
+            details
+          </p>
+        </div>
+      </div>
+
+      <!-- ═══════════════════════════════════════ -->
+      <!-- VIEW: CALLBACK DETAIL                  -->
+      <!-- ═══════════════════════════════════════ -->
+      <div class="view" id="view-callback-detail">
+        <div class="top-header">
+          <div class="header-title-group">
+            <button class="mobile-menu-btn" onclick="toggleSidebar()">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <h1>Callback Detail</h1>
+          </div>
+          <div class="admin-profile">
+            <i class="fa-solid fa-user-shield"></i>
+            <span id="admin-email-display-6">—</span>
+          </div>
+        </div>
+        <button class="back-btn" onclick="showView('callbacks')">
+          <i class="fa-solid fa-arrow-left"></i> Back to List
+        </button>
+        <div class="detail-card" id="cbDetailCard"></div>
       </div>
     </main>
 
@@ -838,9 +984,11 @@
         "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImF6ZGhxZWx6d3B0ZHlqeXBqa2NiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzYwNjQwODEsImV4cCI6MjA5MTY0MDA4MX0.g6YLwLhe_pG_27FQlKgwlrDDlsqeory5s5HWSTe3nKA";
       const db = window.supabase.createClient(DB_URL, DB_KEY);
 
-      let allData = [];
-      let allDemoData = [];
+      let allData = [],
+        allDemoData = [],
+        allCbData = [];
 
+      // ─── SIDEBAR / VIEW HELPERS ─────────────────
       function toggleSidebar() {
         document.getElementById("sidebar").classList.toggle("active");
         document.getElementById("sidebarOverlay").classList.toggle("active");
@@ -860,6 +1008,7 @@
         document.getElementById("sidebarOverlay").classList.remove("active");
       }
 
+      // ─── INIT ────────────────────────────────────
       async function initializeDashboard() {
         const {
           data: { session },
@@ -869,18 +1018,41 @@
           return;
         }
         const email = session.user.email;
-        document.getElementById("admin-email-display").innerText = email;
-        document.getElementById("admin-email-display-2").innerText = email;
-        document.getElementById("admin-email-display-3").innerText = email;
-        document.getElementById("admin-email-display-4").innerText = email;
-
+        [
+          "admin-email-display",
+          "admin-email-display-2",
+          "admin-email-display-3",
+          "admin-email-display-4",
+          "admin-email-display-5",
+          "admin-email-display-6",
+        ].forEach((id) => {
+          document.getElementById(id).innerText = email;
+        });
         fetchRegistrations();
         fetchDemoClasses();
+        fetchCallbacks();
       }
 
-      // ==========================================
-      // REGISTRATIONS LOGIC
-      // ==========================================
+      // ─── HELPER ──────────────────────────────────
+      const field = (label, val) => `
+        <div class="detail-field">
+          <label>${label}</label>
+          <span>${val || "—"}</span>
+        </div>`;
+
+      const fmtDate = (ts, withTime = false) => {
+        if (!ts) return "—";
+        const opts = { day: "2-digit", month: "short", year: "numeric" };
+        if (withTime) {
+          opts.hour = "2-digit";
+          opts.minute = "2-digit";
+        }
+        return new Date(ts).toLocaleString("en-IN", opts);
+      };
+
+      // ════════════════════════════════════════════
+      // REGISTRATIONS
+      // ════════════════════════════════════════════
       async function fetchRegistrations() {
         const tbody = document.getElementById("tableBody");
         const { data, error } = await db
@@ -889,15 +1061,14 @@
           .order("created_at", { ascending: false });
 
         if (error) {
-          tbody.innerHTML = `<tr><td colspan="7" style="color:red;text-align:center">Error: ${error.message}</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="8" style="color:red;text-align:center">Error: ${error.message}</td></tr>`;
           return;
         }
-        if (!data || !data.length) {
+        if (!data?.length) {
           tbody.innerHTML =
-            '<tr><td colspan="7" style="text-align:center;padding:40px">No records found.</td></tr>';
+            '<tr><td colspan="8" style="text-align:center;padding:40px">No records found.</td></tr>';
           return;
         }
-
         allData = data;
         renderTable(data);
       }
@@ -907,33 +1078,24 @@
           pending = 0;
         const tbody = document.getElementById("tableBody");
         tbody.innerHTML = "";
-
         data.forEach((row, i) => {
           if (row.payment_status === "paid") revenue += row.fee_amount || 2300;
           if (row.payment_status === "pending") pending++;
-
-          const date = new Date(row.created_at).toLocaleDateString("en-IN", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          });
           const sc =
             row.payment_status === "paid" ? "status-paid" : "status-pending";
           const tr = document.createElement("tr");
           tr.innerHTML = `
-        <td style="color:var(--text-muted);font-size:13px">${i + 1}</td>
-        <td>${date}</td>
-        <td style="font-weight:700">${row.student_name || "N/A"}</td>
-        <td>${row.olympiad_type || "N/A"}</td>
-        <td>${row.level_of_participation || "N/A"}</td>
-        <td>${row.parent_mobile || row.applicant_mobile || "N/A"}</td>
-        <td>${row.email || "N/A"}</td>
-        <td><span class="status-pill ${sc}">${(row.payment_status || "pending").toUpperCase()}</span></td>
-      `;
+            <td style="color:var(--text-muted);font-size:13px">${i + 1}</td>
+            <td>${fmtDate(row.created_at)}</td>
+            <td style="font-weight:700">${row.student_name || "N/A"}</td>
+            <td>${row.olympiad_type || "N/A"}</td>
+            <td>${row.level_of_participation || "N/A"}</td>
+            <td>${row.city || "N/A"}</td>
+            <td>${row.parent_mobile || row.applicant_mobile || "N/A"}</td>
+            <td><span class="status-pill ${sc}">${(row.payment_status || "pending").toUpperCase()}</span></td>`;
           tr.onclick = () => openDetail(row);
           tbody.appendChild(tr);
         });
-
         document.getElementById("total-apps").innerText = data.length;
         document.getElementById("total-revenue").innerText =
           "₹" + revenue.toLocaleString("en-IN");
@@ -943,86 +1105,63 @@
       function openDetail(row) {
         const sc =
           row.payment_status === "paid" ? "status-paid" : "status-pending";
-        const date = new Date(row.created_at).toLocaleString("en-IN", {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-
-        const field = (label, val) => `
-      <div class="detail-field">
-        <label>${label}</label>
-        <span>${val || "—"}</span>
-      </div>`;
-
         document.getElementById("detailCard").innerHTML = `
-      <div class="detail-top">
-        <div>
-          <h2>${row.student_name || "Student"}</h2>
-          <p style="color:var(--text-muted);font-size:14px;margin-top:4px">Submitted on ${date}</p>
-        </div>
-        <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
-          <span class="status-pill ${sc}" style="font-size:13px;padding:8px 16px">${(row.payment_status || "pending").toUpperCase()}</span>
-          
-          ${
-            row.payment_status !== "paid"
-              ? `
-            <button class="btn-action" id="markPaidBtn" onclick="markAsPaid('${row.id}')">
-              <i class="fa-solid fa-check"></i> Mark as Paid
-            </button>`
-              : ""
-          }
-          
-          <button class="btn-action btn-danger" id="deleteBtn" onclick="deleteRegistration('${row.id}')">
-            <i class="fa-solid fa-trash"></i> Delete
-          </button>
+          <div class="detail-top">
+            <div>
+              <h2>${row.student_name || "Student"}</h2>
+              <p style="color:var(--text-muted);font-size:14px;margin-top:4px">Submitted on ${fmtDate(row.created_at, true)}</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <span class="status-pill ${sc}" style="font-size:13px;padding:8px 16px">${(row.payment_status || "pending").toUpperCase()}</span>
+              ${row.payment_status !== "paid" ? `<button class="btn-action" id="markPaidBtn" onclick="markAsPaid('${row.id}')"><i class="fa-solid fa-check"></i> Mark as Paid</button>` : ""}
+              <button class="btn-action btn-danger" id="deleteBtn" onclick="deleteRegistration('${row.id}')"><i class="fa-solid fa-trash"></i> Delete</button>
+            </div>
+          </div>
 
-        </div>
-      </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Applicant Details</div>
+            <div class="detail-grid">
+              ${field("Applicant Name", row.applicant_name)}
+              ${field("Applicant Mobile", row.applicant_mobile)}
+              ${field("Email Address", row.email)}
+            </div>
+          </div>
 
-<div class="detail-section">
-        <div class="detail-section-title">Applicant Details</div>
-        <div class="detail-grid">
-          ${field("Applicant Name", row.applicant_name)}
-          ${field("Applicant Mobile", row.applicant_mobile)}
-          ${field("Email Address", row.email)}
-          ${field("Country", row.country)}
-        </div>
-      </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Student Information</div>
+            <div class="detail-grid">
+              ${field("Student Name", row.student_name)}
+              ${field("Gender", row.student_gender)}
+              ${field("Age", row.student_age ? row.student_age + " yrs" : "—")}
+              ${field("T-Shirt Size", row.tshirt_size)}
+              ${field("Father's Name", row.father_name)}
+              ${field("Parent Mobile", row.parent_mobile)}
+            </div>
+          </div>
 
-      <div class="detail-section">
-        <div class="detail-section-title">Student Information</div>
-        <div class="detail-grid">
-          ${field("Student Name", row.student_name)}
-          ${field("Gender", row.student_gender)}
-          ${field("Age", row.student_age ? row.student_age + " yrs" : "—")}
-          ${field("T-Shirt Size", row.tshirt_size)}
-          ${field("Father's Name", row.father_name)}
-          ${field("Parent Mobile", row.parent_mobile)}
-        </div>
-      </div>
+          <div class="detail-section">
+            <div class="detail-section-title">Academic Details</div>
+            <div class="detail-grid">
+              ${field("Olympiad", row.olympiad_type)}
+              ${field("Level of Participation", row.level_of_participation)}
+              ${field("Last Level Passed", row.last_level_passed)}
+              ${field("Coach / Teacher", row.coach_name)}
+            </div>
+          </div>
 
-      <div class="detail-section">
-        <div class="detail-section-title">Academic Details</div>
-        <div class="detail-grid">
-          ${field("Olympiad", row.olympiad_type)}
-          ${field("Level of Participation", row.level_of_participation)}
-          ${field("Last Level Passed", row.last_level_passed)}
-          ${field("Coach / Teacher", row.coach_name)}
-        </div>
-      </div>
-
-      <div class="detail-section">
-        <div class="detail-section-title">Address & Payment</div>
-        <div class="detail-grid">
-          ${field("Postal Address", row.postal_address)}
-          ${field("Payment Status", (row.payment_status || "pending").toUpperCase())}
-        </div>
-      </div>
-    `;
-
+          <div class="detail-section">
+            <div class="detail-section-title">Address & Payment</div>
+            <div class="detail-grid">
+              ${field("Address Line 1", row.address_line1)}
+              ${field("Address Line 2", row.address_line2)}
+              ${field("City", row.city)}
+              ${field("State", row.state)}
+              ${field("Pincode", row.pincode)}
+              ${field("Country", row.country)}
+              ${field("Payment Status", (row.payment_status || "pending").toUpperCase())}
+              ${field("Fee Amount", row.fee_amount ? "₹" + row.fee_amount : "—")}
+            </div>
+          </div>`;
         showView("detail");
       }
 
@@ -1031,90 +1170,76 @@
           alert("Error: Registration ID is missing.");
           return;
         }
-
         const btn = document.getElementById("markPaidBtn");
         if (btn) {
           btn.disabled = true;
           btn.innerHTML =
             '<i class="fa-solid fa-spinner fa-spin"></i> Updating...';
         }
-
         const { error } = await db
           .from("championship_registrations")
           .update({ payment_status: "paid" })
           .eq("id", id);
-
         if (error) {
-          alert("Error updating database: " + error.message);
-          console.error(error);
+          alert("Error: " + error.message);
           if (btn) {
             btn.disabled = false;
             btn.innerHTML = '<i class="fa-solid fa-check"></i> Mark as Paid';
           }
           return;
         }
-
         await fetchRegistrations();
         showView("registrations");
       }
 
       async function deleteRegistration(id) {
         if (!id || id === "undefined") return;
-
         if (
           !confirm(
-            "Are you sure you want to permanently delete this registration? This action cannot be undone.",
+            "Permanently delete this registration? This cannot be undone.",
           )
-        ) {
+        )
           return;
-        }
-
         const btn = document.getElementById("deleteBtn");
         if (btn) {
           btn.disabled = true;
           btn.innerHTML =
             '<i class="fa-solid fa-spinner fa-spin"></i> Deleting...';
         }
-
         const { error } = await db
           .from("championship_registrations")
           .delete()
           .eq("id", id);
-
         if (error) {
-          alert("Error deleting record: " + error.message);
-          console.error(error);
+          alert("Error: " + error.message);
           if (btn) {
             btn.disabled = false;
             btn.innerHTML = '<i class="fa-solid fa-trash"></i> Delete';
           }
           return;
         }
-
         await fetchRegistrations();
         showView("registrations");
       }
 
-      // ==========================================
-      // DEMO CLASSES LOGIC
-      // ==========================================
+      // ════════════════════════════════════════════
+      // DEMO CLASSES
+      // ════════════════════════════════════════════
       async function fetchDemoClasses() {
         const tbody = document.getElementById("demoTableBody");
         const { data, error } = await db
           .from("free_trial_bookings")
           .select("*")
           .order("created_at", { ascending: false });
-
         if (error) {
           tbody.innerHTML = `<tr><td colspan="7" style="color:red;text-align:center">Error: ${error.message}</td></tr>`;
           return;
         }
-        if (!data || !data.length) {
+        if (!data?.length) {
           tbody.innerHTML =
             '<tr><td colspan="7" style="text-align:center;padding:40px">No demo requests found.</td></tr>';
           return;
         }
-
         allDemoData = data;
         renderDemoTable(data);
       }
@@ -1124,48 +1249,23 @@
           contacted = 0;
         const tbody = document.getElementById("demoTableBody");
         tbody.innerHTML = "";
-
         data.forEach((row, i) => {
           if (row.status === "contacted") contacted++;
           else pending++;
-
-          const date = new Date(row.created_at).toLocaleDateString("en-IN", {
-            day: "2-digit",
-            month: "short",
-            year: "numeric",
-          });
-
-          let preferredDate = "—";
-          if (row.preferred_datetime) {
-            preferredDate = new Date(row.preferred_datetime).toLocaleString(
-              "en-IN",
-              {
-                day: "2-digit",
-                month: "short",
-                hour: "2-digit",
-                minute: "2-digit",
-              },
-            );
-          }
-
           const sc =
             row.status === "contacted" ? "status-contacted" : "status-pending";
-          const statusText = row.status ? row.status.toUpperCase() : "PENDING";
-
           const tr = document.createElement("tr");
           tr.innerHTML = `
             <td style="color:var(--text-muted);font-size:13px">${i + 1}</td>
-            <td>${date}</td>
+            <td>${fmtDate(row.created_at)}</td>
             <td style="font-weight:700">${row.student_name || "N/A"}</td>
             <td>${row.student_age || "N/A"}</td>
             <td>${row.mobile_number || "N/A"}</td>
-            <td>${preferredDate}</td>
-            <td><span class="status-pill ${sc}">${statusText}</span></td>
-          `;
+            <td>${row.preferred_datetime ? fmtDate(row.preferred_datetime, true) : "—"}</td>
+            <td><span class="status-pill ${sc}">${(row.status || "pending").toUpperCase()}</span></td>`;
           tr.onclick = () => openDemoDetail(row);
           tbody.appendChild(tr);
         });
-
         document.getElementById("demo-total-requests").innerText = data.length;
         document.getElementById("demo-pending").innerText = pending;
         document.getElementById("demo-contacted").innerText = contacted;
@@ -1174,86 +1274,38 @@
       function openDemoDetail(row) {
         const sc =
           row.status === "contacted" ? "status-contacted" : "status-pending";
-        const statusText = row.status ? row.status.toUpperCase() : "PENDING";
-
-        const date = new Date(row.created_at).toLocaleString("en-IN", {
-          day: "2-digit",
-          month: "short",
-          year: "numeric",
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-
-        let preferredDate = "—";
-        if (row.preferred_datetime) {
-          preferredDate = new Date(row.preferred_datetime).toLocaleString(
-            "en-IN",
-            {
-              weekday: "short",
-              day: "2-digit",
-              month: "long",
-              year: "numeric",
-              hour: "2-digit",
-              minute: "2-digit",
-            },
-          );
-        }
-
-        const field = (label, val) => `
-          <div class="detail-field">
-            <label>${label}</label>
-            <span>${val || "—"}</span>
-          </div>`;
-
+        const statusText = (row.status || "pending").toUpperCase();
         document.getElementById("demoDetailCard").innerHTML = `
           <div class="detail-top">
             <div>
               <h2>${row.student_name || "Student"}</h2>
-              <p style="color:var(--text-muted);font-size:14px;margin-top:4px">Submitted on ${date}</p>
+              <p style="color:var(--text-muted);font-size:14px;margin-top:4px">Submitted on ${fmtDate(row.created_at, true)}</p>
             </div>
             <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
               <span class="status-pill ${sc}" style="font-size:13px;padding:8px 16px">${statusText}</span>
-              
               ${
                 row.status !== "contacted"
-                  ? `
-                <button class="btn-action" id="markContactedBtn" onclick="markDemoStatus('${row.id}', 'contacted')">
-                  <i class="fa-solid fa-phone-volume"></i> Mark Contacted
-                </button>`
-                  : `
-                <button class="btn-action" style="background:#f59e0b;" id="markPendingBtn" onclick="markDemoStatus('${row.id}', 'pending')">
-                  <i class="fa-solid fa-clock-rotate-left"></i> Revert to Pending
-                </button>
-                  `
+                  ? `<button class="btn-action" id="markContactedBtn" onclick="markDemoStatus('${row.id}','contacted')"><i class="fa-solid fa-phone-volume"></i> Mark Contacted</button>`
+                  : `<button class="btn-action btn-amber" id="markPendingBtn" onclick="markDemoStatus('${row.id}','pending')"><i class="fa-solid fa-clock-rotate-left"></i> Revert to Pending</button>`
               }
-              
-              <button class="btn-action btn-danger" id="deleteDemoBtn" onclick="deleteDemo('${row.id}')">
-                <i class="fa-solid fa-trash"></i> Delete
-              </button>
-
+              <button class="btn-action btn-danger" id="deleteDemoBtn" onclick="deleteDemo('${row.id}')"><i class="fa-solid fa-trash"></i> Delete</button>
             </div>
           </div>
-
           <div class="detail-section">
             <div class="detail-section-title">Class Preferences</div>
             <div class="detail-grid">
-              ${field("Preferred Day & Time", preferredDate)}
-              <div class="detail-field" style="grid-column: span 2;">
-                <label>Message / Requirements</label>
-                <span>${row.message || "No specific message provided."}</span>
-              </div>
+              ${field("Preferred Day & Time", row.preferred_datetime ? fmtDate(row.preferred_datetime, true) : "—")}
+              <div class="detail-field" style="grid-column:span 2"><label>Message / Requirements</label><span>${row.message || "No specific message."}</span></div>
             </div>
           </div>
-
           <div class="detail-section">
-            <div class="detail-section-title">Parent Contact Information</div>
+            <div class="detail-section-title">Parent Contact</div>
             <div class="detail-grid">
               ${field("Parent Name", row.parent_name)}
               ${field("Mobile Number", row.mobile_number)}
               ${field("Email Address", row.email)}
             </div>
           </div>
-
           <div class="detail-section">
             <div class="detail-section-title">Student Information</div>
             <div class="detail-grid">
@@ -1261,95 +1313,222 @@
               ${field("Age", row.student_age ? row.student_age + " yrs" : "—")}
               ${field("Gender", row.student_gender)}
             </div>
-          </div>
-        `;
-
+          </div>`;
         showView("demo-detail");
       }
 
       async function markDemoStatus(id, newStatus) {
         if (!id) return;
-
         const btnId =
           newStatus === "contacted" ? "markContactedBtn" : "markPendingBtn";
         const btn = document.getElementById(btnId);
-
         if (btn) {
           btn.disabled = true;
           btn.innerHTML =
             '<i class="fa-solid fa-spinner fa-spin"></i> Updating...';
         }
-
         const { error } = await db
           .from("free_trial_bookings")
           .update({ status: newStatus })
           .eq("id", id);
-
         if (error) {
-          alert("Error updating status: " + error.message);
+          alert("Error: " + error.message);
           if (btn) btn.disabled = false;
           return;
         }
-
         await fetchDemoClasses();
         showView("demo");
       }
 
       async function deleteDemo(id) {
         if (!id) return;
-
-        if (
-          !confirm(
-            "Permanently delete this demo request? This action cannot be undone.",
-          )
-        ) {
+        if (!confirm("Permanently delete this demo request? Cannot be undone."))
           return;
-        }
-
         const btn = document.getElementById("deleteDemoBtn");
         if (btn) {
           btn.disabled = true;
           btn.innerHTML =
             '<i class="fa-solid fa-spinner fa-spin"></i> Deleting...';
         }
-
         const { error } = await db
           .from("free_trial_bookings")
           .delete()
           .eq("id", id);
-
         if (error) {
-          alert("Error deleting record: " + error.message);
+          alert("Error: " + error.message);
           if (btn) btn.disabled = false;
           return;
         }
-
         await fetchDemoClasses();
         showView("demo");
       }
 
-      // ==========================================
+      // ════════════════════════════════════════════
+      // CALLBACKS
+      // ════════════════════════════════════════════
+      async function fetchCallbacks() {
+        const tbody = document.getElementById("cbTableBody");
+        const { data, error } = await db
+          .from("callback_requests")
+          .select("*")
+          .order("created_at", { ascending: false });
+        if (error) {
+          tbody.innerHTML = `<tr><td colspan="8" style="color:red;text-align:center">Error: ${error.message}</td></tr>`;
+          return;
+        }
+        if (!data?.length) {
+          tbody.innerHTML =
+            '<tr><td colspan="8" style="text-align:center;padding:40px">No callback requests yet.</td></tr>';
+          return;
+        }
+        allCbData = data;
+        renderCallbackTable(data);
+      }
+
+      function renderCallbackTable(data) {
+        let pending = 0,
+          resolved = 0;
+        const tbody = document.getElementById("cbTableBody");
+        tbody.innerHTML = "";
+        data.forEach((row, i) => {
+          if (row.status === "resolved") resolved++;
+          else pending++;
+          const sc =
+            row.status === "resolved" ? "status-resolved" : "status-pending";
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td style="color:var(--text-muted);font-size:13px">${i + 1}</td>
+            <td>${fmtDate(row.created_at)}</td>
+            <td style="font-weight:700">${row.name || "N/A"}</td>
+            <td>${row.mobile || "N/A"}</td>
+            <td>${row.email || "N/A"}</td>
+            <td>${row.city || "N/A"}</td>
+            <td>${row.country || "N/A"}</td>
+            <td><span class="status-pill ${sc}">${(row.status || "pending").toUpperCase()}</span></td>`;
+          tr.onclick = () => openCallbackDetail(row);
+          tbody.appendChild(tr);
+        });
+        document.getElementById("cb-total").innerText = data.length;
+        document.getElementById("cb-pending").innerText = pending;
+        document.getElementById("cb-resolved").innerText = resolved;
+      }
+
+      function openCallbackDetail(row) {
+        const sc =
+          row.status === "resolved" ? "status-resolved" : "status-pending";
+        const statusText = (row.status || "pending").toUpperCase();
+        document.getElementById("cbDetailCard").innerHTML = `
+          <div class="detail-top">
+            <div>
+              <h2>${row.name || "Requester"}</h2>
+              <p style="color:var(--text-muted);font-size:14px;margin-top:4px">Submitted on ${fmtDate(row.created_at, true)}</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+              <span class="status-pill ${sc}" style="font-size:13px;padding:8px 16px">${statusText}</span>
+              ${
+                row.status !== "resolved"
+                  ? `<button class="btn-action btn-indigo" id="markResolvedBtn" onclick="markCallbackStatus('${row.id}','resolved')"><i class="fa-solid fa-check-double"></i> Mark Resolved</button>`
+                  : `<button class="btn-action btn-amber" id="markCbPendingBtn" onclick="markCallbackStatus('${row.id}','pending')"><i class="fa-solid fa-clock-rotate-left"></i> Revert to Pending</button>`
+              }
+              <button class="btn-action btn-danger" id="deleteCbBtn" onclick="deleteCallback('${row.id}')"><i class="fa-solid fa-trash"></i> Delete</button>
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-section-title">Contact Information</div>
+            <div class="detail-grid">
+              ${field("Name", row.name)}
+              ${field("Mobile", row.mobile)}
+              ${field("Email", row.email)}
+              ${field("City", row.city)}
+              ${field("Country", row.country)}
+            </div>
+          </div>
+
+          <div class="detail-section">
+            <div class="detail-section-title">Query Context</div>
+            <div class="detail-grid">
+              <div class="detail-field" style="grid-column:span 3">
+                <label>Message</label>
+                <span>${row.query_context || "No additional context provided."}</span>
+              </div>
+            </div>
+          </div>`;
+        showView("callback-detail");
+      }
+
+      async function markCallbackStatus(id, newStatus) {
+        if (!id) return;
+        const btnId =
+          newStatus === "resolved" ? "markResolvedBtn" : "markCbPendingBtn";
+        const btn = document.getElementById(btnId);
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Updating...';
+        }
+        const { error } = await db
+          .from("callback_requests")
+          .update({ status: newStatus })
+          .eq("id", id);
+        if (error) {
+          alert("Error: " + error.message);
+          if (btn) btn.disabled = false;
+          return;
+        }
+        await fetchCallbacks();
+        showView("callbacks");
+      }
+
+      async function deleteCallback(id) {
+        if (!id) return;
+        if (
+          !confirm(
+            "Permanently delete this callback request? Cannot be undone.",
+          )
+        )
+          return;
+        const btn = document.getElementById("deleteCbBtn");
+        if (btn) {
+          btn.disabled = true;
+          btn.innerHTML =
+            '<i class="fa-solid fa-spinner fa-spin"></i> Deleting...';
+        }
+        const { error } = await db
+          .from("callback_requests")
+          .delete()
+          .eq("id", id);
+        if (error) {
+          alert("Error: " + error.message);
+          if (btn) btn.disabled = false;
+          return;
+        }
+        await fetchCallbacks();
+        showView("callbacks");
+      }
+
+      // ════════════════════════════════════════════
       // SHARED UTILITIES
-      // ==========================================
+      // ════════════════════════════════════════════
       function filterTable(tableId, inputId) {
         const filter = document.getElementById(inputId).value.toUpperCase();
         const rows = document
           .getElementById(tableId)
           .getElementsByTagName("tr");
         for (let i = 1; i < rows.length; i++) {
-          const text = rows[i].innerText.toUpperCase();
-          rows[i].style.display = text.includes(filter) ? "" : "none";
+          rows[i].style.display = rows[i].innerText
+            .toUpperCase()
+            .includes(filter)
+            ? ""
+            : "none";
         }
       }
 
       function exportCSV() {
-        // Fallback for sidebar click - defaults to whatever view is active
         const activeView = document.querySelector(".view.active").id;
-        if (activeView === "view-demo") {
-          exportDemoCSV();
-        } else {
-          exportRegistrationsCSV();
-        }
+        if (activeView === "view-demo") exportDemoCSV();
+        else if (activeView === "view-callbacks") exportCallbackCSV();
+        else exportRegistrationsCSV();
       }
 
       function exportRegistrationsCSV() {
@@ -1374,6 +1553,11 @@
           "level_of_participation",
           "last_level_passed",
           "coach_name",
+          "address_line1",
+          "address_line2",
+          "city",
+          "state",
+          "pincode",
           "postal_address",
           "fee_amount",
           "payment_status",
@@ -1402,29 +1586,44 @@
         generateCSV(allDemoData, cols, "aoa_demo_requests_");
       }
 
+      function exportCallbackCSV() {
+        if (!allCbData.length) {
+          alert("No callback data to export.");
+          return;
+        }
+        const cols = [
+          "id",
+          "created_at",
+          "name",
+          "mobile",
+          "email",
+          "city",
+          "country",
+          "query_context",
+          "status",
+        ];
+        generateCSV(allCbData, cols, "aoa_callbacks_");
+      }
+
       function generateCSV(dataArray, columns, filenamePrefix) {
-        const escape = (v) => {
+        const esc = (v) => {
           if (v == null) return "";
           const s = String(v).replace(/"/g, '""');
           return s.includes(",") || s.includes('"') || s.includes("\n")
             ? `"${s}"`
             : s;
         };
-
-        const header = columns.join(",");
-        const rows = dataArray.map((r) =>
-          columns.map((c) => escape(r[c])).join(","),
-        );
-        const csv = [header, ...rows].join("\n");
-
-        const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-        const url = URL.createObjectURL(blob);
+        const csv = [
+          columns.join(","),
+          ...dataArray.map((r) => columns.map((c) => esc(r[c])).join(",")),
+        ].join("\n");
         const a = document.createElement("a");
-        a.href = url;
+        a.href = URL.createObjectURL(
+          new Blob([csv], { type: "text/csv;charset=utf-8;" }),
+        );
         a.download =
           filenamePrefix + new Date().toISOString().slice(0, 10) + ".csv";
         a.click();
-        URL.revokeObjectURL(url);
       }
 
       async function logoutAdmin() {
