@@ -1018,7 +1018,6 @@
         <div class="detail-section-title">Address & Payment</div>
         <div class="detail-grid">
           ${field("Postal Address", row.postal_address)}
-          ${field("Fee Amount", "₹" + (row.fee_amount || 2300))}
           ${field("Payment Status", (row.payment_status || "pending").toUpperCase())}
         </div>
       </div>
