@@ -197,11 +197,14 @@ const headerHTML = `
                 <li class="dropdown-trigger" onclick="toggleDropdown(this)">
     <a href="javascript:void(0)">Coaches and Schools <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
     <div class="dropdown-content">
+            <a href="https://1abacus.in/institutional/1abacusmart">1AbacusMART</a>
+
+            <a href="https://1abacus.in/institutional/teaching-abacus-made-easy-in-schools">Abacus Maths Classes Made Easy For Schools</a>
+
         <a href="https://1abacus.in/institutional/abacus-teacher-training">Certified Abacus Teachers Training</a>
+                <a href="https://1abacus.in/institutional/aoa-powered-opportunity">AOA Franchise</a>
+
         <a href="https://1abacus.in/institutional/premier-hybrid-classrooms">AOA Certified Classroom</a>
-        <a href="https://1abacus.in/institutional/1abacusmart">1AbacusMART</a>
-        <a href="https://1abacus.in/institutional/aoa-powered-opportunity">AOA Franchise</a>
-        <a href="https://1abacus.in/institutional/teaching-abacus-made-easy-in-schools">Abacus Maths Classes Made Easy For Schools</a>
     </div>
 </li>
 
