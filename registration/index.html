@@ -28,7 +28,6 @@
         f.parentNode.insertBefore(j, f);
       })(window, document, "script", "dataLayer", "GTM-NDHWK24L");
     </script>
-    <!-- End Google Tag Manager -->
 
     <link
       rel="shortcut icon"
@@ -191,24 +190,6 @@
         box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1);
       }
 
-      .info-banner {
-        background: rgba(197, 160, 89, 0.12);
-        border: 1px solid rgba(197, 160, 89, 0.5);
-        color: #92670a;
-        padding: 18px 24px;
-        border-radius: 16px;
-        text-align: center;
-        margin: 40px 0 20px;
-        font-size: 15px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-      }
-      .info-banner i {
-        font-size: 18px;
-      }
-
       .btn-submit {
         background: var(--primary);
         color: #fff;
@@ -227,6 +208,7 @@
         align-items: center;
         gap: 10px;
         box-shadow: 0 10px 20px rgba(27, 77, 62, 0.2);
+        margin-top: 30px;
       }
       .btn-submit:hover {
         background: var(--primary-dark);
@@ -238,7 +220,6 @@
         transform: none;
       }
 
-      /* Success Screen */
       .success-screen {
         display: none;
         text-align: center;
@@ -323,6 +304,7 @@
       <div class="form-card">
         <!-- FORM -->
         <form id="registrationForm">
+          <!-- ───── APPLICANT DETAILS ───── -->
           <h2 class="section-title">Applicant Details</h2>
           <div class="form-grid">
             <div class="input-group">
@@ -352,21 +334,9 @@
                 placeholder="Enter email address"
               />
             </div>
-            <div class="input-group full-width">
-              <label>Country <span>*</span></label>
-              <select id="country" required>
-                <option value="" disabled selected>Select your country</option>
-                <option value="India">India</option>
-                <option value="USA">United States</option>
-                <option value="Canada">Canada</option>
-                <option value="UK">United Kingdom</option>
-                <option value="UAE">United Arab Emirates</option>
-                <option value="Australia">Australia</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
           </div>
 
+          <!-- ───── STUDENT INFORMATION ───── -->
           <h2 class="section-title">Student Information</h2>
           <div class="form-grid">
             <div class="input-group">
@@ -402,17 +372,17 @@
               <label>Participant's School T-Shirt Size <span>*</span></label>
               <select id="tshirt_size" required>
                 <option value="" disabled selected>Select Size</option>
-                <option value="XS (24)">22</option>
-                <option value="S (26)">24</option>
-                <option value="M (28)">26</option>
-                <option value="L (30)">28</option>
-                <option value="XL (32)">30</option>
-                <option value="XXL (34)">32</option>
-                <option value="S (26)">34</option>
-                <option value="M (28)">36</option>
-                <option value="L (30)">38</option>
-                <option value="XL (32)">40</option>
-                <option value="XXL (34)">42</option>
+                <option value="22">22</option>
+                <option value="24">24</option>
+                <option value="26">26</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
+                <option value="34">34</option>
+                <option value="36">36</option>
+                <option value="38">38</option>
+                <option value="40">40</option>
+                <option value="42">42</option>
               </select>
             </div>
             <div class="input-group">
@@ -436,6 +406,7 @@
             </div>
           </div>
 
+          <!-- ───── ACADEMIC DETAILS ───── -->
           <h2 class="section-title">Academic Details</h2>
           <div class="form-grid">
             <div class="input-group full-width">
@@ -452,16 +423,16 @@
               <label>Choose Level of Participation <span>*</span></label>
               <select id="level_of_participation" required>
                 <option value="" disabled selected>Select Level</option>
-                <option value="Level 1">Level 1</option>
-                <option value="Level 2">Level 2</option>
-                <option value="Level 3">Level 3</option>
-                <option value="Level 4">Level 4</option>
-                <option value="Level 5">Level 5</option>
-                <option value="Level 6">Level 6</option>
-                <option value="Level 7">Level 7</option>
-                <option value="Level 8">Level 8</option>
-                <option value="Level 9">Level 9</option>
-                <option value="Level 10">Level 10</option>
+                <option>Level 1</option>
+                <option>Level 2</option>
+                <option>Level 3</option>
+                <option>Level 4</option>
+                <option>Level 5</option>
+                <option>Level 6</option>
+                <option>Level 7</option>
+                <option>Level 8</option>
+                <option>Level 9</option>
+                <option>Level 10</option>
               </select>
             </div>
             <div class="input-group">
@@ -469,15 +440,15 @@
               <select id="last_level_passed" required>
                 <option value="" disabled selected>Select Last Level</option>
                 <option value="None (Beginner)">None (Beginner)</option>
-                <option value="Level 1">Level 1</option>
-                <option value="Level 2">Level 2</option>
-                <option value="Level 3">Level 3</option>
-                <option value="Level 4">Level 4</option>
-                <option value="Level 5">Level 5</option>
-                <option value="Level 6">Level 6</option>
-                <option value="Level 7">Level 7</option>
-                <option value="Level 8">Level 8</option>
-                <option value="Level 9">Level 9</option>
+                <option>Level 1</option>
+                <option>Level 2</option>
+                <option>Level 3</option>
+                <option>Level 4</option>
+                <option>Level 5</option>
+                <option>Level 6</option>
+                <option>Level 7</option>
+                <option>Level 8</option>
+                <option>Level 9</option>
               </select>
             </div>
             <div class="input-group full-width">
@@ -492,18 +463,117 @@
                 placeholder="COACH OR TEACHER NAME"
               />
             </div>
+          </div>
+
+          <!-- ───── ADDRESS DETAILS ───── -->
+          <h2 class="section-title">Address Details</h2>
+          <div class="form-grid">
+            <div class="input-group full-width">
+              <label>Country <span>*</span></label>
+              <select id="country" required>
+                <option value="" disabled selected>Select Country</option>
+                <option value="India">India</option>
+                <option value="USA">United States</option>
+                <option value="Canada">Canada</option>
+                <option value="UK">United Kingdom</option>
+                <option value="UAE">United Arab Emirates</option>
+                <option value="Australia">Australia</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
             <div class="input-group full-width">
               <label
-                >Complete Postal Address (Capital Letters) <span>*</span></label
+                >Address Line 1 — House / Flat No., Street <span>*</span></label
               >
-              <textarea
-                id="postal_address"
-                rows="3"
+              <input
+                type="text"
+                id="address_line1"
                 oninput="this.value = this.value.toUpperCase()"
-                maxlength="1000"
                 required
-                placeholder="ENTER FULL ADDRESS WITH PINCODE"
-              ></textarea>
+                placeholder="H.NO / FLAT NO., STREET NAME"
+              />
+            </div>
+
+            <div class="input-group full-width">
+              <label>Address Line 2 — Colony / Area / Landmark</label>
+              <input
+                type="text"
+                id="address_line2"
+                oninput="this.value = this.value.toUpperCase()"
+                placeholder="COLONY, AREA, LANDMARK (OPTIONAL)"
+              />
+            </div>
+
+            <div class="input-group">
+              <label>City <span>*</span></label>
+              <input
+                type="text"
+                id="city"
+                oninput="this.value = this.value.toUpperCase()"
+                required
+                placeholder="ENTER CITY"
+              />
+            </div>
+
+            <div class="input-group">
+              <label>Pincode <span>*</span></label>
+              <input
+                type="text"
+                id="pincode"
+                required
+                placeholder="6-digit Pincode"
+                maxlength="6"
+                pattern="\d{6}"
+                inputmode="numeric"
+                oninput="this.value = this.value.replace(/\D/g, '')"
+              />
+            </div>
+
+            <div class="input-group full-width">
+              <label>State <span>*</span></label>
+              <select id="state" required>
+                <option value="" disabled selected>Select State</option>
+                <option>Andhra Pradesh</option>
+                <option>Arunachal Pradesh</option>
+                <option>Assam</option>
+                <option>Bihar</option>
+                <option>Chhattisgarh</option>
+                <option>Goa</option>
+                <option>Gujarat</option>
+                <option>Haryana</option>
+                <option>Himachal Pradesh</option>
+                <option>Jharkhand</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Madhya Pradesh</option>
+                <option>Maharashtra</option>
+                <option>Manipur</option>
+                <option>Meghalaya</option>
+                <option>Mizoram</option>
+                <option>Nagaland</option>
+                <option>Odisha</option>
+                <option>Punjab</option>
+                <option>Rajasthan</option>
+                <option>Sikkim</option>
+                <option>Tamil Nadu</option>
+                <option>Telangana</option>
+                <option>Tripura</option>
+                <option>Uttar Pradesh</option>
+                <option>Uttarakhand</option>
+                <option>West Bengal</option>
+                <!-- Union Territories -->
+                <option>Andaman and Nicobar Islands</option>
+                <option>Chandigarh</option>
+                <option>Dadra and Nagar Haveli and Daman and Diu</option>
+                <option>Delhi</option>
+                <option>Jammu and Kashmir</option>
+                <option>Ladakh</option>
+                <option>Lakshadweep</option>
+                <option>Puducherry</option>
+                <!-- Outside India fallback -->
+                <option>Other / Outside India</option>
+              </select>
             </div>
           </div>
 
@@ -542,10 +612,30 @@
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        // Pincode validation
+        const pincode = document.getElementById("pincode").value.trim();
+        if (pincode.length !== 6) {
+          statusMsg.textContent = "Please enter a valid 6-digit pincode.";
+          statusMsg.className = "status-error";
+          statusMsg.style.display = "block";
+          return;
+        }
+
         submitBtn.disabled = true;
         submitBtn.innerHTML =
           '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
         statusMsg.style.display = "none";
+
+        const addr1 = document.getElementById("address_line1").value.trim();
+        const addr2 = document.getElementById("address_line2").value.trim();
+        const city = document.getElementById("city").value.trim();
+        const state = document.getElementById("state").value;
+        const country = document.getElementById("country").value;
+
+        // Auto-build postal_address for backward compatibility
+        const postal_address = [addr1, addr2, city, state, pincode, country]
+          .filter(Boolean)
+          .join(", ");
 
         const formData = {
           applicant_name: document
@@ -555,7 +645,7 @@
             .getElementById("applicant_mobile")
             .value.trim(),
           email: document.getElementById("email").value.trim(),
-          country: document.getElementById("country").value,
+          country,
           student_name: document.getElementById("student_name").value.trim(),
           student_gender: document.getElementById("student_gender").value,
           student_age: parseInt(document.getElementById("student_age").value),
@@ -568,9 +658,14 @@
           ).value,
           last_level_passed: document.getElementById("last_level_passed").value,
           coach_name: document.getElementById("coach_name").value.trim(),
-          postal_address: document
-            .getElementById("postal_address")
-            .value.trim(),
+          // New structured address fields
+          address_line1: addr1,
+          address_line2: addr2 || null,
+          city,
+          state,
+          pincode,
+          // Combined for backward compat
+          postal_address,
           fee_amount: 2300,
           payment_status: "pending",
         };
@@ -582,7 +677,6 @@
 
           if (error) throw error;
 
-          // Show success screen
           form.style.display = "none";
           const s = document.getElementById("successScreen");
           s.style.display = "block";
