@@ -194,7 +194,7 @@ const headerHTML = `
             <ul class="nav-links" id="nav-links">
                 <li><a href="/">Home</a></li>
                 <li class="dropdown-trigger" onclick="toggleDropdown(this)">
-                    <a href="javascript:void(0)">Parents & Students <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+                    <a href="javascript:void(0)">Coaches and Schools <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
     <div class="dropdown-content">
             <a href="/institutional/1abacusmart">1AbacusMART</a>
 
