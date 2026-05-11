@@ -193,18 +193,17 @@ const headerHTML = `
 
             <ul class="nav-links" id="nav-links">
                 <li><a href="/">Home</a></li>
-                
                 <li class="dropdown-trigger" onclick="toggleDropdown(this)">
-    <a href="javascript:void(0)">Coaches and Schools <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
+                    <a href="javascript:void(0)">Parents & Students <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i></a>
     <div class="dropdown-content">
-            <a href="https://1abacus.in/institutional/1abacusmart">1AbacusMART</a>
+            <a href="/institutional/1abacusmart">1AbacusMART</a>
 
-            <a href="https://1abacus.in/institutional/teaching-abacus-made-easy-in-schools">Abacus Maths Classes Made Easy For Schools</a>
+            <a href="/institutional/teaching-abacus-made-easy-in-schools">Abacus Maths Classes Made Easy For Schools</a>
 
-        <a href="https://1abacus.in/institutional/abacus-teacher-training">Certified Abacus Teachers Training</a>
-                <a href="https://1abacus.in/institutional/aoa-powered-opportunity">AOA Franchise</a>
+        <a href="/institutional/abacus-teacher-training">Certified Abacus Teachers Training</a>
+                <a href="/institutional/aoa-powered-opportunity">AOA Franchise</a>
 
-        <a href="https://1abacus.in/institutional/premier-hybrid-classrooms">AOA Certified Classrooms</a>
+        <a href="/institutional/premier-hybrid-classrooms">AOA Certified Classrooms</a>
     </div>
 </li>
 
